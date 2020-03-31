@@ -73,6 +73,11 @@ weight = 1
 
 # Everything below this are Site Params
 
+[[menu.main]]
+    name = "GitHub"
+    weight = 50
+    url = "https://github.com/ScintillatorSynth/Scintillator"
+
 [params]
 copyright = "Luke Nihlen"
 # privacy_policy = "https://policies.google.com/privacy"
@@ -140,11 +145,11 @@ no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY
 
 [params.links]
 # End user relevant links. These will show up on left side of footer and in the community page if you have one.
-#[[params.links.user]]
-#	name = "Scintillator Email"
-#	url = "https://example.org/mail"
-#	icon = "fa fa-envelope"
-#        desc = "Discussion and help from your fellow users"
+[[params.links.user]]
+	name = "Scintillator Users Group"
+	url = "https://groups.google.com/forum/#!forum/scintillator-users"
+	icon = "fa fa-envelope"
+        desc = "Discussion and help from your fellow users"
 #[[params.links.user]]
 #	name ="Twitter"
 #	url = "https://example.org/twitter"
