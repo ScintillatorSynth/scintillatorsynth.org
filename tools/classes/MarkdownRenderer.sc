@@ -4,15 +4,86 @@
 // Quark and work in the integrated help system, but not have to be re-written to also work on
 // the website. This class cribs heavily from SCDocHTMLRenderer, so credit for any good ideas on
 // display here belongs to them.
-MarkDownRenderer {
+MarkdownRenderer {
 	// A set of link destinations for which it is valid to construct a link to the SuperCollider
 	// documentation website for.
 	classvar scLinkWhitelist;
 	classvar scLinkPrefix = "https://doc.sccode.org/";
 
+	classvar <binaryOperatorCharacters = "!@%&*-+=|<>?/";
+	classvar currentClass, currentImplClass, currentMethod, currArg;
+	classvar currentNArgs;
+	classvar footNotes;
+	classvar noParBreak;
+	classvar currDoc;
+	classvar minArgs;
+	classvar baseDir;
+
 	*initClass {
 		scLinkWhitelist = IdentitySet.new;
-		scLinkWhiteList.add('Classes/Server');
+		scLinkWhitelist.add('Classes/Server');
+	}
+
+	// Markdown is much more tolerant of special characters, but we keep this method now in the
+	// event that something does need escaping.
+	*escapeSpecialChars { |str|
+		^str;
+	}
+
+	*escapeSpacesInAnchor { |str|
+		^str;
+	}
+
+	*mdForLink { |link|
+		^link;
+	}
+
+	*renderDocument { |stream, docTree|
+		this.renderHeader(stream, docTree.children[0]);
+		this.renderBody(stream, docTree.children[1]);
+	}
+
+	*renderHeader { |stream, header|
+		if (header.id !== 'HEADER', {
+			"expecting HEADER but got %".format(header.id).warn;
+			^nil;
+		});
+		stream << "---\n";
+		header.children.do({ |node|
+			switch(node.id,
+				\TITLE, {
+					stream << "title: %\nlinkTitle: %\ndate: %\nweight: 5\n".format(
+                               node.text, node.text, Date.getDate.format("%Y-%m-%d"));
+				},
+				\SUMMARY, {
+					stream << "description: %\n".format(node.text);
+				},
+				\CATEGORIES, {
+					// TBD
+				},
+				\RELATED, {
+					// TBD
+				},
+				{ "got unknown header tag %".format(node.id).warn; }
+			);
+		});
+		stream << "---\n";
+	}
+
+	*renderBody { |stream, body|
+		if (body.id !== 'BODY', {
+			"expecting BODY but got %".format(body.id).warn;
+			^nil;
+		});
+		this.renderChildren(stream, body);
+	}
+
+	*renderChildren { |stream, node|
+		node.children.do { |child| this.renderSubtree(stream, child) };
+	}
+
+	*renderMethod { |stream, node, methodType, cls, icls|
+//		this.renderChildren(stream, node);
 	}
 
 	*renderSubtree { |stream, node|
@@ -27,67 +98,69 @@ MarkDownRenderer {
 				stream << this.escapeSpecialChars(node.text);
 			},
 			\LINK, {
-				stream << this.htmlForLink(node.text);
+				stream << this.mdForLink(node.text);
 			},
 			\CODEBLOCK, {
-				stream << "<textarea class='editor'>"
+				stream << "\n```\n"
 				<< this.escapeSpecialChars(node.text)
-				<< "</textarea>\n";
+				<< "\n```\n";
 			},
 			\CODE, {
-				stream << "<code>"
-				<< this.escapeSpecialChars(node.text)
-				<< "</code>";
+				stream << "```" << this.escapeSpecialChars(node.text) << "```";
 			},
 			\EMPHASIS, {
-				stream << "<em>" << this.escapeSpecialChars(node.text) << "</em>";
+				stream << "*" << this.escapeSpecialChars(node.text) << "*";
 			},
 			\TELETYPEBLOCK, {
-				stream << "<pre>" << this.escapeSpecialChars(node.text) << "</pre>";
+				stream << "\n```\n" << this.escapeSpecialChars(node.text) << "\n```\n";
 			},
 			\TELETYPE, {
-				stream << "<code>" << this.escapeSpecialChars(node.text) << "</code>";
+				stream << "`" << this.escapeSpecialChars(node.text) << "`";
 			},
 			\STRONG, {
-				stream << "<strong>" << this.escapeSpecialChars(node.text) << "</strong>";
+				stream << "**" << this.escapeSpecialChars(node.text) << "**";
 			},
-			\SOFT, {
-				stream << "<span class='soft'>" << this.escapeSpecialChars(node.text) << "</span>";
+			\SOFT, {  // no markdown support
+				stream << this.escapeSpecialChars(node.text);
 			},
 			\ANCHOR, {
-				stream << "<a class='anchor' name='" << this.escapeSpacesInAnchor(node.text) << "'>&nbsp;</a>";
+				// Stick with HTML for this one.
+//				stream << "<a class='anchor' name='" << this.escapeSpacesInAnchor(node.text) << "'>&nbsp;</a>";
 			},
 			\KEYWORD, {
-				node.children.do {|child|
-					stream << "<a class='anchor' name='kw_" << this.escapeSpacesInAnchor(child.text) << "'>&nbsp;</a>";
-				}
+//				node.children.do {|child|
+//					stream << "<a class='anchor' name='kw_" << this.escapeSpacesInAnchor(child.text) << "'>&nbsp;</a>";
+//				}
 			},
 			\IMAGE, {
+				/* IMAGES TBD
 				f = node.text.split($#);
 				stream << "<div class='image'>";
 				img = "<img src='" ++ f[0] ++ "'/>";
 				if(f[2].isNil) {
 					stream << img;
 				} {
-					stream << this.htmlForLink(f[2]++"#"++(f[3]?"")++"#"++img,false);
+					stream << this.mdForLink(f[2]++"#"++(f[3]?"")++"#"++img,false);
 				};
 				f[1] !? { stream << "<br><b>" << f[1] << "</b>" }; // ugly..
 				stream << "</div>\n";
+				*/
 			},
 // Other stuff
 			\NOTE, {
-				stream << "<div class='note'><span class='notelabel'>NOTE:</span> ";
+				stream << "{{% alert title=\"Note\" %}}\n";
 				noParBreak = true;
 				this.renderChildren(stream, node);
-				stream << "</div>";
+				stream << "{{% /alert %}}\n";
 			},
 			\WARNING, {
-				stream << "<div class='warning'><span class='warninglabel'>WARNING:</span> ";
+				stream << "{{% alert color=\"warning\" %}}\n";
 				noParBreak = true;
 				this.renderChildren(stream, node);
-				stream << "</div>";
+				stream << "{{% /alert %}}";
 			},
 			\FOOTNOTE, {
+				/* FOOTNOTES TBD
 				footNotes = footNotes.add(node);
 				stream << "<a class='footnote anchor' name='footnote_org_"
 				<< footNotes.size
@@ -96,6 +169,7 @@ MarkDownRenderer {
 				<< "'><sup>"
 				<< footNotes.size
 				<< "</sup></a> ";
+				*/
 			},
 			\CLASSTREE, {
 				stream << "<ul class='tree'>";
@@ -187,9 +261,10 @@ MarkDownRenderer {
 			\CCOPYMETHOD, {},
 			\ICOPYMETHOD, {},
 			\ARGUMENTS, {
-				stream << "<h4>Arguments:</h4>\n<table class='arguments'>\n";
+				stream << "\n##### Arguments\n";
 				currArg = 0;
 				if(currentMethod.notNil and: {node.children.size < (currentNArgs-1)}) {
+					/*
 					"SCDoc: In %\n"
 					"  Method %% has % args, but doc has % argument:: tags.".format(
 						currDoc.fullPath,
@@ -197,7 +272,7 @@ MarkDownRenderer {
 						currentMethod.name,
 						currentNArgs-1,
 						node.children.size,
-					).warn;
+					).warn; */
 				};
 				this.renderChildren(stream, node);
 				stream << "</table>";
@@ -228,7 +303,7 @@ MarkDownRenderer {
 								(z = if(currentMethod.varArgs and: {currArg==(currentMethod.argNames.size-1)})
 										{"... "++f} {f}
 								) != node.text;
-							) {
+							) { /*
 								"SCDoc: In %\n"
 								"  Method %% has arg named '%', but doc has 'argument:: %'.".format(
 									currDoc.fullPath,
@@ -236,7 +311,7 @@ MarkDownRenderer {
 									currentMethod.name,
 									z,
 									node.text,
-								).warn;
+								).warn; */
 							};
 						};
 						if(currArg > minArgs) {
@@ -258,62 +333,56 @@ MarkDownRenderer {
 
 			},
 			\DISCUSSION, {
-				stream << "<h4>Discussion:</h4>\n";
+				stream << "\n### Discussion:\n";
 				this.renderChildren(stream, node);
 			},
 // Sections
 			\CLASSMETHODS, {
 				if(node.notPrivOnly) {
-					stream << "<h2><a class='anchor' name='classmethods'>Class Methods</a></h2>\n";
+					stream << "\n## Class Methods\n";
 				};
 				this.renderChildren(stream, node);
 			},
 			\INSTANCEMETHODS, {
 				if(node.notPrivOnly) {
-					stream << "<h2><a class='anchor' name='instancemethods'>Instance Methods</a></h2>\n";
+					stream << "\n## Instance Methods\n";
 				};
 				this.renderChildren(stream, node);
 			},
 			\DESCRIPTION, {
-				stream << "<h2><a class='anchor' name='description'>Description</a></h2>\n";
+				stream << "\n## Description\n";
 				this.renderChildren(stream, node);
 			},
 			\EXAMPLES, {
-				stream << "<h2><a class='anchor' name='examples'>Examples</a></h2>\n";
+				stream << "\n## Examples\n";
 				this.renderChildren(stream, node);
 			},
 			\SECTION, {
-				stream << "<h2><a class='anchor' name='" << this.escapeSpacesInAnchor(node.text)
-				<< "'>" << this.escapeSpecialChars(node.text) << "</a></h2>\n";
-				if(node.makeDiv.isNil) {
-					this.renderChildren(stream, node);
-				} {
+//				stream << "<h2><a class='anchor' name='" << this.escapeSpacesInAnchor(node.text)
+//				<< "'>" << this.escapeSpecialChars(node.text) << "</a></h2>\n";
+//				if(node.makeDiv.isNil) {
+//					this.renderChildren(stream, node);
+//				} {
 					stream << "<div id='" << node.makeDiv << "'>";
 					this.renderChildren(stream, node);
-					stream << "</div>";
-				};
+//					stream << "</div>";
+//				};
 			},
 			\SUBSECTION, {
-				stream << "<h3><a class='anchor' name='" << this.escapeSpacesInAnchor(node.text)
-				<< "'>" << this.escapeSpecialChars(node.text) << "</a></h3>\n";
-				if(node.makeDiv.isNil) {
+//				stream << "<h3><a class='anchor' name='" << this.escapeSpacesInAnchor(node.text)
+//				<< "'>" << this.escapeSpecialChars(node.text) << "</a></h3>\n";
+//				if(node.makeDiv.isNil) {
+//					this.renderChildren(stream, node);
+//				} {
+//					stream << "<div id='" << node.makeDiv << "'>";
 					this.renderChildren(stream, node);
-				} {
-					stream << "<div id='" << node.makeDiv << "'>";
-					this.renderChildren(stream, node);
-					stream << "</div>";
-				};
+//					stream << "</div>";
+//				};
 			},
 			{
-				"SCDoc: In %\n"
-				"  Unknown SCDocNode id: %".format(currDoc.fullPath, node.id).warn;
+				"Unknown SCDocNode id: %".format(node.id).warn;
 				this.renderChildren(stream, node);
 			}
 		);
 	}
-
-	new { |schelp, md|
-
-	}
-
 }
