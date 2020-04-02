@@ -13,13 +13,15 @@ quarkHelpPath = PathName.new(options.quarkPath +/+ "HelpSource");
 quarkHelpPath.filesDo({ |helpFile|
 	if (helpFile.extension == "schelp", {
 		var docTree = SCDoc.parseFileFull(helpFile.fullPath);
+		var docName = helpFile.folderName ++ "/" ++ helpFile.fileNameWithoutExtension;
+		var docEntry = SCDocEntry.new(docTree, docName);
 		var mdFilePath = mdPath +/+ helpFile.folderName +/+ helpFile.fileNameWithoutExtension ++ ".md";
 		var mdFile = File.open(mdFilePath.standardizePath, "w");
 		if (mdFile.isOpen.not, {
 			"*** error opening file %".format(mdFilePath).postln;
 			^nil;
 		});
-		MarkdownRenderer.renderDocument(mdFile, docTree);
+		MarkdownRenderer.renderDocument(mdFile, docEntry, docTree);
 		mdFile.close;
 	});
 });

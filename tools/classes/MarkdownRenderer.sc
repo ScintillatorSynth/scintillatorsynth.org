@@ -45,34 +45,33 @@ MarkdownRenderer {
 	}
 
 	*renderDocument { |stream, docEntry, docTree|
-		var body = root.children[1];
+		var head = docTree.children[0];
+		var body = docTree.children[1];
 		var redirect;
-		currDoc = doc;
+		currDoc = docEntry;
 		footNotes = nil;
 		noParBreak = false;
 
-		if(docTree.isClassDoc) {
-			currentClass = docTree.klass;
-			currentImplClass = docTree.implKlass;
+		if(docEntry.isClassDoc) {
+			currentClass = docEntry.klass;
+			currentImplClass = docEntry.implKlass;
 			if(currentClass != Object) {
 				body.addDivAfter(\CLASSMETHODS,"inheritedclassmets","Inherited class methods");
 				body.addDivAfter(\INSTANCEMETHODS,"inheritedinstmets","Inherited instance methods");
 			};
-			this.addUndocumentedMethods(doc.undoccmethods, body, \CMETHOD, \CLASSMETHODS, "Undocumented class methods");
-			this.addUndocumentedMethods(doc.undocimethods, body, \IMETHOD, \INSTANCEMETHODS, "Undocumented instance methods");
 			body.sortClassDoc;
 		} {
 			currentClass = nil;
 			currentImplClass = nil;
 		};
 
-		this.renderHeader(stream, docTree.children[0]);
-		this.renderBody(stream, docTree.children[1]);
+		this.renderHeader(stream, head);
+		this.renderBody(stream, body);
 	}
 
 	*renderHeader { |stream, header|
 		if (header.id !== 'HEADER', {
-			"expecting HEADER but got %".format(header.id).warn;
+			"expecting HEADER but got %".format(header.id).error;
 			^nil;
 		});
 		stream << "---\n";
@@ -183,14 +182,8 @@ MarkdownRenderer {
 			};
 
 			x = {
-				stream << "\n\n#### " << methodTypeIndicator << mname << "\n\n";
-				/*
-				stream << "<h3 class='method-code'>"
-				<< "<span class='method-prefix'>" << methodCodePrefix << "</span>"
-				<< "<a class='method-name' name='" << methodTypeIndicator << mname << "' href='"
-				<< baseDir << "/Overviews/Methods.html#"
-				<< mname2 << "'>" << mname2 << "</a>"
-				*/
+				// no newline at end to allow for arguments to be appended.
+				stream << "\n\n### " << methodCodePrefix << mname;
 			};
 
 			switch (mstat,
@@ -207,25 +200,26 @@ MarkdownRenderer {
 				}
 			);
 
-			stream << "</h3>\n";
+			stream << "\n\n";
 
 			// has setter
 			if(mstat & 2 > 0) {
 				x.value;
 				if(args2.size<2) {
-					stream << " = " << args << "</h3>\n";
+					stream << " = " << args << "\n";
 				} {
-					stream << "_(" << args << ")</h3>\n";
+					stream << "_(" << args << ")\n";
 				}
 			};
 
 			m = m ?? m2;
+/*
 			m !? {
-				if(m.isExtensionOf(cls) and: {icls.isNil or: {m.isExtensionOf(icls)}}) {
-					stream << "<div class='extmethod'>From extension in <a href='"
-					<< URI.fromLocalPath(m.filenameSymbol.asString).asString << "'>"
-					<< m.filenameSymbol << "</a></div>\n";
-				} {
+//				if(m.isExtensionOf(cls) and: {icls.isNil or: {m.isExtensionOf(icls)}}) {
+//					stream << "<div class='extmethod'>From extension in <a href='"
+//					<< URI.fromLocalPath(m.filenameSymbol.asString).asString << "'>"
+//					<< m.filenameSymbol << "</a></div>\n";
+//				} {
 					if(m.ownerClass == icls) {
 						stream << "<div class='supmethod'>From implementing class</div>\n";
 					} {
@@ -236,8 +230,9 @@ MarkdownRenderer {
 							<< baseDir << "/Classes/" << m << ".html'>" << m << "</a></div>\n";
 						}
 					}
-				};
+//				};
 			};
+*/
 		};
 
 		if(methArgsMismatch) {
@@ -259,9 +254,9 @@ MarkdownRenderer {
 		};
 
 		if(node.children.size > 1) {
-			stream << "<div class='method'>";
+//			stream << "<div class='method'>";
 			this.renderChildren(stream, node.children[1]);
-			stream << "</div>";
+//			stream << "</div>";
 		};
 		currentMethod = nil;
 	}
@@ -271,6 +266,7 @@ MarkdownRenderer {
 		switch(node.id,
 			\PROSE, {
 				this.renderChildren(stream, node);
+				stream << "\n\n";
 			},
 			\NL, { }, // these shouldn't be here..
 // Plain text and modal tags
@@ -281,9 +277,9 @@ MarkdownRenderer {
 				stream << this.mdForLink(node.text);
 			},
 			\CODEBLOCK, {
-				stream << "<code>"
+				stream << "\n\n{{< highlight supercollider >}}\n"
 				<< this.escapeSpecialChars(node.text)
-				<< "</code>\n";
+				<< "\n{{< /highlight >}}\n\n";
 			},
 			\CODE, {
 				stream << "<code>"
@@ -445,7 +441,7 @@ MarkdownRenderer {
 			\CCOPYMETHOD, {},
 			\ICOPYMETHOD, {},
 			\ARGUMENTS, {
-				stream << "\n\n##### Arguments\n\n";
+				stream << "\n\n#### Arguments\n\n";
 				currArg = 0;
 				if(currentMethod.notNil and: {node.children.size < (currentNArgs-1)}) {
 					/*
@@ -459,11 +455,9 @@ MarkdownRenderer {
 					).warn; */
 				};
 				this.renderChildren(stream, node);
-//				stream << "</table>";
 			},
 			\ARGUMENT, {
 				currArg = currArg + 1;
-				stream << "<tr><td class='argumentname'>";
 				if(node.text.isNil) {
 					currentMethod !? {
 						if(currentMethod.varArgs and: {currArg==(currentMethod.argNames.size-1)}) {
@@ -483,11 +477,11 @@ MarkdownRenderer {
 					stream << if(currentMethod.isNil or: {currArg < currentMethod.argNames.size}) {
 						currentMethod !? {
 							f = currentMethod.argNames[currArg].asString;
-							if(
+							/* if(
 								(z = if(currentMethod.varArgs and: {currArg==(currentMethod.argNames.size-1)})
 										{"... "++f} {f}
 								) != node.text;
-							) { /*
+							) {
 								"SCDoc: In %\n"
 								"  Method %% has arg named '%', but doc has 'argument:: %'.".format(
 									currDoc.fullPath,
@@ -495,23 +489,24 @@ MarkdownRenderer {
 									currentMethod.name,
 									z,
 									node.text,
-								).warn; */
-							};
+								).warn;
+							}; */
 						};
 						if(currArg > minArgs) {
 							"("++node.text++")";
 						} {
-							node.text;
+							"##### " ++ node.text;
 						};
 					} {
 						"("++node.text++")" // excessive arg
 					};
 				};
-				stream << "<td class='argumentdesc'>";
+				stream << "\n\n";
 				this.renderChildren(stream, node);
+				stream << "\n\n";
 			},
 			\RETURNS, {
-				stream << "\n\n##### Returns:\n\n";
+				stream << "\n\n#### Returns:\n\n";
 				this.renderChildren(stream, node);
 
 			},
@@ -522,22 +517,22 @@ MarkdownRenderer {
 // Sections
 			\CLASSMETHODS, {
 				if(node.notPrivOnly) {
-					stream << "\n\n## Class Methods\n\n";
+					stream << "\n\n## Class Methods\n---\n\n";
 				};
 				this.renderChildren(stream, node);
 			},
 			\INSTANCEMETHODS, {
 				if(node.notPrivOnly) {
-					stream << "\n\n## Instance Methods\n";
+					stream << "\n\n## Instance Methods\n---\n\n";
 				};
 				this.renderChildren(stream, node);
 			},
 			\DESCRIPTION, {
-				stream << "\n\n## Description\n\n";
+				stream << "\n\n## Description\n---\n\n";
 				this.renderChildren(stream, node);
 			},
 			\EXAMPLES, {
-				stream << "\n\n## Examples\n\n";
+				stream << "\n\n## Examples\n---\n\n";
 				this.renderChildren(stream, node);
 			},
 			\SECTION, {
@@ -546,7 +541,7 @@ MarkdownRenderer {
 //				if(node.makeDiv.isNil) {
 //					this.renderChildren(stream, node);
 //				} {
-					stream << "<div id='" << node.makeDiv << "'>";
+//					stream << "<div id='" << node.makeDiv << "'>";
 					this.renderChildren(stream, node);
 //					stream << "</div>";
 //				};
@@ -567,5 +562,30 @@ MarkdownRenderer {
 				this.renderChildren(stream, node);
 			}
 		);
+	}
+
+	*makeArgString {|m, par=true|
+		var res = "";
+		var value;
+		var l = m.argNames;
+		var last = l.size-1;
+		l.do {|a,i|
+			if (i>0) { //skip 'this' (first arg)
+				if(i==last and: {m.varArgs}) {
+					res = res ++ "... " ++ a;
+				} {
+					if (i>1) { res = res ++ ", " };
+					res = res ++ a;
+					(value = m.prototypeFrame[i]) !? {
+						value = if(value.class===Float) { value.asString } { value.cs };
+						res = res ++ ": " ++ value;
+					};
+				};
+			};
+		};
+		if (res.notEmpty and: par) {
+			^("("++res++")");
+		};
+		^res;
 	}
 }

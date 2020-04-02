@@ -1,230 +1,408 @@
 ---
 title: ScinServer
 linkTitle: ScinServer
-date: 2020-04-01
+date: 2020-04-02
 weight: 5
 description: Represents a Scintillator server application.
 ---
 
 
 ## Description
+---
 
 This class is analagous to the SuperCollider Classes/Server class. It is a client-side representation of an instance of the Scintillator video synthesis server.
 
+
+
 ## Class Methods
+---
 
 
 
-#### .*default
+### ScinServer.default
 
-</h3>
-<div class='method'>Get or set the default Scintillator server. This is the server reference that will be used as the default in all server arguments to ScinthDef and others that accept an optional server argument. By default is the local server instance.</div>
 
-#### .*new
 
-</h3>
-<div class='method'>Creates a new ScinServer instance. For now only local servers are supported.
+### ScinServer.default = value
+Get or set the default Scintillator server. This is the server reference that will be used as the default in all server arguments to ScinthDef and others that accept an optional server argument. By default is the local server instance.
 
-##### Arguments
 
-<tr><td class='argumentname'>options<td class='argumentdesc'>An optional instance of ScinServerOptions. If <code>nil</code>, an instance of ScinServerOptions will be created using the default values.</div>
+
+### ScinServer.new(options)
+
+Creates a new ScinServer instance. For now only local servers are supported.
+
+
+
+#### Arguments
+
+##### options
+
+An optional instance of ScinServerOptions. If <code>nil</code>, an instance of ScinServerOptions will be created using the default values.
+
+
+
+
 
 ## Instance Methods
+---
 
 
-#### .-queueScreenShotSync
 
-</h3>
-<div class='method'>Call from a Classes/Routine. Requests the server take a screenshot and blocks the calling thread until the screenshot is complete.
+### .boot
 
-##### Arguments
+It not already booted, boots the Scintillator synthesis server.
 
-<tr><td class='argumentname'>fileName<td class='argumentdesc'>(describe argument here)<tr><td class='argumentname'>mimeType<td class='argumentdesc'>(describe argument here)<tr><td class='argumentname'>onComplete<td class='argumentdesc'>(describe argument here)<tr><td class='argumentname'>condition<td class='argumentdesc'>(describe argument here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
+### .numberOfWarnings
 
-#### .-logLevel
+Returns the current number of errors reported by the server since boot.
 
-</h3>
-<div class='method'>(describe method here)
 
-##### Arguments
 
-<tr><td class='argumentname'>level<td class='argumentdesc'>(describe argument here)
+### .numberOfErrors
 
-##### Returns:
+Returns the current number of errors reported by the server since boot.
 
-(describe returnvalue here)</div>
 
-#### .-screenShot
 
-</h3>
-<div class='method'>(describe method here)
 
-##### Arguments
 
-<tr><td class='argumentname'>fileName<td class='argumentdesc'>(describe argument here)<tr><td class='argumentname'>mimeType<td class='argumentdesc'>(describe argument here)<tr><td class='argumentname'>onReady<td class='argumentdesc'>(describe argument here)<tr><td class='argumentname'>onComplete<td class='argumentdesc'>(describe argument here)
+### .logLevel = level
+Updates the logging level on the server to the provided argument. Lower log levels are inclusive of all higher log levels, so they tend to log more, and the highest log level turns off logging. This overrides any command-line argument supplied to scinsynth at startup.
 
-##### Returns:
 
-(describe returnvalue here)</div>
 
-#### .-init
+#### Arguments
 
-</h3>
-<div class='method'>(describe method here)
+##### level
 
-##### Returns:
+The values for the log level are as follows:
 
-(describe returnvalue here)</div>
+<table>
+<tr><td>0
 
-#### .-advanceFrame
+</td><td>Trace
 
-</h3>
-<div class='method'>(describe method here)
+</td></tr>
+<tr><td>1
 
-##### Arguments
+</td><td>Debug
 
-<tr><td class='argumentname'>num<td class='argumentdesc'>(describe argument here)<tr><td class='argumentname'>denom<td class='argumentdesc'>(describe argument here)
+</td></tr>
+<tr><td>2
 
-##### Returns:
+</td><td>Informational
 
-(describe returnvalue here)</div>
+</td></tr>
+<tr><td>3
 
-#### .-boot
+</td><td>Warnings
 
-</h3>
-<div class='method'>(describe method here)
+</td></tr>
+<tr><td>4
 
-##### Returns:
+</td><td>Errors
 
-(describe returnvalue here)</div>
+</td></tr>
+<tr><td>5
 
-#### .-numberOfWarnings
+</td><td>Critical Errors
 
-</h3>
-<div class='method'>(describe method here)
+</td></tr>
+<tr><td>6
 
-##### Returns:
+</td><td>Disable Logging
 
-(describe returnvalue here)</div>
+</td></tr>
+</table>
 
-#### .-numberOfErrors
 
-</h3>
-<div class='method'>(describe method here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
+### .screenShot(fileName, mimeType, onReady, onComplete)
 
-#### .-bootSync
+Requests the server to take a screen shot of the next frame rendered, encode it into the provided file format, and save to disk.
 
-</h3>
-<div class='method'>(describe method here)
 
-##### Arguments
 
-<tr><td class='argumentname'>condition<td class='argumentdesc'>(describe argument here)
+#### Arguments
 
-##### Returns:
+##### fileName
 
-(describe returnvalue here)</div>
+A string with the full path and file name, including extension, of the desired file to save the screenshot image to.
 
-#### .-dumpOSC
 
-</h3>
-<div class='method'>(describe method here)
 
-##### Arguments
+##### mimeType
 
-<tr><td class='argumentname'>on<td class='argumentdesc'>(describe argument here)
+An optional string. A hint to the image encoder as to which file format is desired, for example <code>"image/png"</code>, <code>"image/gif"</code>, <code>"image/jpeg"</code>.
 
-##### Returns:
 
-(describe returnvalue here)</div>
 
-#### .-sync
+##### onReady
 
-</h3>
-<div class='method'>(describe method here)
+An optional function to call when the ScinServer responds that it has enqueued the screenshot for encode on the next rendered frame.
 
-##### Arguments
 
-<tr><td class='argumentname'>condition<td class='argumentdesc'>(describe argument here)
 
-##### Returns:
+##### onComplete
 
-(describe returnvalue here)</div>
+An optional function to call when the ScinServer responds that it has completed encoding and writing the image to disc.
 
-#### .-sendMsg
+{{% alert title="Note" %}}
+The screenShot functionality is only supported in non-realtime rendering modes. See Guides/ScinServer-Recording for more information.
 
-</h3>
-<div class='method'>(describe method here)
+{{% /alert %}}
 
-##### Arguments
 
-<tr><td class='argumentname'>... msg<td class='argumentdesc'>(describe argument here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
+### .advanceFrame(num, denom)
 
-#### .-serverBooting
+If the server is configured with zero frame rate, will advance the time on the synth by the provided fraction of time in seconds and render a new frame. Otherwise this command is ignored.
 
-</h3>
-<div class='method'>(describe method here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
+#### Arguments
 
-#### .-quit
+##### num
 
-</h3>
-<div class='method'>(describe method here)
+An integer representing the numerator in the fraction of time to advance the frame by.
 
-##### Returns:
 
-(describe returnvalue here)</div>
 
-#### .-doWhenBooted
+##### denom
 
-</h3>
-<div class='method'>(describe method here)
+An integer representing the denominator in the fraction of time to advance the frame by. Sending time in terms of fractions allows for traditional media frame rates (like 24 frames per second).
 
-##### Arguments
 
-<tr><td class='argumentname'>onComplete<td class='argumentdesc'>(describe argument here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
 
-#### .-serverRunning
+### .bootSync(condition)
 
-</h3>
-<div class='method'>(describe method here)
+(describe method here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
 
-#### .-waitForBoot
+#### Arguments
 
-</h3>
-<div class='method'>(describe method here)
+##### condition
 
-##### Arguments
+(describe argument here)
 
-<tr><td class='argumentname'>onComplete<td class='argumentdesc'>(describe argument here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .dumpOSC(on)
+
+(describe method here)
+
+
+
+#### Arguments
+
+##### on
+
+(describe argument here)
+
+
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .sendMsg(... msg)
+
+(describe method here)
+
+
+
+#### Arguments
+
+##### ... msg
+
+(describe argument here)
+
+
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .serverBooting
+
+(describe method here)
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .quit
+
+(describe method here)
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .doWhenBooted(onComplete)
+
+(describe method here)
+
+
+
+#### Arguments
+
+##### onComplete
+
+(describe argument here)
+
+
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .serverRunning
+
+(describe method here)
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .waitForBoot(onComplete)
+
+(describe method here)
+
+
+
+#### Arguments
+
+##### onComplete
+
+(describe argument here)
+
+
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+The server provides support for waiting on the completion of asynchronous OSC-commands such as reading or writing sound files.
+
+{{% alert title="Note" %}}
+The following methods must be called from within a running Classes/Routine. Explicitly passing in a Classes/Condition allows multiple elements to depend on different conditions. The examples below should make clear how all this works.
+
+{{% /alert %}}
+
+
+### .sync(condition)
+
+(describe method here)
+
+
+
+#### Arguments
+
+##### condition
+
+(describe argument here)
+
+
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .queueScreenShotSync(fileName, mimeType, onComplete, condition)
+
+Call from a Classes/Routine. Requests the server take a screenshot and blocks the calling thread until the screenshot is complete.
+
+
+
+#### Arguments
+
+##### fileName
+
+(describe argument here)
+
+
+
+##### mimeType
+
+(describe argument here)
+
+
+
+##### onComplete
+
+(describe argument here)
+
+
+
+##### condition
+
+(describe argument here)
+
+
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
 
 ## Examples
+---
 
-<code>(some example code)</code>
+
+
+{{< highlight supercollider >}}
+(some example code)
+{{< /highlight >}}
+
+
+

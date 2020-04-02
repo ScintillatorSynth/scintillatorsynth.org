@@ -1,167 +1,265 @@
 ---
 title: ScinServerOptions
 linkTitle: ScinServerOptions
-date: 2020-04-01
+date: 2020-04-02
 weight: 5
 description: (put short description here)
 ---
 
 
 ## Description
+---
 
 (put long description here)
 
+
+
 ## Class Methods
+---
 
 
 
-#### .*new
+### ScinServerOptions.new
 
-</h3>
-<div class='method'>(describe method here)
+(describe method here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
 
-#### .*initClass
+#### Returns:
 
-</h3>
-<div class='method'>(describe method here)
+(describe returnvalue here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
+
+### ScinServerOptions.initClass
+
+(describe method here)
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
 
 ## Instance Methods
+---
 
 
-#### .-portNumber
 
-</h3>
-<div class='method'>(describe method here)
+### .portNumber
 
-##### Returns:
 
-(describe returnvalue here)</div>
 
-#### .-dumpOSC
+### .portNumber = value
+(describe method here)
 
-</h3>
-<div class='method'>(describe method here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
+#### Returns:
 
-#### .-createWindow
+(describe returnvalue here)
 
-</h3>
-<div class='method'>(describe method here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
+### .dumpOSC
 
-#### .-swiftshader
 
-</h3>
-<div class='method'>(describe method here)
 
-##### Returns:
+### .dumpOSC = value
+(describe method here)
 
-(describe returnvalue here)</div>
 
-#### .-asOptionsString
 
-</h3>
-<div class='method'>(describe method here)
+#### Returns:
 
-##### Returns:
+(describe returnvalue here)
 
-(describe returnvalue here)</div>
 
-#### .-quarkPath
 
-</h3>
-<div class='method'>(describe method here)
+### .createWindow
 
-##### Returns:
 
-(describe returnvalue here)</div>
 
-#### .-frameRate
+### .createWindow = value
+(describe method here)
 
-</h3>
-<div class='method'>(describe method here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
+#### Returns:
 
-#### .-logLevel
+(describe returnvalue here)
 
-</h3>
-<div class='method'>(describe method here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
+### .swiftshader
 
-#### .-onServerError
 
-</h3>
-<div class='method'>(describe method here)
 
-##### Returns:
+### .swiftshader = value
+(describe method here)
 
-(describe returnvalue here)</div>
 
-#### .-deviceName
 
-</h3>
-<div class='method'>(describe method here)
+#### Returns:
 
-##### Returns:
+(describe returnvalue here)
 
-(describe returnvalue here)</div>
 
-#### .-width
 
-</h3>
-<div class='method'>(describe method here)
+### .asOptionsString
 
-##### Returns:
+(describe method here)
 
-(describe returnvalue here)</div>
 
-#### .-init
 
-</h3>
-<div class='method'>(describe method here)
+#### Returns:
 
-##### Returns:
+(describe returnvalue here)
 
-(describe returnvalue here)</div>
 
-#### .-keepOnTop
 
-</h3>
-<div class='method'>(describe method here)
+### .quarkPath
 
-##### Returns:
 
-(describe returnvalue here)</div>
 
-#### .-height
+### .quarkPath = value
+(describe method here)
 
-</h3>
-<div class='method'>(describe method here)
 
-##### Returns:
 
-(describe returnvalue here)</div>
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .frameRate
+
+
+
+### .frameRate = value
+(describe method here)
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .logLevel
+
+
+
+### .logLevel = value
+(describe method here)
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .onServerError
+
+
+
+### .onServerError = value
+(describe method here)
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .deviceName
+
+
+
+### .deviceName = value
+(describe method here)
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .width
+
+
+
+### .width = value
+(describe method here)
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .init
+
+(describe method here)
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .keepOnTop
+
+
+
+### .keepOnTop = value
+(describe method here)
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
+
+### .height
+
+
+
+### .height = value
+(describe method here)
+
+
+
+#### Returns:
+
+(describe returnvalue here)
+
+
 
 ## Examples
+---
 
-<code>(some example code)</code>
+
+
+{{< highlight supercollider >}}
+(some example code)
+{{< /highlight >}}
+
+
+
