@@ -10,7 +10,9 @@ description: Represents a Scintillator server application.
 ## Description
 ---
 
-This class is analagous to the SuperCollider Classes/Server class. It is a client-side representation of an instance of the Scintillator video synthesis server.
+
+
+This class is analagous to the SuperCollider <a href="https://doc.sccode.org/Classes/Server.html">Server <img src="/images/external-link.svg" class="one-liner"></a> class. It is a client-side representation of an instance of the Scintillator video synthesis server.
 
 
 
@@ -24,11 +26,15 @@ This class is analagous to the SuperCollider Classes/Server class. It is a clien
 
 
 ### ScinServer.default = value
+
+
 Get or set the default Scintillator server. This is the server reference that will be used as the default in all server arguments to ScinthDef and others that accept an optional server argument. By default is the local server instance.
 
 
 
 ### ScinServer.new(options)
+
+
 
 Creates a new ScinServer instance. For now only local servers are supported.
 
@@ -38,9 +44,15 @@ Creates a new ScinServer instance. For now only local servers are supported.
 
 ##### options
 
+
+
 An optional instance of ScinServerOptions. If <code>nil</code>, an instance of ScinServerOptions will be created using the default values.
 
 
+
+
+
+#### Inherited class methods
 
 
 
@@ -51,17 +63,23 @@ An optional instance of ScinServerOptions. If <code>nil</code>, an instance of S
 
 ### .boot
 
+
+
 It not already booted, boots the Scintillator synthesis server.
 
 
 
 ### .numberOfWarnings
 
+
+
 Returns the current number of errors reported by the server since boot.
 
 
 
 ### .numberOfErrors
+
+
 
 Returns the current number of errors reported by the server since boot.
 
@@ -70,6 +88,8 @@ Returns the current number of errors reported by the server since boot.
 
 
 ### .logLevel = level
+
+
 Updates the logging level on the server to the provided argument. Lower log levels are inclusive of all higher log levels, so they tend to log more, and the highest log level turns off logging. This overrides any command-line argument supplied to scinsynth at startup.
 
 
@@ -78,50 +98,84 @@ Updates the logging level on the server to the provided argument. Lower log leve
 
 ##### level
 
+
+
 The values for the log level are as follows:
 
+
 <table>
-<tr><td>0
+<tr><td>
 
-</td><td>Trace
+0
 
-</td></tr>
-<tr><td>1
+</td><td>
 
-</td><td>Debug
-
-</td></tr>
-<tr><td>2
-
-</td><td>Informational
+Trace
 
 </td></tr>
-<tr><td>3
+<tr><td>
 
-</td><td>Warnings
+1
 
-</td></tr>
-<tr><td>4
+</td><td>
 
-</td><td>Errors
-
-</td></tr>
-<tr><td>5
-
-</td><td>Critical Errors
+Debug
 
 </td></tr>
-<tr><td>6
+<tr><td>
 
-</td><td>Disable Logging
+2
+
+</td><td>
+
+Informational
 
 </td></tr>
+<tr><td>
+
+3
+
+</td><td>
+
+Warnings
+
+</td></tr>
+<tr><td>
+
+4
+
+</td><td>
+
+Errors
+
+</td></tr>
+<tr><td>
+
+5
+
+</td><td>
+
+Critical Errors
+
+</td></tr>
+<tr><td>
+
+6
+
+</td><td>
+
+Disable Logging
+
+</td></tr>
+
 </table>
 
 
 
 
 ### .screenShot(fileName, mimeType, onReady, onComplete)
+
+
 
 Requests the server to take a screen shot of the next frame rendered, encode it into the provided file format, and save to disk.
 
@@ -131,11 +185,15 @@ Requests the server to take a screen shot of the next frame rendered, encode it 
 
 ##### fileName
 
+
+
 A string with the full path and file name, including extension, of the desired file to save the screenshot image to.
 
 
 
 ##### mimeType
+
+
 
 An optional string. A hint to the image encoder as to which file format is desired, for example <code>"image/png"</code>, <code>"image/gif"</code>, <code>"image/jpeg"</code>.
 
@@ -143,15 +201,21 @@ An optional string. A hint to the image encoder as to which file format is desir
 
 ##### onReady
 
+
+
 An optional function to call when the ScinServer responds that it has enqueued the screenshot for encode on the next rendered frame.
 
 
 
 ##### onComplete
 
+
+
 An optional function to call when the ScinServer responds that it has completed encoding and writing the image to disc.
 
 {{% alert title="Note" %}}
+
+
 The screenShot functionality is only supported in non-realtime rendering modes. See Guides/ScinServer-Recording for more information.
 
 {{% /alert %}}
@@ -161,6 +225,8 @@ The screenShot functionality is only supported in non-realtime rendering modes. 
 
 ### .advanceFrame(num, denom)
 
+
+
 If the server is configured with zero frame rate, will advance the time on the synth by the provided fraction of time in seconds and render a new frame. Otherwise this command is ignored.
 
 
@@ -169,11 +235,15 @@ If the server is configured with zero frame rate, will advance the time on the s
 
 ##### num
 
+
+
 An integer representing the numerator in the fraction of time to advance the frame by.
 
 
 
 ##### denom
+
+
 
 An integer representing the denominator in the fraction of time to advance the frame by. Sending time in terms of fractions allows for traditional media frame rates (like 24 frames per second).
 
@@ -183,6 +253,8 @@ An integer representing the denominator in the fraction of time to advance the f
 
 ### .bootSync(condition)
 
+
+
 (describe method here)
 
 
@@ -190,6 +262,8 @@ An integer representing the denominator in the fraction of time to advance the f
 #### Arguments
 
 ##### condition
+
+
 
 (describe argument here)
 
@@ -199,11 +273,15 @@ An integer representing the denominator in the fraction of time to advance the f
 
 #### Returns:
 
+
+
 (describe returnvalue here)
 
 
 
 ### .dumpOSC(on)
+
+
 
 (describe method here)
 
@@ -213,6 +291,8 @@ An integer representing the denominator in the fraction of time to advance the f
 
 ##### on
 
+
+
 (describe argument here)
 
 
@@ -221,11 +301,15 @@ An integer representing the denominator in the fraction of time to advance the f
 
 #### Returns:
 
+
+
 (describe returnvalue here)
 
 
 
 ### .sendMsg(... msg)
+
+
 
 (describe method here)
 
@@ -235,6 +319,8 @@ An integer representing the denominator in the fraction of time to advance the f
 
 ##### ... msg
 
+
+
 (describe argument here)
 
 
@@ -242,6 +328,8 @@ An integer representing the denominator in the fraction of time to advance the f
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -249,11 +337,15 @@ An integer representing the denominator in the fraction of time to advance the f
 
 ### .serverBooting
 
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -261,11 +353,15 @@ An integer representing the denominator in the fraction of time to advance the f
 
 ### .quit
 
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -273,6 +369,8 @@ An integer representing the denominator in the fraction of time to advance the f
 
 ### .doWhenBooted(onComplete)
 
+
+
 (describe method here)
 
 
@@ -281,6 +379,8 @@ An integer representing the denominator in the fraction of time to advance the f
 
 ##### onComplete
 
+
+
 (describe argument here)
 
 
@@ -288,6 +388,8 @@ An integer representing the denominator in the fraction of time to advance the f
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -295,11 +397,15 @@ An integer representing the denominator in the fraction of time to advance the f
 
 ### .serverRunning
 
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -307,6 +413,8 @@ An integer representing the denominator in the fraction of time to advance the f
 
 ### .waitForBoot(onComplete)
 
+
+
 (describe method here)
 
 
@@ -314,6 +422,8 @@ An integer representing the denominator in the fraction of time to advance the f
 #### Arguments
 
 ##### onComplete
+
+
 
 (describe argument here)
 
@@ -323,17 +433,29 @@ An integer representing the denominator in the fraction of time to advance the f
 
 #### Returns:
 
+
+
 (describe returnvalue here)
+
+
+
+#### Asynchronous Commands
+
+
 
 The server provides support for waiting on the completion of asynchronous OSC-commands such as reading or writing sound files.
 
 {{% alert title="Note" %}}
-The following methods must be called from within a running Classes/Routine. Explicitly passing in a Classes/Condition allows multiple elements to depend on different conditions. The examples below should make clear how all this works.
+
+
+The following methods must be called from within a running <a href="https://doc.sccode.org/Classes/Routine.html">Routine <img src="/images/external-link.svg" class="one-liner"></a>. Explicitly passing in a <a href="https://doc.sccode.org/Classes/Condition.html">Condition <img src="/images/external-link.svg" class="one-liner"></a> allows multiple elements to depend on different conditions. The examples below should make clear how all this works.
 
 {{% /alert %}}
 
 
 ### .sync(condition)
+
+
 
 (describe method here)
 
@@ -343,6 +465,8 @@ The following methods must be called from within a running Classes/Routine. Expl
 
 ##### condition
 
+
+
 (describe argument here)
 
 
@@ -350,6 +474,8 @@ The following methods must be called from within a running Classes/Routine. Expl
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -357,7 +483,9 @@ The following methods must be called from within a running Classes/Routine. Expl
 
 ### .queueScreenShotSync(fileName, mimeType, onComplete, condition)
 
-Call from a Classes/Routine. Requests the server take a screenshot and blocks the calling thread until the screenshot is complete.
+
+
+Call from a <a href="https://doc.sccode.org/Classes/Routine.html">Routine <img src="/images/external-link.svg" class="one-liner"></a>. Requests the server take a screenshot and blocks the calling thread until the screenshot is complete.
 
 
 
@@ -365,11 +493,15 @@ Call from a Classes/Routine. Requests the server take a screenshot and blocks th
 
 ##### fileName
 
+
+
 (describe argument here)
 
 
 
 ##### mimeType
+
+
 
 (describe argument here)
 
@@ -377,11 +509,15 @@ Call from a Classes/Routine. Requests the server take a screenshot and blocks th
 
 ##### onComplete
 
+
+
 (describe argument here)
 
 
 
 ##### condition
+
+
 
 (describe argument here)
 
@@ -391,7 +527,13 @@ Call from a Classes/Routine. Requests the server take a screenshot and blocks th
 
 #### Returns:
 
+
+
 (describe returnvalue here)
+
+
+
+#### Inherited instance methods
 
 
 
@@ -403,6 +545,8 @@ Call from a Classes/Routine. Requests the server take a screenshot and blocks th
 {{< highlight supercollider >}}
 (some example code)
 {{< /highlight >}}
+
+
 
 
 

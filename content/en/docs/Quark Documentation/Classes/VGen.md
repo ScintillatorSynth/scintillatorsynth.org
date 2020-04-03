@@ -10,12 +10,18 @@ description: Abstract superclass of all visual unit generators.
 ## Description
 ---
 
-VGens are the atomic units of computation on the Scintillator visual synthesizer. The analagous class in audio synthesis is the Classes/UGen.
+
+
+VGens are the atomic units of computation on the Scintillator visual synthesizer. The analagous class in audio synthesis is the <a href="https://doc.sccode.org/Classes/UGen.html">UGen <img src="/images/external-link.svg" class="one-liner"></a>.
 
 
 
 ## Class Methods
 ---
+
+
+
+#### Inherited class methods
 
 
 
@@ -29,6 +35,8 @@ VGens are the atomic units of computation on the Scintillator visual synthesizer
 
 
 ### .scinthDef = value
+
+
 A reference to the containing Classes/ScinthDef. Used as part of building the ScinthDef.
 
 
@@ -38,6 +46,8 @@ A reference to the containing Classes/ScinthDef. Used as part of building the Sc
 
 
 ### .outDims = value
+
+
 Used as part of the ScinthDef building process. An array representing the selected output dimensions from those supported within <code>outputDimensions</code>, as determined by ScinthDef dimensional analysis. For more information see the discussion around dimensional analysis in the Classes/ScinthDef documentation.
 
 
@@ -47,11 +57,15 @@ Used as part of the ScinthDef building process. An array representing the select
 
 
 ### .inDims = value
+
+
 Used as part of the ScinthDef building process. An array representing the selected input dimensions from those supported within <code>inputDimensions</code>, as determined by ScinthDef dimensional analysis. For more information see the discussion around dimensional analysis in the Classes/ScinthDef documentation.
 
 
 
 ### .inputDimensions
+
+
 
 An array of arrays representing all accepted input dimensions, corresponding at each index with the same output dimension entries.
 
@@ -59,11 +73,15 @@ An array of arrays representing all accepted input dimensions, corresponding at 
 
 ### .outputDimensions
 
+
+
 An array of arrays representing all accepted output dimensions, corresponding at each index with the same input dimension entries.
 
 
 
 ### .name
+
+
 
 The class name of this VGen, as determined at ScinthDef build time. Used for building ScinthDef output.
 
@@ -74,7 +92,13 @@ The class name of this VGen, as determined at ScinthDef build time. Used for bui
 
 
 ### .rate = value
+
+
 A symbol describing the rate of the VGen instance, although currently only <code>\fragment</code> is supported.
+
+
+
+#### Inherited instance methods
 
 
 
@@ -86,6 +110,8 @@ A symbol describing the rate of the VGen instance, although currently only <code
 {{< highlight supercollider >}}
 (some example code)
 {{< /highlight >}}
+
+
 
 
 

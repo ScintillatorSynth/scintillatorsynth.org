@@ -21,13 +21,18 @@ MarkdownRenderer {
 
 	*initClass {
 		scLinkWhitelist = IdentitySet.new;
-		scLinkWhitelist.add('Classes/Server');
-		scLinkWhitelist.add('Classes/SynthDef');
-		scLinkWhitelist.add('Classes/Synth');
-		scLinkWhitelist.add('Classes/ServerOptions');
+		scLinkWhitelist.add('Guides/UsingQuarks');
+		scLinkWhitelist.add('Classes/Array');
+		scLinkWhitelist.add('Classes/Condition');
 		scLinkWhitelist.add('Classes/LFSaw');
 		scLinkWhitelist.add('Classes/PlayBuf');
+		scLinkWhitelist.add('Classes/Routine');
+		scLinkWhitelist.add('Classes/Server');
+		scLinkWhitelist.add('Classes/ServerOptions');
 		scLinkWhitelist.add('Classes/SinOsc');
+		scLinkWhitelist.add('Classes/SynthDef');
+		scLinkWhitelist.add('Classes/Synth');
+		scLinkWhitelist.add('Classes/UGen');
 	}
 
 	// Markdown is much more tolerant of special characters, but we keep this method now in the
@@ -41,7 +46,16 @@ MarkdownRenderer {
 	}
 
 	*mdForLink { |link|
-		^link;
+		var md;
+		if (scLinkWhitelist.includes(link.asSymbol), {
+			var name = link.split($/).wrapAt(-1);
+			md = "<a href=\"%%.html\">% <img src=\"/images/external-link.svg\" class=\"one-liner\"></a>"
+			.format(scLinkPrefix, link, name);
+		}, {
+			"link miss on link %".format(link).warn;
+			md = link;
+		});
+		^md;
 	}
 
 	*renderDocument { |stream, docEntry, docTree|
@@ -265,6 +279,7 @@ MarkdownRenderer {
 		var f, z, img;
 		switch(node.id,
 			\PROSE, {
+				stream << "\n\n";
 				this.renderChildren(stream, node);
 				stream << "\n\n";
 			},
@@ -302,13 +317,14 @@ MarkdownRenderer {
 				stream << this.escapeSpecialChars(node.text);
 			},
 			\ANCHOR, {
-				// Stick with HTML for this one.
+				stream << node.text;
 //				stream << "<a class='anchor' name='" << this.escapeSpacesInAnchor(node.text) << "'>&nbsp;</a>";
 			},
 			\KEYWORD, {
-//				node.children.do {|child|
+				node.children.do {|child|
+					stream << child.text;
 //					stream << "<a class='anchor' name='kw_" << this.escapeSpacesInAnchor(child.text) << "'>&nbsp;</a>";
-//				}
+				}
 			},
 			\IMAGE, {
 				/* IMAGES TBD
@@ -377,28 +393,28 @@ MarkdownRenderer {
 			},
 // Definitionlist
 			\DEFINITIONLIST, {
-				stream << "<dl>\n";
+				stream << "\n<table>\n";
 				this.renderChildren(stream, node);
-				stream << "</dl>\n";
+				stream << "\n</table>\n";
 			},
 			\DEFLISTITEM, {
 				this.renderChildren(stream, node);
 			},
 			\TERM, {
-				stream << "<dt>";
+//				stream << "<dt>";
 				noParBreak = true;
 				this.renderChildren(stream, node);
 			},
 			\DEFINITION, {
-				stream << "<dd>";
+//				stream << "<dd>";
 				noParBreak = true;
 				this.renderChildren(stream, node);
 			},
 // Tables
 			\TABLE, {
-				stream << "<table>\n";
+				stream << "\n<table>\n";
 				this.renderChildren(stream, node);
-				stream << "</table>\n";
+				stream << "\n</table>\n";
 			},
 			\TABROW, {
 				stream << "<tr>";
@@ -536,6 +552,7 @@ MarkdownRenderer {
 				this.renderChildren(stream, node);
 			},
 			\SECTION, {
+				stream << "\n\n### %\n---\n\n".format(node.text);
 //				stream << "<h2><a class='anchor' name='" << this.escapeSpacesInAnchor(node.text)
 //				<< "'>" << this.escapeSpecialChars(node.text) << "</a></h2>\n";
 //				if(node.makeDiv.isNil) {
@@ -547,6 +564,7 @@ MarkdownRenderer {
 //				};
 			},
 			\SUBSECTION, {
+				stream << "\n\n#### %\n\n".format(node.text);
 //				stream << "<h3><a class='anchor' name='" << this.escapeSpacesInAnchor(node.text)
 //				<< "'>" << this.escapeSpecialChars(node.text) << "</a></h3>\n";
 //				if(node.makeDiv.isNil) {

@@ -10,6 +10,8 @@ description: (put short description here)
 ## Description
 ---
 
+
+
 (put long description here)
 
 
@@ -21,11 +23,15 @@ description: (put short description here)
 
 ### ScinServerOptions.new
 
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -33,13 +39,21 @@ description: (put short description here)
 
 ### ScinServerOptions.initClass
 
+
+
 (describe method here)
 
 
 
 #### Returns:
 
+
+
 (describe returnvalue here)
+
+
+
+#### Inherited class methods
 
 
 
@@ -53,11 +67,15 @@ description: (put short description here)
 
 
 ### .portNumber = value
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -68,11 +86,15 @@ description: (put short description here)
 
 
 ### .dumpOSC = value
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -83,11 +105,15 @@ description: (put short description here)
 
 
 ### .createWindow = value
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -98,11 +124,15 @@ description: (put short description here)
 
 
 ### .swiftshader = value
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -110,11 +140,15 @@ description: (put short description here)
 
 ### .asOptionsString
 
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -125,11 +159,15 @@ description: (put short description here)
 
 
 ### .quarkPath = value
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -140,11 +178,15 @@ description: (put short description here)
 
 
 ### .frameRate = value
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -155,11 +197,15 @@ description: (put short description here)
 
 
 ### .logLevel = value
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -170,11 +216,15 @@ description: (put short description here)
 
 
 ### .onServerError = value
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -185,11 +235,15 @@ description: (put short description here)
 
 
 ### .deviceName = value
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -200,11 +254,15 @@ description: (put short description here)
 
 
 ### .width = value
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -212,11 +270,15 @@ description: (put short description here)
 
 ### .init
 
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -227,11 +289,15 @@ description: (put short description here)
 
 
 ### .keepOnTop = value
+
+
 (describe method here)
 
 
 
 #### Returns:
+
+
 
 (describe returnvalue here)
 
@@ -242,13 +308,21 @@ description: (put short description here)
 
 
 ### .height = value
+
+
 (describe method here)
 
 
 
 #### Returns:
 
+
+
 (describe returnvalue here)
+
+
+
+#### Inherited instance methods
 
 
 
@@ -260,6 +334,8 @@ description: (put short description here)
 {{< highlight supercollider >}}
 (some example code)
 {{< /highlight >}}
+
+
 
 
 
