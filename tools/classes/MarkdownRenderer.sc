@@ -9,6 +9,9 @@ MarkdownRenderer {
 	// documentation website for.
 	classvar scLinkWhitelist;
 	classvar scLinkPrefix = "https://doc.sccode.org/";
+	// A set of link destinations for which it is valid to construct an internal link to the
+	// Scintillator documentation website for.
+	classvar <>mdLinkWhitelist;
 
 	classvar <binaryOperatorCharacters = "!@%&*-+=|<>?/";
 	classvar currentClass, currentImplClass, currentMethod, currArg;
@@ -46,14 +49,18 @@ MarkdownRenderer {
 	}
 
 	*mdForLink { |link|
+		var name = link.split($/).wrapAt(-1);
 		var md;
-		if (scLinkWhitelist.includes(link.asSymbol), {
-			var name = link.split($/).wrapAt(-1);
-			md = "<a href=\"%%.html\">% <img src=\"/images/external-link.svg\" class=\"one-liner\"></a>"
-			.format(scLinkPrefix, link, name);
+		if (mdLinkWhitelist.includes(link.asSymbol), {
+			md = "<a href=\"{{< ref \"/docs/Quark Documentation/%\" >}}\">%</a>".format(link, name);
 		}, {
-			"link miss on link %".format(link).warn;
-			md = link;
+			if (scLinkWhitelist.includes(link.asSymbol), {
+				md = "<a href=\"%%.html\">% <img src=\"/images/external-link.svg\" class=\"one-liner\"></a>"
+				.format(scLinkPrefix, link, name);
+			}, {
+				"link miss on link %".format(link).warn;
+				md = link;
+			});
 		});
 		^md;
 	}

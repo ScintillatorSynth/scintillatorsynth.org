@@ -4,12 +4,22 @@
 // from the server options class. It also assumes this script is open in the IDE and is the currently
 // selected file, in order to derive the target path where to write the output markdown files.
 (
-var scriptPath, mdPath, quarkHelpPath, options;
+var scriptPath, mdPath, options, quarkHelpPath, validLinkSet;
 
 scriptPath = PathName.new(PathName.new(ScIDE.currentPath).parentPath);
 mdPath = scriptPath.parentPath +/+ "content" +/+ "en" +/+ "docs" +/+ "Quark Documentation";
 options = ScinServerOptions.new;
 quarkHelpPath = PathName.new(options.quarkPath +/+ "HelpSource");
+validLinkSet = IdentitySet.new;
+// First pass to build the set of existing schelp files, to construct links from
+quarkHelpPath.filesDo({ |helpFile|
+	if (helpFile.extension == "schelp", {
+		validLinkSet.add((helpFile.folderName ++ "/" ++ helpFile.fileNameWithoutExtension).asSymbol);
+	});
+});
+
+MarkdownRenderer.mdLinkWhitelist = validLinkSet;
+
 quarkHelpPath.filesDo({ |helpFile|
 	if (helpFile.extension == "schelp", {
 		var docTree = SCDoc.parseFileFull(helpFile.fullPath);

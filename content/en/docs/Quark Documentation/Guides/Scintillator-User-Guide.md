@@ -7,7 +7,7 @@ description: User manual for the Scintillator visual synthesizer.
 ---
 
 
-In keeping with the high-energy physics themes of SuperCollider, a <em>scintillator</em> is any material that produces light when struck by radition. Scintillator is intended to be an accompanying visual synthesizer designed to be intuitive to users already familiar with SuperCollider idioms. Distributed as a Quark plus a synthesizer binary, Scintillator follows the client/server archiecture established by SuperCollider, accepts Classes/ScinthDefs in a similar manner to SuperCollider <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a>s, provides facilities to invoke and control Classes/Scinth instances similar to <a href="https://doc.sccode.org/Classes/Synth.html">Synth <img src="/images/external-link.svg" class="one-liner"></a>, and so on. For a detailed list of classes with analogous SuperCollider classes see Reference/Scintillator-Parallel-Classes.s
+In keeping with the high-energy physics themes of SuperCollider, a <em>scintillator</em> is any material that produces light when struck by radition. Scintillator is intended to be an accompanying visual synthesizer designed to be intuitive to users already familiar with SuperCollider idioms. Distributed as a Quark plus a synthesizer binary, Scintillator follows the client/server archiecture established by SuperCollider, accepts <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a>s in a similar manner to SuperCollider <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a>s, provides facilities to invoke and control <a href="{{< ref "/docs/Quark Documentation/Classes/Scinth" >}}">Scinth</a> instances similar to <a href="https://doc.sccode.org/Classes/Synth.html">Synth <img src="/images/external-link.svg" class="one-liner"></a>, and so on. For a detailed list of classes with analogous SuperCollider classes see <a href="{{< ref "/docs/Quark Documentation/Reference/Scintillator-Parallel-Classes" >}}">Scintillator-Parallel-Classes</a>.s
 
 
 
@@ -87,7 +87,7 @@ In order to scale to high resolutions modern GPU (Graphics Processing Unit) arch
 
 
 
-There are several more stages to a modern pipeline than detailed here but we will discuss only the stages the Scintillator allows for creation of Classes/VGens in.
+There are several more stages to a modern pipeline than detailed here but we will discuss only the stages the Scintillator allows for creation of <a href="{{< ref "/docs/Quark Documentation/Classes/VGen" >}}">VGen</a>s in.
 
 
 

@@ -37,7 +37,7 @@ VGens are the atomic units of computation on the Scintillator visual synthesizer
 ### .scinthDef = value
 
 
-A reference to the containing Classes/ScinthDef. Used as part of building the ScinthDef.
+A reference to the containing <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a>. Used as part of building the ScinthDef.
 
 
 
@@ -48,7 +48,7 @@ A reference to the containing Classes/ScinthDef. Used as part of building the Sc
 ### .outDims = value
 
 
-Used as part of the ScinthDef building process. An array representing the selected output dimensions from those supported within <code>outputDimensions</code>, as determined by ScinthDef dimensional analysis. For more information see the discussion around dimensional analysis in the Classes/ScinthDef documentation.
+Used as part of the ScinthDef building process. An array representing the selected output dimensions from those supported within <code>outputDimensions</code>, as determined by ScinthDef dimensional analysis. For more information see the discussion around dimensional analysis in the <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a> documentation.
 
 
 
@@ -59,7 +59,7 @@ Used as part of the ScinthDef building process. An array representing the select
 ### .inDims = value
 
 
-Used as part of the ScinthDef building process. An array representing the selected input dimensions from those supported within <code>inputDimensions</code>, as determined by ScinthDef dimensional analysis. For more information see the discussion around dimensional analysis in the Classes/ScinthDef documentation.
+Used as part of the ScinthDef building process. An array representing the selected input dimensions from those supported within <code>inputDimensions</code>, as determined by ScinthDef dimensional analysis. For more information see the discussion around dimensional analysis in the <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a> documentation.
 
 
 
