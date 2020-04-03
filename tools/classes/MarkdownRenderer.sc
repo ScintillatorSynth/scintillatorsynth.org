@@ -58,7 +58,7 @@ MarkdownRenderer {
 				md = "<a href=\"%%.html\">% <img src=\"/images/external-link.svg\" class=\"one-liner\"></a>"
 				.format(scLinkPrefix, link, name);
 			}, {
-				"link miss on link %".format(link).warn;
+				"%: link miss on link %".format(currDoc.path, link).warn;
 				md = link;
 			});
 		});

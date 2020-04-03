@@ -1,7 +1,7 @@
 ---
 title: ScinthDef
 linkTitle: ScinthDef
-date: 2020-04-02
+date: 2020-04-03
 weight: 5
 description: Represents a Scintillator Synth Definition
 ---

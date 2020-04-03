@@ -1,7 +1,7 @@
 ---
 title: Scinth
 linkTitle: Scinth
-date: 2020-04-02
+date: 2020-04-03
 weight: 5
 description: Represents a running synth node on the Scintillator server.
 ---

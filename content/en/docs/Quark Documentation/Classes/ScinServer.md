@@ -1,7 +1,7 @@
 ---
 title: ScinServer
 linkTitle: ScinServer
-date: 2020-04-02
+date: 2020-04-03
 weight: 5
 description: Represents a Scintillator server application.
 ---
@@ -46,7 +46,7 @@ Creates a new ScinServer instance. For now only local servers are supported.
 
 
 
-An optional instance of ScinServerOptions. If <code>nil</code>, an instance of ScinServerOptions will be created using the default values.
+An optional instance of <a href="{{< ref "/docs/Quark Documentation/Classes/ScinServerOptions" >}}">ScinServerOptions</a>. If <code>nil</code>, an instance of ScinServerOptions will be created using the default values.
 
 
 
@@ -179,6 +179,12 @@ Disable Logging
 
 Requests the server to take a screen shot of the next frame rendered, encode it into the provided file format, and save to disk.
 
+{{% alert title="Note" %}}
+
+
+The screenShot functionality is only supported in non-realtime rendering modes. See Guides/ScinServer-Recording for more information.
+
+{{% /alert %}}
 
 
 #### Arguments
@@ -213,12 +219,6 @@ An optional function to call when the ScinServer responds that it has enqueued t
 
 An optional function to call when the ScinServer responds that it has completed encoding and writing the image to disc.
 
-{{% alert title="Note" %}}
-
-
-The screenShot functionality is only supported in non-realtime rendering modes. See Guides/ScinServer-Recording for more information.
-
-{{% /alert %}}
 
 
 
@@ -251,40 +251,18 @@ An integer representing the denominator in the fraction of time to advance the f
 
 
 
-### .bootSync(condition)
-
-
-
-(describe method here)
-
-
-
-#### Arguments
-
-##### condition
-
-
-
-(describe argument here)
-
-
-
-
-
-#### Returns:
-
-
-
-(describe returnvalue here)
-
-
-
 ### .dumpOSC(on)
 
 
 
-(describe method here)
+Controls if the server should dump received OSC messages to the log or not.
 
+{{% alert title="Note" %}}
+
+
+The server writes OSC messages to the log at the <em>Informational</em> level, meaning that any logLevel higher than that will not show the OSC messages. Also note that the default log level for ScinServer is at the <em>Warning</em> level, meaning that at default logging dumpOSC will not appear to work.
+
+{{% /alert %}}
 
 
 #### Arguments
@@ -293,17 +271,9 @@ An integer representing the denominator in the fraction of time to advance the f
 
 
 
-(describe argument here)
+A boolean. If true, the server will start dumping incoming OSC messages to the log. If false, the server will stop.
 
 
-
-
-
-#### Returns:
-
-
-
-(describe returnvalue here)
 
 
 
@@ -311,7 +281,7 @@ An integer representing the denominator in the fraction of time to advance the f
 
 
 
-(describe method here)
+Sends the provided arguments as an OSC message to the associated server process.
 
 
 
@@ -321,17 +291,9 @@ An integer representing the denominator in the fraction of time to advance the f
 
 
 
-(describe argument here)
+The OSC message to send, typically starting with an OSC path like <code>/scin_logLevel</code>. For documentation about supported command consult the <a href="{{< ref "/docs/Quark Documentation/Reference/Scintillator-Scinth-Server-Command-Reference" >}}">Scintillator-Scinth-Server-Command-Reference</a>.
 
 
-
-
-
-#### Returns:
-
-
-
-(describe returnvalue here)
 
 
 
@@ -339,15 +301,7 @@ An integer representing the denominator in the fraction of time to advance the f
 
 
 
-(describe method here)
-
-
-
-#### Returns:
-
-
-
-(describe returnvalue here)
+Returns true if the server is in the process of booting, specifically that the ScinServer instance object has started the server but not yet heard back a response to the status polling.
 
 
 
@@ -355,15 +309,7 @@ An integer representing the denominator in the fraction of time to advance the f
 
 
 
-(describe method here)
-
-
-
-#### Returns:
-
-
-
-(describe returnvalue here)
+Requests the server stop immediately.
 
 
 
@@ -371,7 +317,7 @@ An integer representing the denominator in the fraction of time to advance the f
 
 
 
-(describe method here)
+Adds the provided function to the list of functions to be called after the ScinServer instance object detects that the server has booted.
 
 
 
@@ -381,17 +327,9 @@ An integer representing the denominator in the fraction of time to advance the f
 
 
 
-(describe argument here)
+A function, the method to be called when boot is detected. The function is called with one argument, which is the ScinServer object which just booted.
 
 
-
-
-
-#### Returns:
-
-
-
-(describe returnvalue here)
 
 
 
@@ -399,15 +337,7 @@ An integer representing the denominator in the fraction of time to advance the f
 
 
 
-(describe method here)
-
-
-
-#### Returns:
-
-
-
-(describe returnvalue here)
+Returns true if the server associated with this ScinServer instance object is currently running.
 
 
 
@@ -415,7 +345,7 @@ An integer representing the denominator in the fraction of time to advance the f
 
 
 
-(describe method here)
+Convenience method that adds the provided function to the boot callbacks list and then boots the server if it is not currently running.
 
 
 
@@ -425,25 +355,17 @@ An integer representing the denominator in the fraction of time to advance the f
 
 
 
-(describe argument here)
+The function to call when the server is detected as booted. The function is called with one argument, the ScinServer object which just booted.
 
 
 
 
 
-#### Returns:
+#### Synchronous Commands
 
 
 
-(describe returnvalue here)
-
-
-
-#### Asynchronous Commands
-
-
-
-The server provides support for waiting on the completion of asynchronous OSC-commands such as reading or writing sound files.
+The server provides support for waiting on the completion of asynchronous OSC-commands such as reading or writing sound files, making them synchronous.
 
 {{% alert title="Note" %}}
 
@@ -457,7 +379,7 @@ The following methods must be called from within a running <a href="https://doc.
 
 
 
-(describe method here)
+Sends a request to the server to finish all <em>asynchronous commands</em>, such as compiling a <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a> or decoding an image. Will block the calling thread until the completion of all pending tasks is reported by the server.
 
 
 
@@ -467,17 +389,9 @@ The following methods must be called from within a running <a href="https://doc.
 
 
 
-(describe argument here)
+An optional <a href="https://doc.sccode.org/Classes/Condition.html">Condition <img src="/images/external-link.svg" class="one-liner"></a> to use to block the Routine. If not provided ScinServer will make a new one for use.
 
 
-
-
-
-#### Returns:
-
-
-
-(describe returnvalue here)
 
 
 
@@ -485,8 +399,14 @@ The following methods must be called from within a running <a href="https://doc.
 
 
 
-Call from a <a href="https://doc.sccode.org/Classes/Routine.html">Routine <img src="/images/external-link.svg" class="one-liner"></a>. Requests the server take a screenshot and blocks the calling thread until the screenshot is complete.
+Call from a <a href="https://doc.sccode.org/Classes/Routine.html">Routine <img src="/images/external-link.svg" class="one-liner"></a>. Requests the server take a screenshot and blocks the calling thread until the screenshot is <em>queued</em> to render on the next frame.
 
+{{% alert title="Note" %}}
+
+
+The screenshot functionality is only supported in non-realtime rendering modes. See Guides/ScinServer-Recording for more information.
+
+{{% /alert %}}
 
 
 #### Arguments
@@ -495,7 +415,7 @@ Call from a <a href="https://doc.sccode.org/Classes/Routine.html">Routine <img s
 
 
 
-(describe argument here)
+A string containing the path and file name to save the resulting image to.
 
 
 
@@ -503,7 +423,7 @@ Call from a <a href="https://doc.sccode.org/Classes/Routine.html">Routine <img s
 
 
 
-(describe argument here)
+An opitional string with a mime type to provide additional context to the image encoder (in addition to the fileName extension) about what image encoding type is requested for saving the image as.
 
 
 
@@ -511,7 +431,7 @@ Call from a <a href="https://doc.sccode.org/Classes/Routine.html">Routine <img s
 
 
 
-(describe argument here)
+An optional function to callback when the screenshot has been completed, meaning the render has completed and the file has been saved to disc.
 
 
 
@@ -519,17 +439,29 @@ Call from a <a href="https://doc.sccode.org/Classes/Routine.html">Routine <img s
 
 
 
-(describe argument here)
+An optional <a href="https://doc.sccode.org/Classes/Condition.html">Condition <img src="/images/external-link.svg" class="one-liner"></a> object to use to wait on. If not provided ScinServer will create its own.
 
 
 
 
 
-#### Returns:
+### .bootSync(condition)
 
 
 
-(describe returnvalue here)
+Boot the server, then block the Routine until the server is detected as having booted.
+
+
+
+#### Arguments
+
+##### condition
+
+
+
+An optional <a href="https://doc.sccode.org/Classes/Condition.html">Condition <img src="/images/external-link.svg" class="one-liner"></a> object to use to wait on. If not provided ScinServer will create its own.
+
+
 
 
 
@@ -543,7 +475,67 @@ Call from a <a href="https://doc.sccode.org/Classes/Routine.html">Routine <img s
 
 
 {{< highlight supercollider >}}
-(some example code)
+// This example starts a ScinServer configured to render offscreen into a 1024x768 image buffer.
+// It creates a new monochrome ScinthDef, makes a Scinth instance of it, renders a single frame,
+// requests a screenshot, renders a frame which is saved as that screenshot, changes a parameter
+// on the running Scinth, takes another screenshot, then quits the server.
+(
+~scinOptions = ScinServerOptions.new;
+~scinOptions.frameRate = 0;
+~scinOptions.width = 1024;
+~scinOptions.height = 768;
+~scinOptions.logLevel = 2;
+~scinOptions.createWindow = false;
+~scinOptions.swiftshader = true;
+
+// Run on a Routine so we can use the blocking
+fork {
+    var c, f;
+    c = Condition.new;
+    f = { c.test = true; c.signal; };
+
+    // Boot the server, and wait for it to boot.
+    ~videoServer = ScinServer.new(~scinOptions).bootSync;
+
+    // Send a ScinthDef to the server
+    ~def = ScinthDef.new(\t, { |sx = 1.0, sy = 2.0|
+        BWOut.fg(ScinOsc.fg(1.0, Length.fg(NormPos.fg * Vec2.fg(sx, sy))));
+    }).add;
+
+    // Wait for the server to complete building the ScinthDef just provided.
+    ~videoServer.sync;
+
+    // Start rendering an instance of the ScinthDef on next frame render.
+    ~scinth = Scinth.new(\t);
+
+    // Render one frame, then advance time by 1/24th of a second.
+    ~videoServer.advanceFrame(1, 24);
+
+    // Queue a screenshot request for render, wait until queuing is complete.
+    c.test = false;
+    ~videoServer.queueScreenShotSync("test1.png", "image/png", onComplete: f);
+
+    // Render a frame, to capture the screenshot.
+    ~videoServer.advanceFrame(1, 24);
+
+    // Block until the onComplete function is called, which will clear the
+    // Condition.
+    c.wait;
+
+    // Set a parameter on the running Scinth.
+    ~scinth.set(\sx, 2.0, \sy, 1.0);
+    ~videoServer.advanceFrame(1, 24);
+
+    // Request another screenshot.
+    c.test = false;
+    ~videoServer.queueScreenShotSync("test2.png", "image/png", onComplete: f);
+    ~videoServer.advanceFrame(1, 24);
+    c.wait;
+
+    // Exit the server.
+    ~videoServer.quit;
+};
+)
 {{< /highlight >}}
 
 
