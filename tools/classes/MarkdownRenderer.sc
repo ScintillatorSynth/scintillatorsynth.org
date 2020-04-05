@@ -36,6 +36,7 @@ MarkdownRenderer {
 		scLinkWhitelist.add('Classes/SynthDef');
 		scLinkWhitelist.add('Classes/Synth');
 		scLinkWhitelist.add('Classes/UGen');
+		scLinkWhitelist.add('Classes/Window');
 	}
 
 	// Markdown is much more tolerant of special characters, but we keep this method now in the

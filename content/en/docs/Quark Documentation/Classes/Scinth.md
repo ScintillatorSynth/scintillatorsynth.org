@@ -1,7 +1,7 @@
 ---
 title: Scinth
 linkTitle: Scinth
-date: 2020-04-03
+date: 2020-04-05
 weight: 5
 description: Represents a running synth node on the Scintillator server.
 ---
@@ -183,4 +183,8 @@ The Scinth object itself, to enable method chaining.
 ~k.free;
 )
 {{< /highlight >}}
+
+
+
+
 

@@ -1,7 +1,7 @@
 ---
 title: Scintillator Parallels to SuperCollider Synth Classes
 linkTitle: Scintillator Parallels to SuperCollider Synth Classes
-date: 2020-04-03
+date: 2020-04-05
 weight: 5
 description: A table of Scintillator classes similar to scsynth classes
 ---
@@ -144,3 +144,7 @@ Image sampling VGen. TODO: maybe consider making Sampler a pure base class.
 </td></tr>
 
 </table>
+
+
+
+

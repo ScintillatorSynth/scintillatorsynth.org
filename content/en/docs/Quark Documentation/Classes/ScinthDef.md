@@ -1,7 +1,7 @@
 ---
 title: ScinthDef
 linkTitle: ScinthDef
-date: 2020-04-03
+date: 2020-04-05
 weight: 5
 description: Represents a Scintillator Synth Definition
 ---
@@ -65,7 +65,7 @@ When constructing a ScinthDef the VGens are subject to a validation step called 
 
 
 
-From the top, the Classes/NormPos VGen takes no inputs and produces a single two-dimensional output, which is the sole input to the Classes/Length VGen. The Length VGen can accept inputs with dimesions from 1 to 4, and always produces a single-dimensional output, the scalar length of the input vector, in this case stored in the <code>length</code> variable.
+From the top, the <a href="{{< ref "/docs/Quark Documentation/Classes/NormPos" >}}">NormPos</a> VGen takes no inputs and produces a single two-dimensional output, which is the sole input to the Classes/Length VGen. The Length VGen can accept inputs with dimesions from 1 to 4, and always produces a single-dimensional output, the scalar length of the input vector, in this case stored in the <code>length</code> variable.
 
 
 

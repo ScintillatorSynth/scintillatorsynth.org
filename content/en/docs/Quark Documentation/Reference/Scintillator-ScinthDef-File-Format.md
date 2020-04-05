@@ -1,7 +1,7 @@
 ---
 title: Scintillator ScinthDef File Format
 linkTitle: Scintillator ScinthDef File Format
-date: 2020-04-03
+date: 2020-04-05
 weight: 5
 description: Description of ScinthDef file format used by Scintillator synth server.
 ---
@@ -654,4 +654,8 @@ And ScinthDef produces the following:
           vgenIndex: 0
           outputIndex: 0
 {{< /highlight >}}
+
+
+
+
 

@@ -1,13 +1,13 @@
 ---
 title: Scintillator User Guide
 linkTitle: Scintillator User Guide
-date: 2020-04-03
+date: 2020-04-05
 weight: 5
 description: User manual for the Scintillator visual synthesizer.
 ---
 
 
-In keeping with the high-energy physics themes of SuperCollider, a <em>scintillator</em> is any material that produces light when struck by radition. Scintillator is intended to be an accompanying visual synthesizer designed to be intuitive to users already familiar with SuperCollider idioms. Distributed as a Quark plus a synthesizer binary, Scintillator follows the client/server archiecture established by SuperCollider, accepts <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a>s in a similar manner to SuperCollider <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a>s, provides facilities to invoke and control <a href="{{< ref "/docs/Quark Documentation/Classes/Scinth" >}}">Scinth</a> instances similar to <a href="https://doc.sccode.org/Classes/Synth.html">Synth <img src="/images/external-link.svg" class="one-liner"></a>, and so on. For a detailed list of classes with analogous SuperCollider classes see <a href="{{< ref "/docs/Quark Documentation/Reference/Scintillator-Parallel-Classes" >}}">Scintillator-Parallel-Classes</a>.s
+In keeping with the high-energy physics themes of SuperCollider, a <em>scintillator</em> is any material that produces light when struck by radition. Scintillator is intended to be an accompanying visual synthesizer designed to be intuitive to users already familiar with SuperCollider idioms. Distributed as a Quark plus a synthesizer binary, Scintillator follows the client/server archiecture established by SuperCollider, accepts <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a>s in a similar manner to SuperCollider <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a>s, provides facilities to invoke and control <a href="{{< ref "/docs/Quark Documentation/Classes/Scinth" >}}">Scinth</a> instances similar to <a href="https://doc.sccode.org/Classes/Synth.html">Synth <img src="/images/external-link.svg" class="one-liner"></a>, and so on. For a detailed list of classes with analogous SuperCollider classes see <a href="{{< ref "/docs/Quark Documentation/Reference/Scintillator-Parallel-Classes" >}}">Scintillator-Parallel-Classes</a>.
 
 
 
@@ -63,7 +63,7 @@ This section can serve to validate your Scintillator installation, as well as to
 
 
 
-Much like audio programming, graphics programming is a highly specialized field with the opportunity for a lifetime of learning in domain-specific knowledge and experience. Scintillator presents a simplified view of the process of producing real-time graphics on modern graphics architectures, both to keep the metaphor to SuperCollider audio programming intact and to avoid cluttering the interface with less beneficial detail. What follows here is an overview of the different stages of producing images that are exposed to Scintillator for manipulation. Much has been simplified or omitted, please refer to the Further Reading section below for more detail. ß
+Much like audio programming, graphics programming is a highly specialized field with the opportunity for a lifetime of learning in domain-specific knowledge and experience. Scintillator presents a simplified view of the process of producing real-time graphics on modern graphics architectures, both to keep the metaphor to SuperCollider audio programming intact and to avoid cluttering the interface with less beneficial detail. What follows here is an overview of the different stages of producing images that are exposed to Scintillator for manipulation. Much has been simplified or omitted, please refer to the Further Reading section below for more detail.
 
 
 

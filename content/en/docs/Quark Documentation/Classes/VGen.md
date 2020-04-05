@@ -1,7 +1,7 @@
 ---
 title: VGen
 linkTitle: VGen
-date: 2020-04-03
+date: 2020-04-05
 weight: 5
 description: Abstract superclass of all visual unit generators.
 ---
@@ -12,7 +12,7 @@ description: Abstract superclass of all visual unit generators.
 
 
 
-VGens are the atomic units of computation on the Scintillator visual synthesizer. The analagous class in audio synthesis is the <a href="https://doc.sccode.org/Classes/UGen.html">UGen <img src="/images/external-link.svg" class="one-liner"></a>.
+VGens are the atomic units of computation on the Scintillator visual synthesizer. The analagous class in audio synthesis is the <a href="https://doc.sccode.org/Classes/UGen.html">UGen <img src="/images/external-link.svg" class="one-liner"></a>. As the base class for all VGens it does no visual synthesis itself, so wouldn't normally be used directly as part of a <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a>.
 
 
 
@@ -99,19 +99,4 @@ A symbol describing the rate of the VGen instance, although currently only <code
 
 
 #### Inherited instance methods
-
-
-
-## Examples
----
-
-
-
-{{< highlight supercollider >}}
-(some example code)
-{{< /highlight >}}
-
-
-
-
 

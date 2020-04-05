@@ -31,6 +31,7 @@ quarkHelpPath.filesDo({ |helpFile|
 			"*** error opening file %".format(mdFilePath).postln;
 			^nil;
 		});
+		docEntry.categories.postln;
 		MarkdownRenderer.renderDocument(mdFile, docEntry, docTree);
 		mdFile.close;
 	});
