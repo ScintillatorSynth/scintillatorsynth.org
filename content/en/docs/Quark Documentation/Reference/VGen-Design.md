@@ -5,6 +5,9 @@ date: 2020-04-05
 weight: 5
 description: Notes about the design of a VGen.
 ---
+<!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
+###### See also: <a href="{{< ref "/docs/Quark Documentation/Classes/VGen" >}}">VGen</a> 
+
 
 
 Theese are some early notes, and need to be reorganized, possibly moved to the devblog.

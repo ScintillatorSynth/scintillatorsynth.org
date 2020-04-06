@@ -5,6 +5,9 @@ date: 2020-04-05
 weight: 5
 description: Encapsulates command line and other options for the Scintillator synthesis server.
 ---
+<!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
+###### See also: <a href="{{< ref "/docs/Quark Documentation/Classes/ScinServer" >}}">ScinServer</a> 
+
 
 
 ## Description
@@ -186,7 +189,7 @@ Disable Logging
 ### .deviceName = value
 
 
-A string, default <strong>empty</strong>. If empty, this argument is ignored. If non-empty, the server will attempt to match the fragment of the name in the argument against the names of the available devices and choose the first matching device name it encounters, or exit if no match can be made. On startup, the synth logs at the Informational level all the Vulkan-supported devices available on the computer it is running on, so this can be consulted as a source to pick names from. For example this code boots the server with the right log level to see the supported devices:
+A string, default <strong>empty</strong>. If empty, this argument is ignored. If non-empty, the server will attempt to match the fragment of the name in the argument against the names of the available devices and choose the first matching device name it encounters, or exit if no match can be made. The synth logs on startup at the Informational level all the Vulkan-supported devices available on the computer it is running on, so the log can be consulted as a source to pick names from. For example this code boots the server with the right log level to see the supported devices:
 
 
 
@@ -257,7 +260,7 @@ An integer, default <strong>600</strong>. The height of the window (or framebuff
 ### .alwaysOnTop = value
 
 
-A boolean, default <strong>true</strong>. Just like the <a href="https://doc.sccode.org/Classes/Window.html">Window <img src="/images/external-link.svg" class="one-liner"></a> method of the same name, if true the server will create a window that floats on top of other windows. If false, the window will allow other windows to layer on top of it.
+A boolean, default <strong>true</strong>. Just like the <a href="https://doc.sccode.org/Classes/Window.html">Window <img src="/images/external-link.svg" class="one-liner"></a> method of the same name, if true the server will create a window that floats on top of other windows. If false, the window will allow other windows to layer on top of it. If <code>createWindow</code> is false this value is ignored.
 
 
 

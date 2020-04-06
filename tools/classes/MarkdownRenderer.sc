@@ -69,10 +69,11 @@ MarkdownRenderer {
 	*renderDocument { |stream, docEntry, docTree|
 		var head = docTree.children[0];
 		var body = docTree.children[1];
-		var redirect;
+		var related;
 		currDoc = docEntry;
 		footNotes = nil;
 		noParBreak = false;
+		related = Array.new;
 
 		if(docEntry.isClassDoc) {
 			currentClass = docEntry.klass;
@@ -87,11 +88,13 @@ MarkdownRenderer {
 			currentImplClass = nil;
 		};
 
-		this.renderHeader(stream, head);
+		related = this.renderHeader(stream, head);
+		this.renderRelated(stream, related);
 		this.renderBody(stream, body);
 	}
 
 	*renderHeader { |stream, header|
+		var related = Array.new;
 		if (header.id !== 'HEADER', {
 			"expecting HEADER but got %".format(header.id).error;
 			^nil;
@@ -110,12 +113,23 @@ MarkdownRenderer {
 					// TBD
 				},
 				\RELATED, {
-					// TBD
+					node.children.do({ |child| related = related.add(child.text); });
 				},
 				{ "got unknown header tag %".format(node.id).warn; }
 			);
 		});
-		stream << "---\n";
+		stream << "---\n<!-- generated file, please edit the original .schelp file";
+		stream << "(in the Scintillator repository) and then run schelpToMarkDown.scd";
+		stream << "script to regenerate. -->\n";
+		^related;
+	}
+
+	*renderRelated { |stream, related|
+		stream << "###### See also: ";
+		related.do({ |r|
+			stream << this.mdForLink(r) << " ";
+		});
+		stream << "\n\n";
 	}
 
 	*renderBody { |stream, body|
@@ -335,7 +349,8 @@ MarkdownRenderer {
 				}
 			},
 			\IMAGE, {
-				/* IMAGES TBD
+				stream << "<img src=\"/images/schelp/%\" />".format(node.text);
+				/*
 				f = node.text.split($#);
 				stream << "<div class='image'>";
 				img = "<img src='" ++ f[0] ++ "'/>";

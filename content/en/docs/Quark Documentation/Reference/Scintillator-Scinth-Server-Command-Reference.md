@@ -5,6 +5,9 @@ date: 2020-04-05
 weight: 5
 description: A list of all OSC commands accepted by scscinth
 ---
+<!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
+###### See also: 
+
 
 
 ### OSC Communication Details

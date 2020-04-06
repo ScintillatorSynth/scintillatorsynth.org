@@ -5,6 +5,9 @@ date: 2020-04-05
 weight: 5
 description: Represents a Scintillator Synth Definition
 ---
+<!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
+###### See also: <a href="{{< ref "/docs/Quark Documentation/Classes/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Quark Documentation/Classes/Scinth" >}}">Scinth</a> <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a> <a href="{{< ref "/docs/Quark Documentation/Reference/Scintillator-Parallel-Classes" >}}">Scintillator-Parallel-Classes</a> <a href="{{< ref "/docs/Quark Documentation/Reference/Scintillator-ScinthDef-File-Format" >}}">Scintillator-ScinthDef-File-Format</a> 
+
 
 
 ## Description

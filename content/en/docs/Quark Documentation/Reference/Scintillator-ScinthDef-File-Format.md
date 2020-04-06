@@ -5,6 +5,9 @@ date: 2020-04-05
 weight: 5
 description: Description of ScinthDef file format used by Scintillator synth server.
 ---
+<!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
+###### See also: <a href="{{< ref "/docs/Quark Documentation/Classes/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a> Reference/Synth-Definition-File-Format 
+
 
 
 This is the documentation for the file format used to describe a Video synth, called a ScinthDef, to the Scintillator synth server, scinsynth. The development file format is in YAML, making for easier human readability and debugging. However, despite the difference in format from SuperCollider SynthDef files, the ScinthDef files mostly follow the same structure so should look conceptually familiar. The primary differences are:

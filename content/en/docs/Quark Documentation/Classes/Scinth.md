@@ -5,6 +5,9 @@ date: 2020-04-05
 weight: 5
 description: Represents a running synth node on the Scintillator server.
 ---
+<!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
+###### See also: <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a> <a href="{{< ref "/docs/Quark Documentation/Classes/VGen" >}}">VGen</a> 
+
 
 
 ## Description

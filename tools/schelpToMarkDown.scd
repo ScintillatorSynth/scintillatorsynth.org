@@ -4,10 +4,11 @@
 // from the server options class. It also assumes this script is open in the IDE and is the currently
 // selected file, in order to derive the target path where to write the output markdown files.
 (
-var scriptPath, mdPath, options, quarkHelpPath, validLinkSet;
+var scriptPath, mdPath, pngPath, options, quarkHelpPath, validLinkSet;
 
 scriptPath = PathName.new(PathName.new(ScIDE.currentPath).parentPath);
 mdPath = scriptPath.parentPath +/+ "content" +/+ "en" +/+ "docs" +/+ "Quark Documentation";
+pngPath = scriptPath.parentPath +/+ "static" +/+ "images" +/+ "schelp";
 options = ScinServerOptions.new;
 quarkHelpPath = PathName.new(options.quarkPath +/+ "HelpSource");
 validLinkSet = IdentitySet.new;
@@ -31,9 +32,19 @@ quarkHelpPath.filesDo({ |helpFile|
 			"*** error opening file %".format(mdFilePath).postln;
 			^nil;
 		});
-		docEntry.categories.postln;
+		"% -> %".format(helpFile.fullPath, docEntry.categories).postln;
 		MarkdownRenderer.renderDocument(mdFile, docEntry, docTree);
 		mdFile.close;
+	}, {
+		// Copy directly any png images to our static content directory, so that hopefully the image
+		// links "just work."
+		if (helpFile.extension == "png", {
+			var destFile = pngPath +/+ helpFile.fileName;
+			if (File.exists(destFile), {
+				File.delete(destFile);
+			});
+			File.copy(helpFile.fullPath, destFile);
+		});
 	});
 });
 )

@@ -5,6 +5,9 @@ date: 2020-04-05
 weight: 5
 description: Represents a Scintillator server application.
 ---
+<!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
+###### See also: <a href="{{< ref "/docs/Quark Documentation/Classes/ScinServerOptions" >}}">ScinServerOptions</a> 
+
 
 
 ## Description

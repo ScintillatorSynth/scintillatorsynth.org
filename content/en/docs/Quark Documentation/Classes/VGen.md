@@ -5,6 +5,9 @@ date: 2020-04-05
 weight: 5
 description: Abstract superclass of all visual unit generators.
 ---
+<!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
+###### See also: <a href="{{< ref "/docs/Quark Documentation/Classes/Scinth" >}}">Scinth</a> <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a> 
+
 
 
 ## Description
