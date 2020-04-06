@@ -6,7 +6,7 @@ weight: 5
 description: Notes about the design of a VGen.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/Quark Documentation/Classes/VGen" >}}">VGen</a> 
+###### See also: <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> 
 
 
 

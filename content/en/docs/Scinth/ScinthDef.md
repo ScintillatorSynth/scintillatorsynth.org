@@ -6,7 +6,7 @@ weight: 5
 description: Represents a Scintillator Synth Definition
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/Quark Documentation/Classes/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Quark Documentation/Classes/Scinth" >}}">Scinth</a> <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a> <a href="{{< ref "/docs/Quark Documentation/Reference/Scintillator-Parallel-Classes" >}}">Scintillator-Parallel-Classes</a> <a href="{{< ref "/docs/Quark Documentation/Reference/Scintillator-ScinthDef-File-Format" >}}">Scintillator-ScinthDef-File-Format</a> 
+###### See also: <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Scinth/Scinth" >}}">Scinth</a> <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a> Reference/Scintillator-Parallel-Classes <a href="{{< ref "/docs/Developer Documentation/Scintillator-ScinthDef-File-Format" >}}">Scintillator-ScinthDef-File-Format</a> 
 
 
 
@@ -15,7 +15,7 @@ description: Represents a Scintillator Synth Definition
 
 
 
-ScinthDef is intended to be the visual synthesis paralell to the audio synthesis class <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a>. The Scintillator server uses ScinthDefs as templates from which to build <a href="{{< ref "/docs/Quark Documentation/Classes/Scinth" >}}">Scinth</a> nodes, which run on the server to produce imagery.
+ScinthDef is intended to be the visual synthesis paralell to the audio synthesis class <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a>. The Scintillator server uses ScinthDefs as templates from which to build <a href="{{< ref "/docs/Scinth/Scinth" >}}">Scinth</a> nodes, which run on the server to produce imagery.
 
 
 
@@ -45,7 +45,7 @@ The signal graph for this SynthDef is going to produce four different SinOsc UGe
 
 
 
-Given that the <code>vec4</code> represents a single signal, in this case a complete color signal, Scintillator supports higher-dimensional signals without requiring multichannel expansion. What this means is that a single variable can represent up to a four-dimensional vector, and VGens can accept inputs and produce outputs of varying dimensions. Each VGen specifices the supported input and output dimensions by providing two methods, <code>inputDimensions</code> and <code>outputDimensions</code>, each of which must return <a href="https://doc.sccode.org/Classes/Array.html">Array <img src="/images/external-link.svg" class="one-liner"></a>s of the same length. The ith element of each both arrays, taken as a pair, represents one combination of supported input and output dimensions. For more information about these methods please see the <a href="{{< ref "/docs/Quark Documentation/Classes/VGen" >}}">VGen</a> documentation.
+Given that the <code>vec4</code> represents a single signal, in this case a complete color signal, Scintillator supports higher-dimensional signals without requiring multichannel expansion. What this means is that a single variable can represent up to a four-dimensional vector, and VGens can accept inputs and produce outputs of varying dimensions. Each VGen specifices the supported input and output dimensions by providing two methods, <code>inputDimensions</code> and <code>outputDimensions</code>, each of which must return <a href="https://doc.sccode.org/Classes/Array.html">Array <img src="/images/external-link.svg" class="one-liner"></a>s of the same length. The ith element of each both arrays, taken as a pair, represents one combination of supported input and output dimensions. For more information about these methods please see the <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> documentation.
 
 
 
@@ -68,7 +68,7 @@ When constructing a ScinthDef the VGens are subject to a validation step called 
 
 
 
-From the top, the <a href="{{< ref "/docs/Quark Documentation/Classes/NormPos" >}}">NormPos</a> VGen takes no inputs and produces a single two-dimensional output, which is the sole input to the Classes/Length VGen. The Length VGen can accept inputs with dimesions from 1 to 4, and always produces a single-dimensional output, the scalar length of the input vector, in this case stored in the <code>length</code> variable.
+From the top, the <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> VGen takes no inputs and produces a single two-dimensional output, which is the sole input to the Classes/Length VGen. The Length VGen can accept inputs with dimesions from 1 to 4, and always produces a single-dimensional output, the scalar length of the input vector, in this case stored in the <code>length</code> variable.
 
 
 
@@ -105,7 +105,7 @@ A planned "quality of life" improvement for ScinthDef dimensional analysis is ca
 
 
 
-<strong>A symbol.</strong> The name to associate with this ScinthDef, for creating <a href="{{< ref "/docs/Quark Documentation/Classes/Scinth" >}}">Scinth</a> instances from this definition.
+<strong>A symbol.</strong> The name to associate with this ScinthDef, for creating <a href="{{< ref "/docs/Scinth/Scinth" >}}">Scinth</a> instances from this definition.
 
 
 
@@ -113,7 +113,7 @@ A planned "quality of life" improvement for ScinthDef dimensional analysis is ca
 
 
 
-<strong>A function.</strong> The graph function defining the how the <a href="{{< ref "/docs/Quark Documentation/Classes/VGen" >}}">VGen</a> objects are connected.
+<strong>A function.</strong> The graph function defining the how the <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> objects are connected.
 
 
 
@@ -146,7 +146,7 @@ A new ScinthDef object.
 
 
 
-A <a href="{{< ref "/docs/Quark Documentation/Classes/ScinServer" >}}">ScinServer</a> instance, or nil, in which case the default ScinServer is chosen. The server to send the Scinth definition to.
+A <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> instance, or nil, in which case the default ScinServer is chosen. The server to send the Scinth definition to.
 
 
 
@@ -164,7 +164,7 @@ A <a href="{{< ref "/docs/Quark Documentation/Classes/ScinServer" >}}">ScinServe
 
 
 
-Returns a string in YAML format conforming to the <a href="{{< ref "/docs/Quark Documentation/Reference/Scintillator-ScinthDef-File-Format" >}}">Scintillator-ScinthDef-File-Format</a> that describes this ScinthDef.
+Returns a string in YAML format conforming to the <a href="{{< ref "/docs/Developer Documentation/Scintillator-ScinthDef-File-Format" >}}">Scintillator-ScinthDef-File-Format</a> that describes this ScinthDef.
 
 
 

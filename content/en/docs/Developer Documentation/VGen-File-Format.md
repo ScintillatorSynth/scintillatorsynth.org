@@ -6,7 +6,7 @@ weight: 5
 description: Description of VGen yaml file format used by Scintillator synth server.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/Quark Documentation/Classes/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a> Reference/Scintillator-Scinth-Definition-File-Format 
+###### See also: <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> Reference/Scintillator-Scinth-Definition-File-Format 
 
 
 

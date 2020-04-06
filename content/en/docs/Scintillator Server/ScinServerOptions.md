@@ -6,7 +6,7 @@ weight: 5
 description: Encapsulates command line and other options for the Scintillator synthesis server.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/Quark Documentation/Classes/ScinServer" >}}">ScinServer</a> 
+###### See also: <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> 
 
 
 
@@ -15,7 +15,7 @@ description: Encapsulates command line and other options for the Scintillator sy
 
 
 
-This class is intended to be analogous to the <a href="https://doc.sccode.org/Classes/ServerOptions.html">ServerOptions <img src="/images/external-link.svg" class="one-liner"></a> class used to boot the SuperCollider audio synthesis server. Like that object, every <a href="{{< ref "/docs/Quark Documentation/Classes/ScinServer" >}}">ScinServer</a> has an instance of ScinServerOptions created for it if one is not provided to it by the <code>options</code> argument on <a href="{{< ref "/docs/Quark Documentation/Classes/ScinServer" >}}">ScinServer</a> creation.
+This class is intended to be analogous to the <a href="https://doc.sccode.org/Classes/ServerOptions.html">ServerOptions <img src="/images/external-link.svg" class="one-liner"></a> class used to boot the SuperCollider audio synthesis server. Like that object, every <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> has an instance of ScinServerOptions created for it if one is not provided to it by the <code>options</code> argument on <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> creation.
 
 
 

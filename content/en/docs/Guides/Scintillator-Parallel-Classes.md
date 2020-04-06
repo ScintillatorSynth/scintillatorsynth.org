@@ -38,11 +38,11 @@ Scintillator is designed to parallel, in as much a way as makes sense, the exist
 
 </td><td>
 
-<a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a>
+<a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a>
 
 </td><td>
 
-The synth definition class for Scintillator, a template for <a href="{{< ref "/docs/Quark Documentation/Classes/Scinth" >}}">Scinth</a> objects.
+The synth definition class for Scintillator, a template for <a href="{{< ref "/docs/Scinth/Scinth" >}}">Scinth</a> objects.
 
 </td></tr>
 <tr><td>
@@ -51,7 +51,7 @@ The synth definition class for Scintillator, a template for <a href="{{< ref "/d
 
 </td><td>
 
-<a href="{{< ref "/docs/Quark Documentation/Classes/Scinth" >}}">Scinth</a>
+<a href="{{< ref "/docs/Scinth/Scinth" >}}">Scinth</a>
 
 </td><td>
 
@@ -64,7 +64,7 @@ A runnable instance of a ScinthDef template, capable of generating imagery on th
 
 </td><td>
 
-<a href="{{< ref "/docs/Quark Documentation/Classes/ScinServer" >}}">ScinServer</a>
+<a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a>
 
 </td><td>
 
@@ -77,7 +77,7 @@ Represents the Scintillator server application.
 
 </td><td>
 
-<a href="{{< ref "/docs/Quark Documentation/Classes/ScinServerOptions" >}}">ScinServerOptions</a>
+<a href="{{< ref "/docs/Scintillator Server/ScinServerOptions" >}}">ScinServerOptions</a>
 
 </td><td>
 

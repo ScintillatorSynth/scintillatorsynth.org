@@ -3,7 +3,7 @@ title: NormPos
 linkTitle: NormPos
 date: 2020-04-05
 weight: 5
-description: VGen for aspect-ratio correct and size-independent fragment positions.
+description: VGen for image size invariant fragment positions.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
 ###### See also: Classes/FragCoord Classes/TexPos Reference/Scintillator-Default-Graphics-Setup 
@@ -15,7 +15,7 @@ description: VGen for aspect-ratio correct and size-independent fragment positio
 
 
 
-NormPos provides a 2D fragment screen position, adjusted for screen width and height and normalized to [-1, +1] in the shortest dimension, to ensure a square aspect ratio and full range of coordinates in the shortest pixel dimension.
+NormPos provides a 2D fragment screen position, adjusted for screen width and height and normalized to [-1, +1] in the shortest dimension, to ensure a square aspect ratio and full range of coordinates in the shortest pixel dimension. This example window is created with the default width of 800 and height of 600, so is therefore wider than it is tall. To adjust for this NormPos varies from -1 to +1 in the vertical axis but from -1.333 to +1.333 in the horizontal axis.
 
 <img src="/images/schelp/NormPosLayout.png" />
 
@@ -72,7 +72,7 @@ none
 
 
 
-This example window is created with the default width of 800 and height of 600, so is therefore wider than it is tall. To adjust for this NormPos varies from -1 to +1 in the vertical axis but from -1.333 to +1.333 in the horizontal axis. As a result the circle generated is just touching the top and bottom of the frame and is centered in the horizontal frame with some space on either side to spare.
+Because the example window is wider than it is tall, the circle generated is just touching the top and bottom of the frame and is centered in the horizontal frame with some space on either side to spare.
 
 <img src="/images/schelp/NormPosExample.png" />
 

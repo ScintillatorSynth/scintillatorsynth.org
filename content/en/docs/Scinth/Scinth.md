@@ -6,7 +6,7 @@ weight: 5
 description: Represents a running synth node on the Scintillator server.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a> <a href="{{< ref "/docs/Quark Documentation/Classes/VGen" >}}">VGen</a> 
+###### See also: <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> 
 
 
 
@@ -15,7 +15,7 @@ description: Represents a running synth node on the Scintillator server.
 
 
 
-A Scinth is the client-side representation of a synth node on the Scintillator server. A Scinth is a single video-producing using, analagous to a <a href="https://doc.sccode.org/Classes/Synth.html">Synth <img src="/images/external-link.svg" class="one-liner"></a> on the audio server. What it does is defined by a <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a>, which specifices which <a href="{{< ref "/docs/Quark Documentation/Classes/VGen" >}}">VGen</a>s are used and how they are conncted together.
+A Scinth is the client-side representation of a synth node on the Scintillator server. A Scinth is a single video-producing using, analagous to a <a href="https://doc.sccode.org/Classes/Synth.html">Synth <img src="/images/external-link.svg" class="one-liner"></a> on the audio server. What it does is defined by a <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a>, which specifices which <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a>s are used and how they are conncted together.
 
 
 
@@ -54,7 +54,7 @@ An optional <a href="https://doc.sccode.org/Classes/Array.html">Array <img src="
 
 
 
-An optional <a href="{{< ref "/docs/Quark Documentation/Classes/ScinServer" >}}">ScinServer</a> object to play this Scinth on. This argument is analagous to the Synth.new target argument, but since Groups are not yet supported on Scintillator it is only possible to specify which server to send to.
+An optional <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> object to play this Scinth on. This argument is analagous to the Synth.new target argument, but since Groups are not yet supported on Scintillator it is only possible to specify which server to send to.
 
 
 

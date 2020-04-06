@@ -52,8 +52,8 @@ MarkdownRenderer {
 	*mdForLink { |link|
 		var name = link.split($/).wrapAt(-1);
 		var md;
-		if (mdLinkWhitelist.includes(link.asSymbol), {
-			md = "<a href=\"{{< ref \"/docs/Quark Documentation/%\" >}}\">%</a>".format(link, name);
+		if (mdLinkWhitelist.at(link.asSymbol).notNil, {
+			md = "<a href=\"{{< ref \"/docs/%/%\" >}}\">%</a>".format(mdLinkWhitelist.at(link.asSymbol), name, name);
 		}, {
 			if (scLinkWhitelist.includes(link.asSymbol), {
 				md = "<a href=\"%%.html\">% <img src=\"/images/external-link.svg\" class=\"one-liner\"></a>"

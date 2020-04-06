@@ -6,7 +6,7 @@ weight: 5
 description: Represents a Scintillator server application.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/Quark Documentation/Classes/ScinServerOptions" >}}">ScinServerOptions</a> 
+###### See also: <a href="{{< ref "/docs/Scintillator Server/ScinServerOptions" >}}">ScinServerOptions</a> 
 
 
 
@@ -49,7 +49,7 @@ Creates a new ScinServer instance. For now only local servers are supported.
 
 
 
-An optional instance of <a href="{{< ref "/docs/Quark Documentation/Classes/ScinServerOptions" >}}">ScinServerOptions</a>. If <code>nil</code>, an instance of ScinServerOptions will be created using the default values.
+An optional instance of <a href="{{< ref "/docs/Scintillator Server/ScinServerOptions" >}}">ScinServerOptions</a>. If <code>nil</code>, an instance of ScinServerOptions will be created using the default values.
 
 
 
@@ -294,7 +294,7 @@ Sends the provided arguments as an OSC message to the associated server process.
 
 
 
-The OSC message to send, typically starting with an OSC path like <code>/scin_logLevel</code>. For documentation about supported command consult the <a href="{{< ref "/docs/Quark Documentation/Reference/Scintillator-Scinth-Server-Command-Reference" >}}">Scintillator-Scinth-Server-Command-Reference</a>.
+The OSC message to send, typically starting with an OSC path like <code>/scin_logLevel</code>. For documentation about supported command consult the <a href="{{< ref "/docs/Developer Documentation/Scintillator-Scinth-Server-Command-Reference" >}}">Scintillator-Scinth-Server-Command-Reference</a>.
 
 
 
@@ -382,7 +382,7 @@ The following methods must be called from within a running <a href="https://doc.
 
 
 
-Sends a request to the server to finish all <em>asynchronous commands</em>, such as compiling a <a href="{{< ref "/docs/Quark Documentation/Classes/ScinthDef" >}}">ScinthDef</a> or decoding an image. Will block the calling thread until the completion of all pending tasks is reported by the server.
+Sends a request to the server to finish all <em>asynchronous commands</em>, such as compiling a <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> or decoding an image. Will block the calling thread until the completion of all pending tasks is reported by the server.
 
 
 

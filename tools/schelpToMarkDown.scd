@@ -5,39 +5,32 @@
 // selected file, in order to derive the target path where to write the output markdown files.
 (
 var scriptPath, mdPath, pngPath, options, quarkHelpPath, validLinkSet;
-
+var docTrees, docEntries;
 scriptPath = PathName.new(PathName.new(ScIDE.currentPath).parentPath);
-mdPath = scriptPath.parentPath +/+ "content" +/+ "en" +/+ "docs" +/+ "Quark Documentation";
+mdPath = scriptPath.parentPath +/+ "content" +/+ "en" +/+ "docs";
 pngPath = scriptPath.parentPath +/+ "static" +/+ "images" +/+ "schelp";
 options = ScinServerOptions.new;
 quarkHelpPath = PathName.new(options.quarkPath +/+ "HelpSource");
-validLinkSet = IdentitySet.new;
-// First pass to build the set of existing schelp files, to construct links from
-quarkHelpPath.filesDo({ |helpFile|
-	if (helpFile.extension == "schelp", {
-		validLinkSet.add((helpFile.folderName ++ "/" ++ helpFile.fileNameWithoutExtension).asSymbol);
-	});
-});
+validLinkSet = IdentityDictionary.new;
+docTrees = IdentityDictionary.new;
+docEntries = IdentityDictionary.new;
 
-MarkdownRenderer.mdLinkWhitelist = validLinkSet;
-
+// First pass to build the set of existing schelp files extract their category tree, and
+// construct links for them filed under categories.
 quarkHelpPath.filesDo({ |helpFile|
 	if (helpFile.extension == "schelp", {
 		var docTree = SCDoc.parseFileFull(helpFile.fullPath);
-		var docName = helpFile.folderName ++ "/" ++ helpFile.fileNameWithoutExtension;
-		var docEntry = SCDocEntry.new(docTree, docName);
-		var mdFilePath = mdPath +/+ helpFile.folderName +/+ helpFile.fileNameWithoutExtension ++ ".md";
-		var mdFile = File.open(mdFilePath.standardizePath, "w");
-		if (mdFile.isOpen.not, {
-			"*** error opening file %".format(mdFilePath).postln;
-			^nil;
-		});
-		"% -> %".format(helpFile.fullPath, docEntry.categories).postln;
-		MarkdownRenderer.renderDocument(mdFile, docEntry, docTree);
-		mdFile.close;
+		var docName = (helpFile.folderName ++ "/" ++ helpFile.fileNameWithoutExtension).asSymbol;
+		var docEntry = SCDocEntry.new(docTree, docName.asString);
+		var docPath = (docEntry.categories[0].split($>)[2..]).join("/");
+		File.mkdir(mdPath +/+ docPath);
+		"% -> %".format(docName, docPath).postln;
+		validLinkSet.put(docName, docPath);
+		docTrees.put(docName, docTree);
+		docEntries.put(docName, docEntry);
 	}, {
-		// Copy directly any png images to our static content directory, so that hopefully the image
-		// links "just work."
+		// Copy directly any png images to our static content directory, so assuming all images
+		// are provided in the same directory as their referring pages the links should "just work."
 		if (helpFile.extension == "png", {
 			var destFile = pngPath +/+ helpFile.fileName;
 			if (File.exists(destFile), {
@@ -45,6 +38,24 @@ quarkHelpPath.filesDo({ |helpFile|
 			});
 			File.copy(helpFile.fullPath, destFile);
 		});
+	});
+});
+
+MarkdownRenderer.mdLinkWhitelist = validLinkSet;
+
+quarkHelpPath.filesDo({ |helpFile|
+	if (helpFile.extension == "schelp", {
+		var docName = (helpFile.folderName ++ "/" ++ helpFile.fileNameWithoutExtension).asSymbol;
+		var docEntry = docEntries.at(docName);
+		var docTree = docTrees.at(docName);
+		var mdFilePath = mdPath +/+ validLinkSet.at(docName) +/+ helpFile.fileNameWithoutExtension ++ ".md";
+		var mdFile = File.open(mdFilePath.standardizePath, "w");
+		if (mdFile.isOpen.not, {
+			"*** error opening file %".format(mdFilePath).postln;
+			^nil;
+		});
+		MarkdownRenderer.renderDocument(mdFile, docEntry, docTree);
+		mdFile.close;
 	});
 });
 )
