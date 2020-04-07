@@ -1,7 +1,7 @@
 ---
 title: VGen
 linkTitle: VGen
-date: 2020-04-05
+date: 2020-04-06
 weight: 5
 description: Abstract superclass of all visual unit generators.
 ---

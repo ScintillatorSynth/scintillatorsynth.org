@@ -1,7 +1,7 @@
 ---
 title: VGen File Format
 linkTitle: VGen File Format
-date: 2020-04-05
+date: 2020-04-06
 weight: 5
 description: Description of VGen yaml file format used by Scintillator synth server.
 ---

@@ -1,12 +1,12 @@
 ---
 title: NormPos
 linkTitle: NormPos
-date: 2020-04-05
+date: 2020-04-06
 weight: 5
 description: VGen for image size invariant fragment positions.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: Classes/FragCoord Classes/TexPos Reference/Scintillator-Default-Graphics-Setup 
+###### See also: <a href="{{< ref "/docs/VGens/Built-In/FragCoord" >}}">FragCoord</a> <a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a> Reference/Scintillator-Default-Graphics-Setup 
 
 
 

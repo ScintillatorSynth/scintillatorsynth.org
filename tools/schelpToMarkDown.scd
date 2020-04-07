@@ -24,7 +24,6 @@ quarkHelpPath.filesDo({ |helpFile|
 		var docEntry = SCDocEntry.new(docTree, docName.asString);
 		var docPath = (docEntry.categories[0].split($>)[2..]).join("/");
 		File.mkdir(mdPath +/+ docPath);
-		"% -> %".format(docName, docPath).postln;
 		validLinkSet.put(docName, docPath);
 		docTrees.put(docName, docTree);
 		docEntries.put(docName, docEntry);
