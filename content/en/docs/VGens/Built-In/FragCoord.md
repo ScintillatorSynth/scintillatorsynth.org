@@ -1,7 +1,7 @@
 ---
 title: FragCoord
 linkTitle: FragCoord
-date: 2020-04-06
+date: 2020-04-10
 weight: 5
 description: Fragment shader pixel coordinates VGen.
 ---
@@ -70,7 +70,7 @@ none
 ## Examples
 ---
 
-<img src="/images/schelp/FragCoordVis.png" />
+
 
 {{< highlight supercollider >}}
 (
@@ -94,7 +94,7 @@ none
 )
 {{< /highlight >}}
 
-
+<img src="/images/schelp/FragCoordVis.png" />
 
 
 

@@ -1,12 +1,12 @@
 ---
 title: TexPos
 linkTitle: TexPos
-date: 2020-04-06
+date: 2020-04-10
 weight: 5
 description: VGen providing geometry-specific texture coordinates for image sampling.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> <a href="{{< ref "/docs/VGens/Built-In/FragCoord" >}}">FragCoord</a> Classes/ImageBuffer Classes/Sampler 
+###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> <a href="{{< ref "/docs/VGens/Built-In/FragCoord" >}}">FragCoord</a> <a href="{{< ref "/docs/Media/ImageBuffer" >}}">ImageBuffer</a> Classes/Sampler 
 
 
 
@@ -70,7 +70,7 @@ none
 ## Examples
 ---
 
-<img src="/images/schelp/TexCoordA.png" />
+
 
 {{< highlight supercollider >}}
 // This code snippet starts the server, loads the test image from the Scintillator
@@ -98,12 +98,12 @@ none
 )
 {{< /highlight >}}
 
-<img src="/images/schelp/TexCoordB.png" />
+<img src="/images/schelp/TexPosA.png" />
 
 {{< highlight supercollider >}}
-// Molly doesn't appreciate being rendered in the wrong aspect ratio! We need to
-// adjust for two different aspect ratios, the aspect ratio of the screen and the
-// aspect ratio of the image.
+// Molly doesn't appreciate being rendered in the wrong aspect ratio! It compromises
+// some of her remarkable charisma. We need to adjust for two different aspect ratios,
+// the aspect ratio of the screen and the aspect ratio of the image.
 (
 ~t.free;
 )
@@ -122,7 +122,7 @@ none
 )
 {{< /highlight >}}
 
-
+<img src="/images/schelp/TexPosB.png" />
 
 
 

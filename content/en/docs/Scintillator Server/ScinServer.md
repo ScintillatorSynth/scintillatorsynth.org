@@ -1,7 +1,7 @@
 ---
 title: ScinServer
 linkTitle: ScinServer
-date: 2020-04-06
+date: 2020-04-10
 weight: 5
 description: Represents a Scintillator server application.
 ---

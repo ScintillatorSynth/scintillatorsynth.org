@@ -1,7 +1,7 @@
 ---
 title: NormPos
 linkTitle: NormPos
-date: 2020-04-06
+date: 2020-04-10
 weight: 5
 description: VGen for image size invariant fragment positions.
 ---
@@ -74,7 +74,7 @@ none
 
 Because the example window is wider than it is tall, the circle generated is just touching the top and bottom of the frame and is centered in the horizontal frame with some space on either side to spare.
 
-<img src="/images/schelp/NormPosExample.png" />
+
 
 {{< highlight supercollider >}}
 (
@@ -94,7 +94,7 @@ Because the example window is wider than it is tall, the circle generated is jus
 )
 {{< /highlight >}}
 
-
+<img src="/images/schelp/NormPosExample.png" />
 
 
 
