@@ -26,17 +26,24 @@ MarkdownRenderer {
 		scLinkWhitelist = IdentitySet.new;
 		scLinkWhitelist.add('Guides/UsingQuarks');
 		scLinkWhitelist.add('Classes/Array');
+		scLinkWhitelist.add('Classes/BasicOpUGen');
+		scLinkWhitelist.add('Classes/Buffer');
+		scLinkWhitelist.add('Classes/BufFrames');
 		scLinkWhitelist.add('Classes/Condition');
 		scLinkWhitelist.add('Classes/LFSaw');
 		scLinkWhitelist.add('Classes/PlayBuf');
 		scLinkWhitelist.add('Classes/Routine');
+		scLinkWhitelist.add('Classes/Sampler');
 		scLinkWhitelist.add('Classes/Server');
 		scLinkWhitelist.add('Classes/ServerOptions');
+		scLinkWhitelist.add('Classes/SimpleNumber');
 		scLinkWhitelist.add('Classes/SinOsc');
 		scLinkWhitelist.add('Classes/SynthDef');
 		scLinkWhitelist.add('Classes/Synth');
 		scLinkWhitelist.add('Classes/UGen');
 		scLinkWhitelist.add('Classes/Window');
+		scLinkWhitelist.add('Overviews/Operators');
+		scLinkWhitelist.add('Reference/Synth-Definition-File-Format');
 	}
 
 	// Markdown is much more tolerant of special characters, but we keep this method now in the

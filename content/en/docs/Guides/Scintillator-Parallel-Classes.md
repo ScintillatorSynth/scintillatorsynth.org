@@ -1,7 +1,7 @@
 ---
 title: Scintillator Parallels to SuperCollider Synth Classes
 linkTitle: Scintillator Parallels to SuperCollider Synth Classes
-date: 2020-04-10
+date: 2020-04-11
 weight: 5
 description: A table of Scintillator classes similar to scsynth classes
 ---
@@ -92,6 +92,10 @@ Options for controlling various features of the Scintillator features at boot ti
 ---
 
 
+
+For an exhaustive list of all supported Scintillator VGens, see the <a href="{{< ref "/docs/VGens/VGens-Overview" >}}">VGens-Overview</a>.
+
+
 <table>
 <tr><td>
 
@@ -138,11 +142,37 @@ Sawtooth oscillator.
 
 </td><td>
 
-Classes/Sampler
+<a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a>
 
 </td><td>
 
-Image sampling VGen. TODO: maybe consider making Sampler a pure base class.
+Image sampling VGen.
+
+</td></tr>
+<tr><td>
+
+<a href="https://doc.sccode.org/Classes/BufFrames.html">BufFrames <img src="/images/external-link.svg" class="one-liner"></a>
+
+</td><td>
+
+Classes/TextureSize
+
+</td><td>
+
+Dimensions of image buffer in pixels.
+
+</td></tr>
+<tr><td>
+
+Classes/Clip
+
+</td><td>
+
+Classes/Clamp
+
+</td><td>
+
+Constrain a signal within minimum and maximum values.
 
 </td></tr>
 

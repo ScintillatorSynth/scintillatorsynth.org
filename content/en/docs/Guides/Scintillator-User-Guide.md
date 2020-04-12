@@ -1,7 +1,7 @@
 ---
 title: Scintillator User Guide
 linkTitle: Scintillator User Guide
-date: 2020-04-10
+date: 2020-04-11
 weight: 5
 description: User manual for the Scintillator visual synthesizer.
 ---

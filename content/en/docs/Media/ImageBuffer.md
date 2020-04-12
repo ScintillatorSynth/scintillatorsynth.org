@@ -1,12 +1,12 @@
 ---
 title: ImageBuffer
 linkTitle: ImageBuffer
-date: 2020-04-10
+date: 2020-04-11
 weight: 5
 description: Represents a server-side graphics memory region for sampling static images.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a> Classes/Sampler 
+###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a> <a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a> 
 
 
 
@@ -15,7 +15,7 @@ description: Represents a server-side graphics memory region for sampling static
 
 
 
-The ImageBuffer class is designed to be analagous to the SuperCollider audio Classes/Buffer class, but for reading static images for sampling. ImageBuffers are most commonly used inside of <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> functions as arguments to Classes/Sampler instances. Currently ImageBuffer support is limited to reading static images, but more may be added in the future.
+The ImageBuffer class is designed to be analagous to the SuperCollider audio <a href="https://doc.sccode.org/Classes/Buffer.html">Buffer <img src="/images/external-link.svg" class="one-liner"></a> class, but for reading static images for sampling. ImageBuffers are most commonly used inside of <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> functions as arguments to <a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a> instances. Currently ImageBuffer support is limited to reading static images, but more may be added in the future.
 
 
 
@@ -195,7 +195,7 @@ An optional function to be evaluated once the image has been decoded, uploaded, 
 
 
 
-An explicitly specified buffer number. While buffer numbers for ImageBuffer are set on the client, and not allocated on the server, any load or delete operations on an ImageBuffer will clobber any exising ImageBuffer with the same buffer number. So, like Classes/Buffer, the best practice is to leave this unspecified.
+An explicitly specified buffer number. While buffer numbers for ImageBuffer are set on the client, and not allocated on the server, any load or delete operations on an ImageBuffer will clobber any exising ImageBuffer with the same buffer number. So, like <a href="https://doc.sccode.org/Classes/Buffer.html">Buffer <img src="/images/external-link.svg" class="one-liner"></a>, the best practice is to leave this unspecified.
 
 
 

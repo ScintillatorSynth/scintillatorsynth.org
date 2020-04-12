@@ -1,7 +1,7 @@
 ---
 title: VGens Overview
 linkTitle: VGens Overview
-date: 2020-04-10
+date: 2020-04-11
 weight: 5
 description: A list of the available VGens within Scintillator.
 ---
@@ -10,24 +10,1324 @@ description: A list of the available VGens within Scintillator.
 
 
 
-### Basic Mathematical Operations
+### Video Oscillators
 ---
 
 
 
-The SuperCollider UGens support a broad variety of unary, binary, and n-ary mathematical operations. These are typically expressed as operators within the <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a> flow, and are transformed by the <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a> programming into one of the subclasss of Classes/BasicOpUGen before being sent to the server. Scintillator implements parallel classes for unary and binary operations, with the Classes/BasicOpVGen as the base class and Classes/UnaryOpVGen and Classes/BinaryOpVGen derived classes handling a subset of the operators handled by the UGen programming.
+There are only a few test oscillators implemented for now, with plans to add many more. One key conceptual difference between SuperCollider audio oscillators and Scintillator video oscillators to bear in mind is that video signals are constrained to values between <code>[0, 1]</code>, unlike audio signals, which operate normally between <code>[-1, 1]</code>.
+
+
+<table>
+<tr><td>
+
+Classes/ScinOsc<code>.fg(freq, phas, mul, add)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1, 1, 1, 1
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+2, 2, 2, 2
+
+</td><td>
+
+2
+
+</td></tr>
+<tr><td>
+
+3, 3, 3, 3
+
+</td><td>
+
+3
+
+</td></tr>
+<tr><td>
+
+4, 4, 4, 4
+
+</td><td>
+
+4
+
+</td></tr>
+
+</table>
+</td><td>
+
+Piecewise sinusodal oscillator, analogous to <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a>
+
+</td></tr>
+<tr><td>
+
+Classes/VSaw<code>.fg(freq, phas, mul, add)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1, 1, 1, 1
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+2, 2, 2, 2
+
+</td><td>
+
+2
+
+</td></tr>
+<tr><td>
+
+3, 3, 3, 3
+
+</td><td>
+
+3
+
+</td></tr>
+<tr><td>
+
+4, 4, 4, 4
+
+</td><td>
+
+4
+
+</td></tr>
+
+</table>
+</td><td>
+
+Piecewise sawtooth oscillator, analogous to <a href="https://doc.sccode.org/Classes/LFSaw.html">LFSaw <img src="/images/external-link.svg" class="one-liner"></a>
+
+</td></tr>
+
+</table>
+
+
+### Image Sampling
+---
 
 
 
-For documentation of these operators in base SuperCollider see the Overviews/Operators overview or the Classes/SimpleNumber class documentation.
+VGens for reading from <a href="{{< ref "/docs/Media/ImageBuffer" >}}">ImageBuffer</a> objects.
+
+
+<table>
+<tr><td>
+
+<a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a><code>.fg(image, pos)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+image, 2
+
+</td><td>
+
+4
+
+</td></tr>
+
+</table>
+</td><td>
+
+Samples the provided imageBuffer at <code>pos</code> and returns the 4D color signal as <code>(r, g, b, a)</code>
+
+</td></tr>
+<tr><td>
+
+<a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a><code>.fg()</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+-
+
+</td><td>
+
+2
+
+</td></tr>
+
+</table>
+</td><td>
+
+Texture Sampler position
+
+</td></tr>
+<tr><td>
+
+Classes/TextureSize<code>.fg(image)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+-
+
+</td><td>
+
+2
+
+</td></tr>
+
+</table>
+</td><td>
+
+Returns the dimensions in pixels of the provided ImageBuffer. Roughly analogous to <a href="https://doc.sccode.org/Classes/BufFrames.html">BufFrames <img src="/images/external-link.svg" class="one-liner"></a>.
+
+</td></tr>
+
+</table>
+
+
+### Fragment Position
+---
+
+
+
+Scintillator offers a few different means to determine the position of the current fragment shader relative to the geometry being rendered, or the onscreen pixel dimensions. The <a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a> VGen is in the Image Sampling section.
+
+
+<table>
+<tr><td>
+
+<a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a><code>.fg()</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+-
+
+</td><td>
+
+2
+
+</td></tr>
+
+</table>
+</td><td>
+
+Normalized fragment position
+
+</td></tr>
+<tr><td>
+
+<a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a><code>.fg()</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+-
+
+</td><td>
+
+2
+
+</td></tr>
+
+</table>
+</td><td>
+
+Texture Sampler position
+
+</td></tr>
+<tr><td>
+
+<a href="{{< ref "/docs/VGens/Built-In/FragCoord" >}}">FragCoord</a><code>.fg()</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+-
+
+</td><td>
+
+2
+
+</td></tr>
+
+</table>
+</td><td>
+
+Onscreen coordinates of current fragment in pixels
+
+</td></tr>
+
+</table>
+
+
+### Vector Packing and Unpacking
+---
+
+
+
+These utility UGens allow the grouping of one-dimensional elements into vectors, access to individual elements within vectors, and lastly a convenience function to repeat (or <em>splat</em>) a single element across all elements within a vector.
+
+
+
+#### Building Vectors
+
+
+
+Some VGens require inputs that are higher-dimensional vectors. To construct those inputs from single-dimensional components, Scintillator provides the <code>VecN</code> classes.
+
+
+<table>
+<tr><td>
+
+<strong>VGen</strong>
+
+</td><td>
+
+<strong>dimensions</strong>
+
+</td><td>
+
+<strong>description</strong>
+
+</td></tr>
+<tr><td>
+
+Classes/Vec2<code>.fg(x, y)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1, 1
+
+</td><td>
+
+2
+
+</td></tr>
+
+</table>
+</td><td>
+
+Construct a 2D vector from individual elements <code>x</code> and <code>y</code>
+
+</td></tr>
+<tr><td>
+
+Classes/Vec3<code>.fg(x, y, z)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1, 1, 1
+
+</td><td>
+
+3
+
+</td></tr>
+
+</table>
+</td><td>
+
+Construct a 3D vector from individual elements <code>x</code> and <code>y</code>
+
+</td></tr>
+<tr><td>
+
+Classes/Vec4<code>.fg(x, y, z, w)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1, 1, 1, 1
+
+</td><td>
+
+4
+
+</td></tr>
+
+</table>
+</td><td>
+
+Construct a 4D vector from individual elements <code>x</code> and <code>y</code>
+
+</td></tr>
+<tr><td>
+
+Classes/Splat2<code>.fg(x)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1
+
+</td><td>
+
+2
+
+</td></tr>
+
+</table>
+</td><td>
+
+Construct a 2D vector from a single element copied into both
+
+</td></tr>
+<tr><td>
+
+Classes/Splat3<code>.fg(x)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1
+
+</td><td>
+
+3
+
+</td></tr>
+
+</table>
+</td><td>
+
+Construct a 3D vector from a single element copied into both
+
+</td></tr>
+<tr><td>
+
+Classes/Splat4<code>.fg(x)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1
+
+</td><td>
+
+4
+
+</td></tr>
+
+</table>
+</td><td>
+
+Construct a 4D vector from a single element copied into both
+
+</td></tr>
+
+</table>
+
+
+#### Accessing Elements Within Vectors
+
+
+
+To break out a single-dimensional signal from a higher-dimensional vector, use the <code>VN</code> classes. These follow the computer graphics naming conventions for elements within the vector, where the names <em>x, y, z, w</em> are used to indicate the first through fourth element respectively.
+
+
+<table>
+<tr><td>
+
+<strong>VGen</strong>
+
+</td><td>
+
+<strong>dimensions</strong>
+
+</td><td>
+
+<strong>description</strong>
+
+</td></tr>
+<tr><td>
+
+Classes/VX<code>.fg(v)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+2
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+3
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+4
+
+</td><td>
+
+1
+
+</td></tr>
+
+</table>
+</td><td>
+
+Return the first element in the vector.
+
+</td></tr>
+<tr><td>
+
+Classes/VY<code>.fg(v)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+2
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+3
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+4
+
+</td><td>
+
+1
+
+</td></tr>
+
+</table>
+</td><td>
+
+Return the second element in the vector.
+
+</td></tr>
+<tr><td>
+
+Classes/VZ<code>.fg(v)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+3
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+4
+
+</td><td>
+
+1
+
+</td></tr>
+
+</table>
+</td><td>
+
+Return the third element in the vector.
+
+</td></tr>
+<tr><td>
+
+Classes/VW<code>.fg(v)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+4
+
+</td><td>
+
+1
+
+</td></tr>
+
+</table>
+</td><td>
+
+Return the fourth element in the vector.
+
+</td></tr>
+
+</table>
+
+
+#### Video Output Convenience
+
+
+
+Any 4D output is considered valid <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> output.
+
+
+<table>
+<tr><td>
+
+Classes/RGBOut<code>.fg(r, g, b)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1, 1, 1
+
+</td><td>
+
+4
+
+</td></tr>
+
+</table>
+</td><td>
+
+Convenience object for color output at full alpha
+
+</td></tr>
+<tr><td>
+
+Classes/RGBAOut<code>.fg(r, g, b)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1, 1, 1, 1
+
+</td><td>
+
+4
+
+</td></tr>
+
+</table>
+</td><td>
+
+Convenience object for color output with alpha channel
+
+</td></tr>
+<tr><td>
+
+Classes/BWOut<code>.fg(x)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1
+
+</td><td>
+
+4
+
+</td></tr>
+
+</table>
+</td><td>
+
+Convenience object for black and white output at full alpha
+
+</td></tr>
+
+</table>
+
+
+### Mathematical Operations
+---
+
+
+
+Scintillator offers per-element (or <em>piecewise</em>) operations as well as some more traditional vector mathematical operations such as dot and cross products. Many unary and binary operations are offerred with the same names as their analog counterparts,
+
+
+
+#### Vector Operations
+
+
+<table>
+<tr><td>
+
+<strong>VGen</strong>
+
+</td><td>
+
+<strong>dimensions</strong>
+
+</td><td>
+
+<strong>description</strong>
+
+</td></tr>
+<tr><td>
+
+Classes/Clamp<code>.fg(x, min, max)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1, 1, 1
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+2, 2, 2
+
+</td><td>
+
+2
+
+</td></tr>
+<tr><td>
+
+3, 3, 3
+
+</td><td>
+
+3
+
+</td></tr>
+<tr><td>
+
+4, 4, 4
+
+</td><td>
+
+4
+
+</td></tr>
+
+</table>
+</td><td>
+
+Video equivalent of Classes/Clip UGen, piecewise bounds input <code>x</code> between <code>[min, max]</code>
+
+</td></tr>
+<tr><td>
+
+Classes/Length<code>.fg()</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+2
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+3
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+4
+
+</td><td>
+
+1
+
+</td></tr>
+
+</table>
+</td><td>
+
+Returns the length of the vector, or the square root of the sum of the squares
+
+</td></tr>
+<tr><td>
+
+Classes/Step<code>.fg(step, x)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1, 1
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+2, 2
+
+</td><td>
+
+2
+
+</td></tr>
+<tr><td>
+
+3, 3
+
+</td><td>
+
+3
+
+</td></tr>
+<tr><td>
+
+4, 4
+
+</td><td>
+
+4
+
+</td></tr>
+
+</table>
+</td><td>
+
+Just like the binary operator <code>thresh</code>, returns <code>0</code> when <code>x < step</code>, otherwise <code>x</code>
+
+</td></tr>
+<tr><td>
+
+Classes/VecMix<code>.fg(x, y, a)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1, 1, 1
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+2, 2, 1
+
+</td><td>
+
+2
+
+</td></tr>
+<tr><td>
+
+2, 2, 2
+
+</td><td>
+
+2
+
+</td></tr>
+<tr><td>
+
+3, 3, 1
+
+</td><td>
+
+3
+
+</td></tr>
+<tr><td>
+
+3, 3, 3
+
+</td><td>
+
+3
+
+</td></tr>
+<tr><td>
+
+4, 4, 1
+
+</td><td>
+
+4
+
+</td></tr>
+<tr><td>
+
+4, 4, 4
+
+</td><td>
+
+4
+
+</td></tr>
+
+</table>
+</td><td>
+
+Similar to the binary operator <code>blend</code>, returns a linear mix of <code>x, y</code> with <code>a</code> between <code>[0, 1]</code>. Supports piecewise comparison or a single blend argument to apply to all components
+
+</td></tr>
+<tr><td>
+
+Classes/Dot<code>.fg(x, y)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1, 1
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+2, 2
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+3, 3
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+4, 4
+
+</td><td>
+
+1
+
+</td></tr>
+
+</table>
+</td><td>
+
+Returns the dot product between <code>x</code> and <code>y</code>, or the sum of the product of each component in the vector
+
+</td></tr>
+<tr><td>
+
+Classes/Cross<code>.fg(x, y)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+3, 3
+
+</td><td>
+
+3
+
+</td></tr>
+
+</table>
+</td><td>
+
+Returns the cross product of <code>x</code> and <code>y</code>
+
+</td></tr>
+<tr><td>
+
+Classes/VNorm<code>.fg(x)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>input</strong>
+
+</td><td>
+
+<strong>output</strong>
+
+</td></tr>
+<tr><td>
+
+1, 1
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+2, 2
+
+</td><td>
+
+2
+
+</td></tr>
+<tr><td>
+
+3, 3
+
+</td><td>
+
+3
+
+</td></tr>
+<tr><td>
+
+4, 4
+
+</td><td>
+
+4
+
+</td></tr>
+
+</table>
+</td><td>
+
+Returns a <em>normalized</em> vector parallel to <code>x</code> with length <code>1</code>
+
+</td></tr>
+
+</table>
+
+
+#### Built-In Unary Operations
+
+
+
+The SuperCollider UGens support a broad variety of unary, binary, and n-ary mathematical operations. These are typically expressed as operators within the <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a> flow, and are transformed by the <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a> programming into one of the subclasss of <a href="https://doc.sccode.org/Classes/BasicOpUGen.html">BasicOpUGen <img src="/images/external-link.svg" class="one-liner"></a> before being sent to the server. Scintillator implements parallel classes for unary and binary operations, with the Classes/BasicOpVGen as the base class and Classes/UnaryOpVGen and Classes/BinaryOpVGen derived classes handling a subset of the operators handled by the UGen programming.
+
+
+
+For documentation of these operators in base SuperCollider see the <a href="https://doc.sccode.org/Overviews/Operators.html">Operators <img src="/images/external-link.svg" class="one-liner"></a> overview or the <a href="https://doc.sccode.org/Classes/SimpleNumber.html">SimpleNumber <img src="/images/external-link.svg" class="one-liner"></a> class documentation.
 
 
 
 The following tables detail the current supported operations along with the ones that are not yet supported, the name of the VGen sent to the server to realize the operation, a brief explanation of their function and conceptual mathematical code. Since all numbers within a Scintillator <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> must be floating-point, several of the integer operations like bit manipulation are marked as <em>not applicable</em>. If support is planned, but not yet implemented, the function is marked as <em>not yet implemented</em>.
-
-
-
-#### Unary Operations
 
 
 
@@ -967,7 +2267,7 @@ To be researched what this operator does
 </table>
 
 
-#### Binary Operations
+#### Built-In Binary Operations
 
 
 

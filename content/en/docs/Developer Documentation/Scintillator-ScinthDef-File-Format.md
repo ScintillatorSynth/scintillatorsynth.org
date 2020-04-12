@@ -1,12 +1,12 @@
 ---
 title: Scintillator ScinthDef File Format
 linkTitle: Scintillator ScinthDef File Format
-date: 2020-04-10
+date: 2020-04-11
 weight: 5
 description: Description of ScinthDef file format used by Scintillator synth server.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> Reference/Synth-Definition-File-Format 
+###### See also: <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> <a href="https://doc.sccode.org/Reference/Synth-Definition-File-Format.html">Synth-Definition-File-Format <img src="/images/external-link.svg" class="one-liner"></a> 
 
 
 
@@ -234,7 +234,7 @@ output YAML dictionaries in an ordered list
 
 
 
-Sampling VGens must include the sampler dictionary, which contains configuration data for the image sampler. For more details see the documentation on Classes/Sampler parameters.
+Sampling VGens must include the sampler dictionary, which contains configuration data for the image sampler. For more details see the documentation on <a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a> parameters.
 
 
 <table>

@@ -1,7 +1,7 @@
 ---
 title: NormPos
 linkTitle: NormPos
-date: 2020-04-10
+date: 2020-04-11
 weight: 5
 description: VGen for image size invariant fragment positions.
 ---
