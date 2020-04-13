@@ -1,7 +1,7 @@
 ---
 title: VGens Overview
 linkTitle: VGens Overview
-date: 2020-04-11
+date: 2020-04-12
 weight: 5
 description: A list of the available VGens within Scintillator.
 ---
@@ -21,7 +21,7 @@ There are only a few test oscillators implemented for now, with plans to add man
 <table>
 <tr><td>
 
-Classes/ScinOsc<code>.fg(freq, phas, mul, add)</code>
+<a href="{{< ref "/docs/VGens/Video Oscillators/ScinOsc" >}}">ScinOsc</a><code>.fg(freq, phas, mul, add)</code>
 
 </td><td>
 <table>
@@ -351,7 +351,7 @@ Onscreen coordinates of current fragment in pixels
 </table>
 
 
-### Vector Packing and Unpacking
+### Vector Manipulation
 ---
 
 
@@ -383,7 +383,7 @@ Some VGens require inputs that are higher-dimensional vectors. To construct thos
 </td></tr>
 <tr><td>
 
-Classes/Vec2<code>.fg(x, y)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Vec2" >}}">Vec2</a><code>.fg(x, y)</code>
 
 </td><td>
 <table>
@@ -414,7 +414,7 @@ Construct a 2D vector from individual elements <code>x</code> and <code>y</code>
 </td></tr>
 <tr><td>
 
-Classes/Vec3<code>.fg(x, y, z)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Vec3" >}}">Vec3</a><code>.fg(x, y, z)</code>
 
 </td><td>
 <table>
@@ -445,7 +445,7 @@ Construct a 3D vector from individual elements <code>x</code> and <code>y</code>
 </td></tr>
 <tr><td>
 
-Classes/Vec4<code>.fg(x, y, z, w)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a><code>.fg(x, y, z, w)</code>
 
 </td><td>
 <table>
@@ -476,7 +476,7 @@ Construct a 4D vector from individual elements <code>x</code> and <code>y</code>
 </td></tr>
 <tr><td>
 
-Classes/Splat2<code>.fg(x)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Splat2" >}}">Splat2</a><code>.fg(x)</code>
 
 </td><td>
 <table>
@@ -507,7 +507,7 @@ Construct a 2D vector from a single element copied into both
 </td></tr>
 <tr><td>
 
-Classes/Splat3<code>.fg(x)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Splat3" >}}">Splat3</a><code>.fg(x)</code>
 
 </td><td>
 <table>
@@ -538,7 +538,7 @@ Construct a 3D vector from a single element copied into both
 </td></tr>
 <tr><td>
 
-Classes/Splat4<code>.fg(x)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Splat4" >}}">Splat4</a><code>.fg(x)</code>
 
 </td><td>
 <table>
@@ -594,7 +594,7 @@ To break out a single-dimensional signal from a higher-dimensional vector, use t
 </td></tr>
 <tr><td>
 
-Classes/VX<code>.fg(v)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/VX" >}}">VX</a><code>.fg(v)</code>
 
 </td><td>
 <table>
@@ -652,7 +652,7 @@ Return the first element in the vector.
 </td></tr>
 <tr><td>
 
-Classes/VY<code>.fg(v)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/VY" >}}">VY</a><code>.fg(v)</code>
 
 </td><td>
 <table>
@@ -701,7 +701,7 @@ Return the second element in the vector.
 </td></tr>
 <tr><td>
 
-Classes/VZ<code>.fg(v)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/VZ" >}}">VZ</a><code>.fg(v)</code>
 
 </td><td>
 <table>
@@ -741,7 +741,7 @@ Return the third element in the vector.
 </td></tr>
 <tr><td>
 
-Classes/VW<code>.fg(v)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/VW" >}}">VW</a><code>.fg(v)</code>
 
 </td><td>
 <table>
@@ -965,7 +965,7 @@ Video equivalent of Classes/Clip UGen, piecewise bounds input <code>x</code> bet
 </td></tr>
 <tr><td>
 
-Classes/Length<code>.fg()</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Vector Math/Length" >}}">Length</a><code>.fg(x)</code>
 
 </td><td>
 <table>
@@ -1018,7 +1018,56 @@ Classes/Length<code>.fg()</code>
 </table>
 </td><td>
 
-Returns the length of the vector, or the square root of the sum of the squares
+Returns the length of the vector <code>x</code>, or the square root of the sum of the squares
+
+</td></tr>
+<tr><td>
+
+Classes/Distance<code>.fg(x, y)</code>
+
+</td><td>
+<table>
+<tr><td>
+
+1, 1
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+2, 2
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+3, 3
+
+</td><td>
+
+1
+
+</td></tr>
+<tr><td>
+
+4, 4
+
+</td><td>
+
+1
+
+</td></tr>
+
+</table>
+</td><td>
+
+Computes the distance between <code>x</code> and <code>y</code>, which is the length of the vector <code>x - y</code>
 
 </td></tr>
 <tr><td>
@@ -1331,7 +1380,7 @@ The following tables detail the current supported operations along with the ones
 
 
 
-All unary operations support inputs in 1-4 dimensions, and produce outputs of the same dimension. For higher-dimensional signals all operations happen <em>piecewise</em>, meaning the operator is applied to each component of the signal independently. For example if <code>b = a.neg</code> and both <code>a</code> and <code>b</code> are Classes/Vec4 objects then:
+All unary operations support inputs in 1-4 dimensions, and produce outputs of the same dimension. For higher-dimensional signals all operations happen <em>piecewise</em>, meaning the operator is applied to each component of the signal independently. For example if <code>b = a.neg</code> and both <code>a</code> and <code>b</code> are <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a> objects then:
 
 
 
@@ -2271,7 +2320,7 @@ To be researched what this operator does
 
 
 
-Binary operations also happen <em>piecewise</em>, meaning that the binary operator is applied to each individual component separately. Conceptually if <code>c = a * b</code> and both <code>a</code> and <code>b</code> are Classes/Vec4s then:
+Binary operations also happen <em>piecewise</em>, meaning that the binary operator is applied to each individual component separately. Conceptually if <code>c = a * b</code> and both <code>a</code> and <code>b</code> are <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a>s then:
 
 
 

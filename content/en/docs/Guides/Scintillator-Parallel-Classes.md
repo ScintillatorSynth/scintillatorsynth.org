@@ -1,7 +1,7 @@
 ---
 title: Scintillator Parallels to SuperCollider Synth Classes
 linkTitle: Scintillator Parallels to SuperCollider Synth Classes
-date: 2020-04-11
+date: 2020-04-12
 weight: 5
 description: A table of Scintillator classes similar to scsynth classes
 ---
@@ -116,7 +116,7 @@ For an exhaustive list of all supported Scintillator VGens, see the <a href="{{<
 
 </td><td>
 
-Classes/ScinOsc
+<a href="{{< ref "/docs/VGens/Video Oscillators/ScinOsc" >}}">ScinOsc</a>
 
 </td><td>
 

@@ -1,7 +1,7 @@
 ---
 title: ScinServerOptions
 linkTitle: ScinServerOptions
-date: 2020-04-11
+date: 2020-04-12
 weight: 5
 description: Encapsulates command line and other options for the Scintillator synthesis server.
 ---
