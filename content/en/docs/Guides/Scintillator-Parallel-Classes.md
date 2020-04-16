@@ -6,8 +6,6 @@ weight: 5
 description: A table of Scintillator classes similar to scsynth classes
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: 
-
 
 
 Scintillator is designed to parallel, in as much a way as makes sense, the existing design conventions for audio synthesis established by SuperCollider.

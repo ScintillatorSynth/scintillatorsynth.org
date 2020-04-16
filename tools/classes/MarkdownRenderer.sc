@@ -60,18 +60,23 @@ MarkdownRenderer {
 	*mdForLink { |link|
 		var name = link.split($/).wrapAt(-1);
 		var md;
-		if (mdLinkWhitelist.at(link.asSymbol).notNil, {
+		case
+		{ mdLinkWhitelist.at(link.asSymbol).notNil } {
 			md = "<a href=\"{{< ref \"/docs/%/%\" >}}\">%</a>".format(mdLinkWhitelist.at(link.asSymbol),
 				name, name.replace("-", " "));
-		}, {
-			if (scLinkWhitelist.includes(link.asSymbol), {
-				md = "<a href=\"%%.html\">% <img src=\"/images/external-link.svg\" class=\"one-liner\"></a>"
-				.format(scLinkPrefix, link, name);
-			}, {
-				"missing link % in document %".format(link, currDoc.path).warn;
-				md = link;
-			});
-		});
+		}
+		{ scLinkWhitelist.includes(link.asSymbol) } {
+			md = "<a href=\"%%.html\">% <img src=\"/images/external-link.svg\" class=\"one-liner\"></a>"
+			.format(scLinkPrefix, link, name);
+		}
+		{ link.beginsWith("http") } {
+			var linkParts = link.split($#);
+			md = "<a href=\"%\">%</a>".format(linkParts[0], linkParts[2]);
+		}
+		{
+			"missing link % in document %".format(link, currDoc.path).warn;
+			md = link;
+		}
 		^md;
 	}
 
@@ -82,7 +87,6 @@ MarkdownRenderer {
 		currDoc = docEntry;
 		footNotes = nil;
 		noParBreak = false;
-		related = Array.new;
 
 		if(docEntry.isClassDoc) {
 			currentClass = docEntry.klass;
@@ -98,7 +102,9 @@ MarkdownRenderer {
 		};
 
 		related = this.renderHeader(stream, head);
-		this.renderRelated(stream, related);
+		if (related.size > 0, {
+			this.renderRelated(stream, related);
+		});
 		this.renderBody(stream, body);
 	}
 
