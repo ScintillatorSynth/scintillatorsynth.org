@@ -29,6 +29,7 @@ MarkdownRenderer {
 		scLinkWhitelist.add('Classes/BasicOpUGen');
 		scLinkWhitelist.add('Classes/Buffer');
 		scLinkWhitelist.add('Classes/BufFrames');
+		scLinkWhitelist.add('Classes/Clip');
 		scLinkWhitelist.add('Classes/Condition');
 		scLinkWhitelist.add('Classes/LFSaw');
 		scLinkWhitelist.add('Classes/PlayBuf');
@@ -60,7 +61,8 @@ MarkdownRenderer {
 		var name = link.split($/).wrapAt(-1);
 		var md;
 		if (mdLinkWhitelist.at(link.asSymbol).notNil, {
-			md = "<a href=\"{{< ref \"/docs/%/%\" >}}\">%</a>".format(mdLinkWhitelist.at(link.asSymbol), name, name);
+			md = "<a href=\"{{< ref \"/docs/%/%\" >}}\">%</a>".format(mdLinkWhitelist.at(link.asSymbol),
+				name, name.replace("-", " "));
 		}, {
 			if (scLinkWhitelist.includes(link.asSymbol), {
 				md = "<a href=\"%%.html\">% <img src=\"/images/external-link.svg\" class=\"one-liner\"></a>"

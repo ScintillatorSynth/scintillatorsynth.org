@@ -1,7 +1,7 @@
 ---
 title: VZ
 linkTitle: VZ
-date: 2020-04-12
+date: 2020-04-14
 weight: 5
 description: Extract the third single-dimensional element from a vector
 ---

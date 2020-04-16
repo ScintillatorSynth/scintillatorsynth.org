@@ -1,7 +1,7 @@
 ---
 title: Splat3
 linkTitle: Splat3
-date: 2020-04-12
+date: 2020-04-14
 weight: 5
 description: Copy a single value into a 3-D vector
 ---

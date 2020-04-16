@@ -1,7 +1,7 @@
 ---
 title: VGen Design Document
 linkTitle: VGen Design Document
-date: 2020-04-12
+date: 2020-04-14
 weight: 5
 description: Notes about the design of a VGen.
 ---

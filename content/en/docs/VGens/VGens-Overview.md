@@ -1,12 +1,12 @@
 ---
 title: VGens Overview
 linkTitle: VGens Overview
-date: 2020-04-12
+date: 2020-04-14
 weight: 5
 description: A list of the available VGens within Scintillator.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> <a href="{{< ref "/docs/Guides/Scintillator-Parallel-Classes" >}}">Scintillator-Parallel-Classes</a> 
+###### See also: <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> <a href="{{< ref "/docs/Guides/Scintillator-Parallel-Classes" >}}">Scintillator Parallel Classes</a> 
 
 
 
@@ -79,7 +79,7 @@ Piecewise sinusodal oscillator, analogous to <a href="https://doc.sccode.org/Cla
 </td></tr>
 <tr><td>
 
-Classes/VSaw<code>.fg(freq, phas, mul, add)</code>
+<a href="{{< ref "/docs/VGens/Video Oscillators/VSaw" >}}">VSaw</a><code>.fg(freq, phas, mul, add)</code>
 
 </td><td>
 <table>
@@ -1023,7 +1023,7 @@ Returns the length of the vector <code>x</code>, or the square root of the sum o
 </td></tr>
 <tr><td>
 
-Classes/Distance<code>.fg(x, y)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Vector Math/Distance" >}}">Distance</a><code>.fg(x, y)</code>
 
 </td><td>
 <table>

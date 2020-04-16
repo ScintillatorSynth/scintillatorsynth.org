@@ -1,7 +1,7 @@
 ---
 title: VY
 linkTitle: VY
-date: 2020-04-12
+date: 2020-04-14
 weight: 5
 description: Extract the second single-dimensional element from a vector
 ---

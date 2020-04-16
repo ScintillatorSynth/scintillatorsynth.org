@@ -1,7 +1,7 @@
 ---
 title: Scintillator Parallels to SuperCollider Synth Classes
 linkTitle: Scintillator Parallels to SuperCollider Synth Classes
-date: 2020-04-12
+date: 2020-04-14
 weight: 5
 description: A table of Scintillator classes similar to scsynth classes
 ---
@@ -93,7 +93,7 @@ Options for controlling various features of the Scintillator features at boot ti
 
 
 
-For an exhaustive list of all supported Scintillator VGens, see the <a href="{{< ref "/docs/VGens/VGens-Overview" >}}">VGens-Overview</a>.
+For an exhaustive list of all supported Scintillator VGens, see the <a href="{{< ref "/docs/VGens/VGens-Overview" >}}">VGens Overview</a>.
 
 
 <table>
@@ -129,7 +129,7 @@ Sinusoidal oscillator.
 
 </td><td>
 
-Classes/VSaw
+<a href="{{< ref "/docs/VGens/Video Oscillators/VSaw" >}}">VSaw</a>
 
 </td><td>
 

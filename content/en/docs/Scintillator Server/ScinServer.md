@@ -1,7 +1,7 @@
 ---
 title: ScinServer
 linkTitle: ScinServer
-date: 2020-04-12
+date: 2020-04-14
 weight: 5
 description: Represents a Scintillator server application.
 ---
@@ -294,7 +294,7 @@ Sends the provided arguments as an OSC message to the associated server process.
 
 
 
-The OSC message to send, typically starting with an OSC path like <code>/scin_logLevel</code>. For documentation about supported command consult the <a href="{{< ref "/docs/Developer Documentation/Scintillator-Scinth-Server-Command-Reference" >}}">Scintillator-Scinth-Server-Command-Reference</a>.
+The OSC message to send, typically starting with an OSC path like <code>/scin_logLevel</code>. For documentation about supported command consult the <a href="{{< ref "/docs/Developer Documentation/Scintillator-Scinth-Server-Command-Reference" >}}">Scintillator Scinth Server Command Reference</a>.
 
 
 

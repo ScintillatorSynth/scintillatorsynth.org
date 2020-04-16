@@ -1,12 +1,12 @@
 ---
 title: ScinthDef
 linkTitle: ScinthDef
-date: 2020-04-12
+date: 2020-04-14
 weight: 5
 description: Represents a Scintillator Synth Definition
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Scinth/Scinth" >}}">Scinth</a> <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a> <a href="{{< ref "/docs/Guides/Scintillator-Parallel-Classes" >}}">Scintillator-Parallel-Classes</a> <a href="{{< ref "/docs/Developer Documentation/Scintillator-ScinthDef-File-Format" >}}">Scintillator-ScinthDef-File-Format</a> 
+###### See also: <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Scinth/Scinth" >}}">Scinth</a> <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a> <a href="{{< ref "/docs/Guides/Scintillator-Parallel-Classes" >}}">Scintillator Parallel Classes</a> <a href="{{< ref "/docs/Developer Documentation/Scintillator-ScinthDef-File-Format" >}}">Scintillator ScinthDef File Format</a> 
 
 
 
@@ -164,7 +164,7 @@ A <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> in
 
 
 
-Returns a string in YAML format conforming to the <a href="{{< ref "/docs/Developer Documentation/Scintillator-ScinthDef-File-Format" >}}">Scintillator-ScinthDef-File-Format</a> that describes this ScinthDef.
+Returns a string in YAML format conforming to the <a href="{{< ref "/docs/Developer Documentation/Scintillator-ScinthDef-File-Format" >}}">Scintillator ScinthDef File Format</a> that describes this ScinthDef.
 
 
 
