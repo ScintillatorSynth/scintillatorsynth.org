@@ -1,7 +1,7 @@
 ---
 title: Distance
 linkTitle: Distance
-date: 2020-04-14
+date: 2020-04-15
 weight: 5
 description: Computes the distance between two vectors
 ---

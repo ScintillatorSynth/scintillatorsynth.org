@@ -1,7 +1,7 @@
 ---
 title: VW
 linkTitle: VW
-date: 2020-04-14
+date: 2020-04-15
 weight: 5
 description: Extract the fourth single-dimensional element from a vector
 ---

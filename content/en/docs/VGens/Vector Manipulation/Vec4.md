@@ -1,7 +1,7 @@
 ---
 title: Vec4
 linkTitle: Vec4
-date: 2020-04-14
+date: 2020-04-15
 weight: 5
 description: Pack four single-dimensional signals into a 4D signal.
 ---

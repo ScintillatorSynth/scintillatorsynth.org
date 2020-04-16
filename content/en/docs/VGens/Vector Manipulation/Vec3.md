@@ -1,7 +1,7 @@
 ---
 title: Vec3
 linkTitle: Vec3
-date: 2020-04-14
+date: 2020-04-15
 weight: 5
 description: Pack three single-dimensional signals into a 3D signal.
 ---

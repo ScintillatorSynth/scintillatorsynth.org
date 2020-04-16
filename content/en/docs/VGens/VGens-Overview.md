@@ -1,7 +1,7 @@
 ---
 title: VGens Overview
 linkTitle: VGens Overview
-date: 2020-04-14
+date: 2020-04-15
 weight: 5
 description: A list of the available VGens within Scintillator.
 ---
@@ -907,7 +907,7 @@ Scintillator offers per-element (or <em>piecewise</em>) operations as well as so
 </td></tr>
 <tr><td>
 
-Classes/Clamp<code>.fg(x, min, max)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Signal Processing/Clamp" >}}">Clamp</a><code>.fg(x, min, max)</code>
 
 </td><td>
 <table>
@@ -960,7 +960,7 @@ Classes/Clamp<code>.fg(x, min, max)</code>
 </table>
 </td><td>
 
-Video equivalent of Classes/Clip UGen, piecewise bounds input <code>x</code> between <code>[min, max]</code>
+Video equivalent of <a href="https://doc.sccode.org/Classes/Clip.html">Clip <img src="/images/external-link.svg" class="one-liner"></a> UGen, piecewise bounds input <code>x</code> between <code>[min, max]</code>
 
 </td></tr>
 <tr><td>

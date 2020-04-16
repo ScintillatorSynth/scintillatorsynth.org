@@ -1,7 +1,7 @@
 ---
 title: ImageBuffer
 linkTitle: ImageBuffer
-date: 2020-04-14
+date: 2020-04-15
 weight: 5
 description: Represents a server-side graphics memory region for sampling static images.
 ---

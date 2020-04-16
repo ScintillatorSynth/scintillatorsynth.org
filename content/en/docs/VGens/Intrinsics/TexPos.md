@@ -1,7 +1,7 @@
 ---
 title: TexPos
 linkTitle: TexPos
-date: 2020-04-14
+date: 2020-04-15
 weight: 5
 description: VGen providing geometry-specific texture coordinates for image sampling.
 ---

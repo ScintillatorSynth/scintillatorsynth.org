@@ -1,7 +1,7 @@
 ---
 title: Scintillator Parallels to SuperCollider Synth Classes
 linkTitle: Scintillator Parallels to SuperCollider Synth Classes
-date: 2020-04-14
+date: 2020-04-15
 weight: 5
 description: A table of Scintillator classes similar to scsynth classes
 ---
@@ -164,11 +164,11 @@ Dimensions of image buffer in pixels.
 </td></tr>
 <tr><td>
 
-Classes/Clip
+<a href="https://doc.sccode.org/Classes/Clip.html">Clip <img src="/images/external-link.svg" class="one-liner"></a>
 
 </td><td>
 
-Classes/Clamp
+<a href="{{< ref "/docs/VGens/Mathematics/Signal Processing/Clamp" >}}">Clamp</a>
 
 </td><td>
 
