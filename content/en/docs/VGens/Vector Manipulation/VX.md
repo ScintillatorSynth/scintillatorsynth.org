@@ -1,7 +1,6 @@
 ---
 title: VX
 linkTitle: VX
-date: 2020-04-15
 weight: 5
 description: Extract the first single-dimensional element from a vector
 ---

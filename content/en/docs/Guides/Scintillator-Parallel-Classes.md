@@ -1,7 +1,6 @@
 ---
 title: Scintillator Parallels to SuperCollider Synth Classes
 linkTitle: Scintillator Parallels to SuperCollider Synth Classes
-date: 2020-04-15
 weight: 5
 description: A table of Scintillator classes similar to scsynth classes
 ---

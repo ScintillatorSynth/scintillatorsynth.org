@@ -1,7 +1,6 @@
 ---
 title: VGens Overview
 linkTitle: VGens Overview
-date: 2020-04-15
 weight: 5
 description: A list of the available VGens within Scintillator.
 ---

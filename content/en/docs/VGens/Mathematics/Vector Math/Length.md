@@ -1,7 +1,6 @@
 ---
 title: Length
 linkTitle: Length
-date: 2020-04-15
 weight: 5
 description: Computes the length of the provided vector
 ---

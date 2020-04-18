@@ -1,7 +1,6 @@
 ---
 title: Scintillator Acknowledgments and References
 linkTitle: Scintillator Acknowledgments and References
-date: 2020-04-15
 weight: 5
 description: A list of thanks and reference materials supporting Scintillator development
 ---
