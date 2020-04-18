@@ -1,7 +1,6 @@
 ---
 title: ScinOsc
 linkTitle: ScinOsc
-date: 2020-04-15
 weight: 5
 description: Multidimensional sinusoidal video oscillator
 ---

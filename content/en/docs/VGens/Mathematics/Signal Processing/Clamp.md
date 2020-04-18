@@ -1,7 +1,6 @@
 ---
 title: Clamp
 linkTitle: Clamp
-date: 2020-04-15
 weight: 5
 description: Video oscillator to constrain a value between two parameters
 ---

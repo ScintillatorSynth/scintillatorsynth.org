@@ -1,7 +1,6 @@
 ---
 title: VSaw
 linkTitle: VSaw
-date: 2020-04-15
 weight: 5
 description: Multidimensional sawtooth video oscillator
 ---

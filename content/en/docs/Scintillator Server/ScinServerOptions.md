@@ -1,7 +1,6 @@
 ---
 title: ScinServerOptions
 linkTitle: ScinServerOptions
-date: 2020-04-15
 weight: 5
 description: Encapsulates command line and other options for the Scintillator synthesis server.
 ---
@@ -100,7 +99,7 @@ A boolean, default <strong>false</strong>. If true, ScinServer will ignore any i
 ### .frameRate = value
 
 
-An integer, default <strong>-1</strong>. If a negative number, the server will run in <em>interactive</em> mode, optimized to reduce latency from render to presentation. If zero the server will run in <em>snapshot</em> mode, and will only render a new frame when instructed by an <code>advanceFrame</code> call. If a positive number the server will run in <em>throughput</em> mode, will render frames as quickly as possible, updated the onscreen window (if present) at the provided refresh rate. For more information see Reference/ScinServer-Recording
+An integer, default <strong>-1</strong>. If a negative number, the server will run in <em>interactive</em> mode, optimized to reduce latency from render to presentation. If zero the server will run in <em>snapshot</em> mode, and will only render a new frame when instructed by an <code>advanceFrame</code> call. If a positive number the server will run in <em>throughput</em> mode, will render frames as quickly as possible, updated the onscreen window (if present) at the provided refresh rate. For more information see Guides/ScinServer-Recording
 
 
 

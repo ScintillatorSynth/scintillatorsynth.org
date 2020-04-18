@@ -1,7 +1,6 @@
 ---
 title: Vec2
 linkTitle: Vec2
-date: 2020-04-15
 weight: 5
 description: Pack two single-dimensional signals into a 2D signal.
 ---

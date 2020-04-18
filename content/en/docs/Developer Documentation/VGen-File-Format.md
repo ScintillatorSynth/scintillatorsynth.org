@@ -1,12 +1,11 @@
 ---
 title: VGen File Format
 linkTitle: VGen File Format
-date: 2020-04-15
 weight: 5
 description: Description of VGen yaml file format used by Scintillator synth server.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> Reference/Scintillator-Scinth-Definition-File-Format 
+###### See also: <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> <a href="{{< ref "/docs/Developer Documentation/Scintillator-ScinthDef-File-Format" >}}">Scintillator ScinthDef File Format</a> 
 
 
 

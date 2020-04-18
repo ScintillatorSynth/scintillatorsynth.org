@@ -118,8 +118,8 @@ MarkdownRenderer {
 		header.children.do({ |node|
 			switch(node.id,
 				\TITLE, {
-					stream << "title: %\nlinkTitle: %\ndate: %\nweight: 5\n".format(
-                               node.text, node.text, Date.getDate.format("%Y-%m-%d"));
+					stream << "title: %\nlinkTitle: %\nweight: 5\n".format(
+                               node.text, node.text);
 				},
 				\SUMMARY, {
 					stream << "description: %\n".format(node.text);

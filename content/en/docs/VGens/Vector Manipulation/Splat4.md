@@ -1,7 +1,6 @@
 ---
 title: Splat4
 linkTitle: Splat4
-date: 2020-04-15
 weight: 5
 description: Copy a single value into a 4-D vector
 ---

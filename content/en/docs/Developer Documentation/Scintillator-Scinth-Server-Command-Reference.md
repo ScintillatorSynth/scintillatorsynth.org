@@ -1,7 +1,6 @@
 ---
 title: Scintillator Scinth Server Command Reference
 linkTitle: Scintillator Scinth Server Command Reference
-date: 2020-04-15
 weight: 5
 description: A list of all OSC commands accepted by scscinth
 ---

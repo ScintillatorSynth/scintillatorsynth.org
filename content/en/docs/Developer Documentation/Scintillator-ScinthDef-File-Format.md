@@ -1,7 +1,6 @@
 ---
 title: Scintillator ScinthDef File Format
 linkTitle: Scintillator ScinthDef File Format
-date: 2020-04-15
 weight: 5
 description: Description of ScinthDef file format used by Scintillator synth server.
 ---
