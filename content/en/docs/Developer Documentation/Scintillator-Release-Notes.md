@@ -14,6 +14,22 @@ description: Reference and history for released versions of Scintillator.
 
 
 
+#### 0.0.4 22 April 2020
+
+
+
+Adds the Linux scinsynth binary, distributed as an AppImage file.
+
+
+
+#### 0.0.2, 0.0.3 18 April 2020
+
+
+
+Second (and third) attempt at a pre-alpha release of Scintillator. Fixes a bug in the Quark metadata formatting.
+
+
+
 #### 0.0.1 18 April 2020
 
 
