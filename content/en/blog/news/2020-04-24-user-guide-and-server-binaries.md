@@ -30,5 +30,6 @@ Scintillator. The walkthrough can also serve as a validation of the Scintillator
 server binary by generating some simple imagery.
 
 I'm working on a setup here at home to record some YouTube videos detailing some of the features and capabilities of
-Scintillator. Hoping to have at least an intro video in place before the broader alpha announcement.
+Scintillator. Hoping to have at least an intro video in place before the broader alpha announcement. I'll post an update
+here on the blog when I have more on that.
 
