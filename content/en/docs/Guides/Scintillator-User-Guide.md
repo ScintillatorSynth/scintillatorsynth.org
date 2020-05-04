@@ -2,40 +2,36 @@
 title: Scintillator User Guide
 linkTitle: Scintillator User Guide
 weight: 5
-description: User manual for the Scintillator visual synthesizer.
+description: User manual for the Scintillator video synthesizer.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
 ###### See also: <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> 
 
 
 
-In keeping with the high-energy physics themes of SuperCollider, a <em>scintillator</em> is any material that produces light when struck by radition. Scintillator is intended to be an accompanying visual synthesizer designed to be intuitive to users already familiar with SuperCollider idioms. Distributed as a Quark plus a synthesizer binary, Scintillator follows the client/server archiecture established by SuperCollider, accepts <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a>s in a similar manner to SuperCollider <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a>s, provides facilities to invoke and control <a href="{{< ref "/docs/Scinth/Scinth" >}}">Scinth</a> instances similar to <a href="https://doc.sccode.org/Classes/Synth.html">Synth <img src="/images/external-link.svg" class="one-liner"></a>, and so on. For a detailed list of classes with analogous SuperCollider classes see <a href="{{< ref "/docs/Guides/Scintillator-Parallel-Classes" >}}">Scintillator Parallel Classes</a>.
-
-
-
-### Project Status (April 2020)
+### Overview
 ---
 
 
 
-Scintillator is an open-source (GPLv3) project developed and maintained by Luke Nihlen. It is in early pre-alpha stage and the purpose of these first few releases is to gather feedback and identify any outstanding major bugs that might need to be resolved before considering a beta or even production-quality release. Central features are under active development, and the classes and their methods may change from point release to point release without notice. As such Scintillator is ready for review but building a larger composition or planning a performance on it may not be advisable.
+Scintillator is a video synthesis extension for SuperCollider. It is distributed as a Quark, but requires an additional download and installation step to get the synthesizer program.
 
 
 
-All that said, it is my sincere hope you find Scintillator useful and interesting, and I'm keen to hear your feedback. Drop by the <a href="https://github.com/ScintillatorSynth/Scintillator">GitHub project page</a>, if you encounter any bugs or have any feature requests please feel free to file them there, or drop me an email at <code>scintillator.synth@gmail.com</code>.
+Scintillator is designed to be intuitive to users already familiar with SuperCollider idioms. It follows the client/server archiecture established by SuperCollider, accepts <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a>s in a similar manner to SuperCollider <a href="https://doc.sccode.org/Classes/SynthDef.html">SynthDef <img src="/images/external-link.svg" class="one-liner"></a>s, provides facilities to invoke and control <a href="{{< ref "/docs/Scinth/Scinth" >}}">Scinth</a> instances similar to <a href="https://doc.sccode.org/Classes/Synth.html">Synth <img src="/images/external-link.svg" class="one-liner"></a>, and so on. For a detailed list of classes with analogous SuperCollider classes see <a href="{{< ref "/docs/Guides/Scintillator-Parallel-Classes" >}}">Scintillator Parallel Classes</a>.
 
 
 
-### Installation
+### Installation Instructions
 ---
 
 
 
-#### Quark Installation
+#### 1. Install Scintillator Quark
 
 
 
-Scintillator is distributed in two pieces and both are required in order for it to run. The first piece contains the SuperCollider classes and support, and is distributed as a Quark. Installation should be as simple as executing the following code:
+Run the following code:
 
 
 
@@ -51,85 +47,15 @@ Or you can use the Quarks GUI to pick out Scintillator and install it. See <a hr
 
 
 
-#### Server Binary Installation
+#### 2. Recompile Class Library
 
 
 
-The second half of the Scintillator distribution consists of the <code>scinsynth</code> binary, which is the C++-based visual synthesis server. Official releases of the Scintillator Quark will always have an associated server binary, which can be obtained from the <a href="https://github.com/ScintillatorSynth/Scintillator/releases">GitHub Releases Page</a>. Each platform names the server binary file slightly differently, but generally once the binary is downloaded you need to move it into the <code>/bin</code> subdirectory inside of the Scintillator Quark directory. One way to quickly find the quark directory is to use the <a href="{{< ref "/docs/Scintillator Server/ScinServerOptions" >}}">ScinServerOptions</a> class, which computes the location by querying the Quarks system:
+After any Quark installation you need to recompile the SuperCollider class library. In the IDE menu select Langage -> Recompile Class Library. This should also kick off the automatic installation of the ScinServer binary.
 
 
 
-{{< highlight supercollider >}}
-// Prints the path of the quark to the console.
-(
-~o = ScinServerOptions.new;
-~o.quarkPath.postln;
-)
-{{< /highlight >}}
-
-
-
-The binary is named and installed a bit differently on each platform:
-
-
-<table>
-<tr><td>
-
-<strong>platform</strong>
-
-</td><td>
-
-<strong>binary name</strong>
-
-</td><td>
-
-<strong>post-install step</strong>
-
-</td></tr>
-<tr><td>
-
-MacOS
-
-</td><td>
-
-<code>scinsynth.app.zip</code>
-
-</td><td>
-
-Need to extract the zip file
-
-</td></tr>
-<tr><td>
-
-Linux
-
-</td><td>
-
-<code>scinsynth-x86_64.AppImage</code>
-
-</td><td>
-
-Need to mark the file as executable
-
-</td></tr>
-<tr><td>
-
-Windows
-
-</td><td>
-
-<em>not yet supported</em>
-
-</td><td>
-
-Windows support planned for production release
-
-</td></tr>
-
-</table>
-
-
-### Quick Startup
+### Tutorial
 ---
 
 
@@ -169,7 +95,7 @@ The simplest imaginable <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef
 {{< highlight supercollider >}}
 (
 ~red = ScinthDef.new(\red, {
-    RGBOut.fg(1.0, 0.0, 0.0);
+    RGBOut.fr(1.0, 0.0, 0.0);
 }).add;
 )
 {{< /highlight >}}
@@ -204,7 +130,7 @@ What's happening here is that for every frame, and at every pixel, the graphics 
 
 
 
-The <a href="{{< ref "/docs/VGens/Video Oscillators/ScinOsc" >}}">ScinOsc</a> oscillator is similar to the similar class <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a>, with the soft <em>sc</em> sound at the start intended to be a play on the name scintillator. There are some differences in a video synth from an audio one, however. The first consideration is that signals don't have to vary over time to impact the output. The first Scinth, <code>\red</code>, should prove that. A similar constant output in an audio context would be inaudible, except for that it might damage certain audo setups, so caution is advised in testing that assertion!
+The <a href="{{< ref "/docs/VGens/Video Oscillators/VSinOsc" >}}">VSinOsc</a> oscillator is similar to the similar class <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a>, with the soft <em>sc</em> sound at the start intended to be a play on the name scintillator. There are some differences in a video synth from an audio one, however. The first consideration is that signals don't have to vary over time to impact the output. The first Scinth, <code>\red</code>, should prove that. A similar constant output in an audio context would be inaudible, except for that it might damage certain audo setups, so caution is advised in testing that assertion!
 
 
 
@@ -215,7 +141,7 @@ Another point to note is that while audio signals normally operate in the domain
 {{< highlight supercollider >}}
 (
 ~w = ScinthDef.new(\wave, { |f=1|
-    BWOut.fg(ScinOsc.fg(freq: f));
+    BWOut.fr(VSinOsc.fr(freq: f));
 }).add;
 )
 
@@ -263,7 +189,7 @@ So we've seen time-varying signals, what about spatial variation? Let's clean up
 
 (
 ~spot = ScinthDef.new(\spot, {
-    BWOut.fg(Length.fg(NormPos.fg));
+    BWOut.fr(Length.fr(NormPos.fr));
 }).add;
 )
 
@@ -306,10 +232,10 @@ Scintillator supports most common mathematical operations from 1-4 dimensions. A
 
 (
 ~rings = ScinthDef.new(\rings, {
-    var rad = Length.fg(NormPos.fg);  // rad is one-dimensional
-    var rgb = rad * Vec3.fg(31, 41, 61); // rgb is 3D
+    var rad = Length.fr(NormPos.fr);  // rad is one-dimensional
+    var rgb = rad * Vec3.fr(31, 41, 61); // rgb is 3D
     rgb = 0.5 + (rgb.sin * 0.5); // This is all 3D math!
-    Vec4.fg(VX.fg(rgb), VY.fg(rgb), VZ.fg(rgb), 1.0);
+    Vec4.fr(VX.fr(rgb), VY.fr(rgb), VZ.fr(rgb), 1.0);
 }).add;
 )
 
@@ -340,9 +266,9 @@ The last experiment in this quick start guide is to combine variation in both ti
 
 (
 ~zoom = ScinthDef.new(\zoom, {
-    var pos = NormPos.fg;
-    var box = 1.0 - max(VX.fg(pos).abs, VY.fg(pos).abs);
-    BWOut.fg(VSaw.fg(phase: box));
+    var pos = NormPos.fr;
+    var box = 1.0 - max(VX.fr(pos).abs, VY.fr(pos).abs);
+    BWOut.fr(VSaw.fr(phase: box));
 }).add;
 )
 
@@ -365,5 +291,9 @@ It can be instructive to think about why the <code>phase</code> argument to VSaw
 
 
 
-It's definitely worth perusing the <a href="{{< ref "/docs/VGens/VGens-Overview" >}}">VGens Overview</a> to get a better understanding of currently supported VGens, to expand your creative options. There are a lot of additional features planned for Scintillator, which will likely be documented in separate, independent guides. Lastly, join the conversation! Post your feedback and questions on the <a href="https://github.com/ScintillatorSynth/Scintillator">GitHub page</a>, find me on the SuperCollider slack channel, or drop me a line over email.
+Scintillator is still in active development. The <a href="https://scintillatorsynth.org/blog/">Development Blog</a> typically has the most up-to-date information.
+
+
+
+It's definitely worth perusing the <a href="{{< ref "/docs/VGens/VGens-Overview" >}}">VGens Overview</a> to get a better understanding of currently supported VGens. There are a lot of additional features planned for Scintillator, which will likely be documented in separate, independent guides. Lastly, join the conversation! Post your feedback and questions on the <a href="https://github.com/ScintillatorSynth/Scintillator">GitHub page</a>, find me on the SuperCollider slack channel, or drop me a line over email.
 

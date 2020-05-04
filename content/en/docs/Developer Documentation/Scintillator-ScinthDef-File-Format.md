@@ -615,7 +615,7 @@ We execute the following code:
 {{< highlight supercollider >}}
 (
 ~k = ScinthDef.new(\foo, {
-    VOut.fg(0, ScinOsc.fg(200.0, 0.0, 0.9, 0.2));
+    VOut.fr(0, VSinOsc.fr(200.0, 0.0, 0.9, 0.2));
 });
 ~k.asYAML.postln;
 )
@@ -630,7 +630,7 @@ And ScinthDef produces the following:
 {{< highlight supercollider >}}
 - name: foo
   vgens:
-    - className: ScinOsc
+    - className: VSinOsc
       rate: fragment
       inputs:
         - type: constant

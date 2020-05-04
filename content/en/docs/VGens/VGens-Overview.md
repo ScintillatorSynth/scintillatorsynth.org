@@ -20,7 +20,7 @@ There are only a few test oscillators implemented for now, with plans to add man
 <table>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Video Oscillators/ScinOsc" >}}">ScinOsc</a><code>.fg(freq, phas, mul, add)</code>
+<a href="{{< ref "/docs/VGens/Video Oscillators/VSinOsc" >}}">VSinOsc</a><code>.fr(freq, phas, mul, add)</code>
 
 </td><td>
 <table>
@@ -78,7 +78,7 @@ Piecewise sinusodal oscillator, analogous to <a href="https://doc.sccode.org/Cla
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Video Oscillators/VSaw" >}}">VSaw</a><code>.fg(freq, phas, mul, add)</code>
+<a href="{{< ref "/docs/VGens/Video Oscillators/VSaw" >}}">VSaw</a><code>.fr(freq, phas, mul, add)</code>
 
 </td><td>
 <table>
@@ -149,7 +149,7 @@ VGens for reading from <a href="{{< ref "/docs/Media/ImageBuffer" >}}">ImageBuff
 <table>
 <tr><td>
 
-<a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a><code>.fg(image, pos)</code>
+<a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a><code>.fr(image, pos)</code>
 
 </td><td>
 <table>
@@ -180,7 +180,7 @@ Samples the provided imageBuffer at <code>pos</code> and returns the 4D color si
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a><code>.fg()</code>
+<a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a><code>.fr()</code>
 
 </td><td>
 <table>
@@ -211,7 +211,7 @@ Texture Sampler position
 </td></tr>
 <tr><td>
 
-Classes/TextureSize<code>.fg(image)</code>
+Classes/TextureSize<code>.fr(image)</code>
 
 </td><td>
 <table>
@@ -255,7 +255,7 @@ Scintillator offers a few different means to determine the position of the curre
 <table>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a><code>.fg()</code>
+<a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a><code>.fr()</code>
 
 </td><td>
 <table>
@@ -286,7 +286,7 @@ Normalized fragment position
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a><code>.fg()</code>
+<a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a><code>.fr()</code>
 
 </td><td>
 <table>
@@ -317,7 +317,7 @@ Texture Sampler position
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Built-In/FragCoord" >}}">FragCoord</a><code>.fg()</code>
+<a href="{{< ref "/docs/VGens/Built-In/FragCoord" >}}">FragCoord</a><code>.fr()</code>
 
 </td><td>
 <table>
@@ -382,7 +382,7 @@ Some VGens require inputs that are higher-dimensional vectors. To construct thos
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/Vec2" >}}">Vec2</a><code>.fg(x, y)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Vec2" >}}">Vec2</a><code>.fr(x, y)</code>
 
 </td><td>
 <table>
@@ -413,7 +413,7 @@ Construct a 2D vector from individual elements <code>x</code> and <code>y</code>
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/Vec3" >}}">Vec3</a><code>.fg(x, y, z)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Vec3" >}}">Vec3</a><code>.fr(x, y, z)</code>
 
 </td><td>
 <table>
@@ -444,7 +444,7 @@ Construct a 3D vector from individual elements <code>x</code> and <code>y</code>
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a><code>.fg(x, y, z, w)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a><code>.fr(x, y, z, w)</code>
 
 </td><td>
 <table>
@@ -475,7 +475,7 @@ Construct a 4D vector from individual elements <code>x</code> and <code>y</code>
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/Splat2" >}}">Splat2</a><code>.fg(x)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Splat2" >}}">Splat2</a><code>.fr(x)</code>
 
 </td><td>
 <table>
@@ -506,7 +506,7 @@ Construct a 2D vector from a single element copied into both
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/Splat3" >}}">Splat3</a><code>.fg(x)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Splat3" >}}">Splat3</a><code>.fr(x)</code>
 
 </td><td>
 <table>
@@ -537,7 +537,7 @@ Construct a 3D vector from a single element copied into both
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/Splat4" >}}">Splat4</a><code>.fg(x)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Splat4" >}}">Splat4</a><code>.fr(x)</code>
 
 </td><td>
 <table>
@@ -593,7 +593,7 @@ To break out a single-dimensional signal from a higher-dimensional vector, use t
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/VX" >}}">VX</a><code>.fg(v)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/VX" >}}">VX</a><code>.fr(v)</code>
 
 </td><td>
 <table>
@@ -651,7 +651,7 @@ Return the first element in the vector.
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/VY" >}}">VY</a><code>.fg(v)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/VY" >}}">VY</a><code>.fr(v)</code>
 
 </td><td>
 <table>
@@ -700,7 +700,7 @@ Return the second element in the vector.
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/VZ" >}}">VZ</a><code>.fg(v)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/VZ" >}}">VZ</a><code>.fr(v)</code>
 
 </td><td>
 <table>
@@ -740,7 +740,7 @@ Return the third element in the vector.
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/VW" >}}">VW</a><code>.fg(v)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/VW" >}}">VW</a><code>.fr(v)</code>
 
 </td><td>
 <table>
@@ -783,7 +783,7 @@ Any 4D output is considered valid <a href="{{< ref "/docs/Scinth/ScinthDef" >}}"
 <table>
 <tr><td>
 
-Classes/RGBOut<code>.fg(r, g, b)</code>
+Classes/RGBOut<code>.fr(r, g, b)</code>
 
 </td><td>
 <table>
@@ -814,7 +814,7 @@ Convenience object for color output at full alpha
 </td></tr>
 <tr><td>
 
-Classes/RGBAOut<code>.fg(r, g, b)</code>
+Classes/RGBAOut<code>.fr(r, g, b)</code>
 
 </td><td>
 <table>
@@ -845,7 +845,7 @@ Convenience object for color output with alpha channel
 </td></tr>
 <tr><td>
 
-Classes/BWOut<code>.fg(x)</code>
+Classes/BWOut<code>.fr(x)</code>
 
 </td><td>
 <table>
@@ -906,7 +906,7 @@ Scintillator offers per-element (or <em>piecewise</em>) operations as well as so
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Mathematics/Signal Processing/Clamp" >}}">Clamp</a><code>.fg(x, min, max)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Signal Processing/Clamp" >}}">Clamp</a><code>.fr(x, min, max)</code>
 
 </td><td>
 <table>
@@ -964,7 +964,7 @@ Video equivalent of <a href="https://doc.sccode.org/Classes/Clip.html">Clip <img
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Mathematics/Vector Math/Length" >}}">Length</a><code>.fg(x)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Vector Math/Length" >}}">Length</a><code>.fr(x)</code>
 
 </td><td>
 <table>
@@ -1022,7 +1022,7 @@ Returns the length of the vector <code>x</code>, or the square root of the sum o
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Mathematics/Vector Math/Distance" >}}">Distance</a><code>.fg(x, y)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Vector Math/Distance" >}}">Distance</a><code>.fr(x, y)</code>
 
 </td><td>
 <table>
@@ -1071,7 +1071,7 @@ Computes the distance between <code>x</code> and <code>y</code>, which is the le
 </td></tr>
 <tr><td>
 
-Classes/Step<code>.fg(step, x)</code>
+Classes/Step<code>.fr(step, x)</code>
 
 </td><td>
 <table>
@@ -1129,7 +1129,7 @@ Just like the binary operator <code>thresh</code>, returns <code>0</code> when <
 </td></tr>
 <tr><td>
 
-Classes/VecMix<code>.fg(x, y, a)</code>
+Classes/VecMix<code>.fr(x, y, a)</code>
 
 </td><td>
 <table>
@@ -1214,7 +1214,7 @@ Similar to the binary operator <code>blend</code>, returns a linear mix of <code
 </td></tr>
 <tr><td>
 
-Classes/Dot<code>.fg(x, y)</code>
+Classes/Dot<code>.fr(x, y)</code>
 
 </td><td>
 <table>
@@ -1272,7 +1272,7 @@ Returns the dot product between <code>x</code> and <code>y</code>, or the sum of
 </td></tr>
 <tr><td>
 
-Classes/Cross<code>.fg(x, y)</code>
+Classes/Cross<code>.fr(x, y)</code>
 
 </td><td>
 <table>
@@ -1303,7 +1303,7 @@ Returns the cross product of <code>x</code> and <code>y</code>
 </td></tr>
 <tr><td>
 
-Classes/VNorm<code>.fg(x)</code>
+Classes/VNorm<code>.fr(x)</code>
 
 </td><td>
 <table>
@@ -1384,11 +1384,11 @@ All unary operations support inputs in 1-4 dimensions, and produce outputs of th
 
 
 {{< highlight supercollider >}}
-b = Vec4.fg(
-    VX.fg(a).neg,
-    VY.fg(a).neg,
-    VZ.fg(a).neg,
-    VW.fg(a).neg);
+b = Vec4.fr(
+    VX.fr(a).neg,
+    VY.fr(a).neg,
+    VZ.fr(a).neg,
+    VW.fr(a).neg);
 {{< /highlight >}}
 
 
@@ -2324,11 +2324,11 @@ Binary operations also happen <em>piecewise</em>, meaning that the binary operat
 
 
 {{< highlight supercollider >}}
-c = Vec4.fg(
-    VX.fg(a) * VX.fg(b),
-    VY.fg(a) * VY.fg(b),
-    VZ.fg(a) * VZ.fg(b),
-    VW.fg(a) * VW.fg(b));
+c = Vec4.fr(
+    VX.fr(a) * VX.fr(b),
+    VY.fr(a) * VY.fr(b),
+    VZ.fr(a) * VZ.fr(b),
+    VW.fr(a) * VW.fr(b));
 {{< /highlight >}}
 
 

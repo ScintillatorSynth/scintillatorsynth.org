@@ -55,12 +55,12 @@ When constructing a ScinthDef the VGens are subject to a validation step called 
 {{< highlight supercollider >}}
 (
 ~vquad = ScinthDef.new(\vquad, {
-    var length = Length.fg(NormPos.fg);
-    ScinOsc.fg(
-        Vec4.fg(1.0, 1.5, 2.0, 3.0),
-        Vec4.fg(length, length * 2, length * 4, length * 8),
-        Splat4.fg(0.5),
-        Splat4.fg(0.5));
+    var length = Length.fr(NormPos.fr);
+    VSinOsc.fr(
+        Vec4.fr(1.0, 1.5, 2.0, 3.0),
+        Vec4.fr(length, length * 2, length * 4, length * 8),
+        Splat4.fr(0.5),
+        Splat4.fr(0.5));
 }).add;
 )
 {{< /highlight >}}
@@ -71,11 +71,11 @@ From the top, the <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos
 
 
 
-The <a href="{{< ref "/docs/VGens/Video Oscillators/ScinOsc" >}}">ScinOsc</a> VGen takes four inputs, just like its analagous audio class <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a>, and they are <code>freq</code>, <code>phase</code>, <code>mul</code>, and <code>add</code>. The default values of <code>mul</code> and <code>add</code> are adjusted to reflect the fact that VGens produce output within the range of [0.0, 1.0] instead of the audio [-1.0, 1.0] range. Like Length, ScinOsc can accept inputs from 1 to 4 dimensions, but unlike Length, it will produce a single output of the same dimension as the inputs. So, a ScinOsc with 4 four-dimensional inputs, like in this case, will produce a single four-dimensional output.
+The <a href="{{< ref "/docs/VGens/Video Oscillators/VSinOsc" >}}">VSinOsc</a> VGen takes four inputs, just like its analagous audio class <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a>, and they are <code>freq</code>, <code>phase</code>, <code>mul</code>, and <code>add</code>. The default values of <code>mul</code> and <code>add</code> are adjusted to reflect the fact that VGens produce output within the range of [0.0, 1.0] instead of the audio [-1.0, 1.0] range. Like Length, VSinOsc can accept inputs from 1 to 4 dimensions, but unlike Length, it will produce a single output of the same dimension as the inputs. So, a VSinOsc with 4 four-dimensional inputs, like in this case, will produce a single four-dimensional output.
 
 
 
-The <code>freq</code> and <code>phase</code> arguments to ScinOsc here use the <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a> VGen, which takes 4 one-dimensional inputs and merges those into a single four-dimensional output. The <code>mul</code> and <code>add</code> arguments are left to defaults, but because ScinOsc requires that all of its inputs are the same dimension, we use the <a href="{{< ref "/docs/VGens/Vector Manipulation/Splat4" >}}">Splat4</a> VGen to make a four-dimensional vector out of a single one-dimensional input. Because the default arguments to <code>mul</code> and <code>add</code> are single-dimensional, we have to explicitly specify the higher-dimensional inputs to the ScinOsc, or it will fail dimensional analysis.
+The <code>freq</code> and <code>phase</code> arguments to VSinOsc here use the <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a> VGen, which takes 4 one-dimensional inputs and merges those into a single four-dimensional output. The <code>mul</code> and <code>add</code> arguments are left to defaults, but because VSinOsc requires that all of its inputs are the same dimension, we use the <a href="{{< ref "/docs/VGens/Vector Manipulation/Splat4" >}}">Splat4</a> VGen to make a four-dimensional vector out of a single one-dimensional input. Because the default arguments to <code>mul</code> and <code>add</code> are single-dimensional, we have to explicitly specify the higher-dimensional inputs to the VSinOsc, or it will fail dimensional analysis.
 
 
 
@@ -237,7 +237,7 @@ Returns this definition's name.
 {{< highlight supercollider >}}
 (
 ~t = ScinthDef.new(\t, {
-    BWOut.fg(ScinOsc.fg(1.0, Length.fg(NormPos.fg)));
+    BWOut.fr(VSinOsc.fr(1.0, Length.fr(NormPos.fr)));
 });
 )
 

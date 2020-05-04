@@ -23,7 +23,7 @@ Like its partner classes <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4"
 
 
 
-### Vec3.fg(x: 0.0, y: 0.0, z: 0.0)
+### Vec3.fr(x: 0.0, y: 0.0, z: 0.0)
 
 
 
@@ -100,10 +100,10 @@ The third component in the resulting signal.
 
 
 {{< highlight supercollider >}}
-var v = Vec3.fg(1, 2, 3);
-var x = VX.fg(v); // x: 1
-var y = VY.fg(v); // y: 2
-var z = VZ.fg(v); // z: 3
+var v = Vec3.fr(1, 2, 3);
+var x = VX.fr(v); // x: 1
+var y = VY.fr(v); // y: 2
+var z = VZ.fr(v); // z: 3
 {{< /highlight >}}
 
 

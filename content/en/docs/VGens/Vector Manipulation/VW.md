@@ -23,7 +23,7 @@ Like its sibling classes <a href="{{< ref "/docs/VGens/Vector Manipulation/VX" >
 
 
 
-### VW.fg(vec)
+### VW.fr(vec)
 
 
 
@@ -84,8 +84,8 @@ The vector to extract the fourth element from.
 
 
 {{< highlight supercollider >}}
-var v = Vec4.fg(1, 2, 3, 4);
-var w = VW.fg(v); // w: 4
+var v = Vec4.fr(1, 2, 3, 4);
+var w = VW.fr(v); // w: 4
 {{< /highlight >}}
 
 

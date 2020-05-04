@@ -1,6 +1,6 @@
 ---
-title: ScinOsc
-linkTitle: ScinOsc
+title: VSinOsc
+linkTitle: VSinOsc
 weight: 5
 description: Multidimensional sinusoidal video oscillator
 ---
@@ -14,7 +14,7 @@ description: Multidimensional sinusoidal video oscillator
 
 
 
-The ScinOsc, a play on the soft "s" in Scintillator and the <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a> UGen, is a sinusoidal oscillator. It can process inputs of one to four dimensions and produces an output in the same dimension. The arguments parallel the arguments used by <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a>, with the only difference being that the default <code>mul</code> and <code>add</code> argument values are modified to support producing a sin output range within <code>[0, 1]</code> instead of the audio range <code>[-1, 1]</code>.
+VSinOsc, just like the audio UGen <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a> UGen, is a sinusoidal oscillator. It can process inputs of one to four dimensions and produces an output in the same dimension. The arguments parallel the arguments used by <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a>, with the only difference being that the default <code>mul</code> and <code>add</code> argument values are modified to support producing a sin output range within <code>[0, 1]</code> instead of the audio range <code>[-1, 1]</code>.
 
 
 
@@ -23,7 +23,7 @@ The ScinOsc, a play on the soft "s" in Scintillator and the <a href="https://doc
 
 
 
-### ScinOsc.fg(freq: 1.0, phase: 0.0, mul: 0.5, add: 0.5)
+### VSinOsc.fr(freq: 1.0, phase: 0.0, mul: 0.5, add: 0.5)
 
 
 
@@ -137,17 +137,17 @@ Value to add to oscillator output after multiply.
 {{< highlight supercollider >}}
 (
 // This example demonstrates using the three-dimensional
-// ScinOsc to produce separate red, green, and blue
+// VSinOsc to produce separate red, green, and blue
 // channel outputs. Note that all arguments have to be
-// provided to the higher dimensional ScinOsc instances,
+// provided to the higher dimensional VSinOsc instances,
 // because the defaults are only 1-dimensional, and
 // Scintillator currently can't "autosplat" defaults to
 // higher-dimensional arguments.
 ~k = ScinthDef.new(\k, { |dot = 0.5|
-    var r = Length.fg(NormPos.fg);
-    var rgb = ScinOsc.fg(Vec3.fg(r, 2.0 * r, 3.0 * r),
-        Vec3.fg, Splat3.fg(0.5), Splat3.fg(0.5));
-    RGBOut.fg(VX.fg(rgb), VY.fg(rgb), VZ.fg(rgb));
+    var r = Length.fr(NormPos.fr);
+    var rgb = VSinOsc.fr(Vec3.fr(r, 2.0 * r, 3.0 * r),
+        Vec3.fr, Splat3.fr(0.5), Splat3.fr(0.5));
+    RGBOut.fr(VX.fr(rgb), VY.fr(rgb), VZ.fr(rgb));
 }).add;
 )
 
@@ -156,4 +156,7 @@ Value to add to oscillator output after multiply.
 )
 {{< /highlight >}}
 
-<img src="/images/schelp/ScinOsc.png" />
+<img src="/images/schelp/VSinOsc.png" />
+
+
+

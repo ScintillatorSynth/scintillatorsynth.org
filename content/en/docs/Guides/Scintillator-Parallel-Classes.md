@@ -113,7 +113,7 @@ For an exhaustive list of all supported Scintillator VGens, see the <a href="{{<
 
 </td><td>
 
-<a href="{{< ref "/docs/VGens/Video Oscillators/ScinOsc" >}}">ScinOsc</a>
+<a href="{{< ref "/docs/VGens/Video Oscillators/VSinOsc" >}}">VSinOsc</a>
 
 </td><td>
 

@@ -23,7 +23,7 @@ NormPos provides a 2D fragment screen position, adjusted for screen width and he
 
 
 
-### NormPos.fg
+### NormPos.fr
 
 
 
@@ -80,11 +80,11 @@ Because the example window is wider than it is tall, the circle generated is jus
 ~k = ScinthDef.new(\k, {
     // This radius will go from black at the center where NormPos is close to zero
     // and increase to > 1 at the edges of the image.
-    var r = Length.fg(NormPos.fg);
+    var r = Length.fr(NormPos.fr);
     // We use the Step function to clip all values of r > 1 to make the cirle more
     // visually obvious.
-    var clip = 1.0 - Step.fg(1.0, r);
-    BWOut.fg(r * clip);
+    var clip = 1.0 - Step.fr(1.0, r);
+    BWOut.fr(r * clip);
 }).add;
 )
 

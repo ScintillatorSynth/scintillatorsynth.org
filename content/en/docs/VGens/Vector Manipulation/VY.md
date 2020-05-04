@@ -23,7 +23,7 @@ Like its sibling classes <a href="{{< ref "/docs/VGens/Vector Manipulation/VX" >
 
 
 
-### VY.fg(vec)
+### VY.fr(vec)
 
 
 
@@ -102,8 +102,8 @@ The vector to extract the second element from.
 
 
 {{< highlight supercollider >}}
-var v = Vec4.fg(1, 2, 3, 4);
-var y = VY.fg(v); // y: 2
+var v = Vec4.fr(1, 2, 3, 4);
+var y = VY.fr(v); // y: 2
 {{< /highlight >}}
 
 

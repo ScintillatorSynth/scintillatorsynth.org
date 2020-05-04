@@ -23,7 +23,7 @@ Like its partner classes <a href="{{< ref "/docs/VGens/Vector Manipulation/Splat
 
 
 
-### Splat3.fg(x)
+### Splat3.fr(x)
 
 
 
@@ -84,10 +84,10 @@ The value to copy into all three channels.
 
 
 {{< highlight supercollider >}}
-var v = Splat3.fg(1.0);
-var x = VX.fg(v); // x: 1
-var y = VY.fg(v); // y: 1
-var z = VZ.fg(v); // z: 1
+var v = Splat3.fr(1.0);
+var x = VX.fr(v); // x: 1
+var y = VY.fr(v); // y: 1
+var z = VZ.fr(v); // z: 1
 {{< /highlight >}}
 
 
