@@ -267,11 +267,11 @@ Returns the height of the ImageBuffer in pixels.
 
 (
 ~f = ScinthDef.new(\chromaKey, { |r, g, b, key = 0.25|
-    var m = Sampler.fg(~molly, TexPos.fg);
-    var s = Sampler.fg(~storm, TexPos.fg);
-    var dist = Length.fg(m - Vec4.fg(r, g, b, 1.0));
-    var pick = Step.fg(key, dist);
-    VecMix.fg(s, m, pick);
+    var m = Sampler.fr(~molly, TexPos.fr);
+    var s = Sampler.fr(~storm, TexPos.fr);
+    var dist = Length.fr(m - Vec4.fr(r, g, b, 1.0));
+    var pick = Step.fr(key, dist);
+    VecMix.fr(s, m, pick);
 }).add;
 )
 

@@ -23,7 +23,7 @@ Like its partner classes <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4"
 
 
 
-### Vec2.fg(x: 0.0, y: 0.0)
+### Vec2.fr(x: 0.0, y: 0.0)
 
 
 
@@ -92,9 +92,9 @@ The second component in the resulting signal.
 
 
 {{< highlight supercollider >}}
-var v = Vec3.fg(1, 2);
-var x = VX.fg(v); // x: 1
-var y = VY.fg(v); // y: 2
+var v = Vec3.fr(1, 2);
+var x = VX.fr(v); // x: 1
+var y = VY.fr(v); // y: 2
 {{< /highlight >}}
 
 

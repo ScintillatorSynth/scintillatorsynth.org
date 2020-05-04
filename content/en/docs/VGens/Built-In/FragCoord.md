@@ -23,7 +23,7 @@ FragCoord exposes the underlying GLSL primitive <code>gl_FragCoord</code>. It re
 
 
 
-### FragCoord.fg
+### FragCoord.fr
 
 
 
@@ -81,10 +81,10 @@ none
 // to provide screen width and height as constants to the Scinth.
 (
 ~f = ScinthDef.new(\f, {
-    RGBOut.fg(
-        VX.fg(FragCoord.fg) / ~o.width,
+    RGBOut.fr(
+        VX.fr(FragCoord.fr) / ~o.width,
         0.0,
-        VY.fg(FragCoord.fg) / ~o.height);
+        VY.fr(FragCoord.fr) / ~o.height);
 }).add;
 )
 

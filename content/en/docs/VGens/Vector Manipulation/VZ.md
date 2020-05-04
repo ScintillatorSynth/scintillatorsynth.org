@@ -23,7 +23,7 @@ Like its sibling classes <a href="{{< ref "/docs/VGens/Vector Manipulation/VX" >
 
 
 
-### VZ.fg(vec)
+### VZ.fr(vec)
 
 
 
@@ -93,8 +93,8 @@ The vector to extract the third element from.
 
 
 {{< highlight supercollider >}}
-var v = Vec4.fg(1, 2, 3, 4);
-var z = VZ.fg(v); // z: 3
+var v = Vec4.fr(1, 2, 3, 4);
+var z = VZ.fr(v); // z: 3
 {{< /highlight >}}
 
 

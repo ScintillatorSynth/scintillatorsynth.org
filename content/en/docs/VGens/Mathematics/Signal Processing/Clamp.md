@@ -19,7 +19,7 @@ description: Video oscillator to constrain a value between two parameters
 
 
 
-### Clamp.fg(x, min, max)
+### Clamp.fr(x, min, max)
 
 
 

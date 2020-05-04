@@ -275,17 +275,6 @@ Returns a string reflecting the current options and which can be passed to the c
 
 
 
-### .quarkPath
-
-
-
-### .quarkPath = value
-
-
-A convenience method that exposes the path to the Scintillator Quark. Used primarily by the Scintillator integration test suite and other internal tooling to quickly locate the Scintillator project files.
-
-
-
 ### .onServerError
 
 

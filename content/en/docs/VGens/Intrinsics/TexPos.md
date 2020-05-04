@@ -23,7 +23,7 @@ TexPos provides a texture coordinate representing the position on the underlying
 
 
 
-### TexPos.fg
+### TexPos.fr
 
 
 
@@ -88,7 +88,7 @@ none
 
 (
 ~f = ScinthDef.new(\f, {
-    Sampler.fg(~ib, TexPos.fg);
+    Sampler.fr(~ib, TexPos.fr);
 }).add;
 )
 
@@ -111,8 +111,8 @@ none
 ~f = ScinthDef.new(\f, {
     var screenAspect = ~o.width / ~o.height;
     var imageAspect = ~ib.width / ~ib.height;
-    Sampler.fg(~ib,
-        TexPos.fg * Vec2.fg(screenAspect, 1.0) / Vec2.fg(imageAspect, 1.0));
+    Sampler.fr(~ib,
+        TexPos.fr * Vec2.fr(screenAspect, 1.0) / Vec2.fr(imageAspect, 1.0));
 }).add;
 )
 

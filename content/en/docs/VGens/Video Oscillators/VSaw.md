@@ -23,7 +23,7 @@ Similar to its analog sibling <a href="https://doc.sccode.org/Classes/LFSaw.html
 
 
 
-### VSaw.fg(freq: 1.0, phase: 0.0)
+### VSaw.fr(freq: 1.0, phase: 0.0)
 
 
 
@@ -126,9 +126,9 @@ Oscillator phase in radians.
 // move outward over time.
 (
 ~t = ScinthDef.new(\t, {
-    var pos = NormPos.fg.abs.neg;
-    var z = min(VX.fg(pos), VY.fg(pos));
-    BWOut.fg(Step.fg(0.5, VSaw.fg(freq: 5, phase: z)));
+    var pos = NormPos.fr.abs.neg;
+    var z = min(VX.fr(pos), VY.fr(pos));
+    BWOut.fr(Step.fr(0.5, VSaw.fr(freq: 5, phase: z)));
 }).add;
 )
 
