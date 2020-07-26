@@ -14,7 +14,7 @@ description: Parallel vector with unit length VGen
 
 
 
-VNorm computes a <em>normalized</em> vector parallel to <code>v</code> with length <code>1</code>. For scalar values this is equivalent to the VSign VGen, returning -1 for all values < 0 and +1 for all values > 0.
+VNorm computes a <em>normalized</em> vector parallel to <code>v</code> with length <code>1</code>. For scalar values this is equivalent to the <code>sign</code> operation, returning -1 for all values < 0, 0 for 0, and +1 for all values > 0.
 
 
 

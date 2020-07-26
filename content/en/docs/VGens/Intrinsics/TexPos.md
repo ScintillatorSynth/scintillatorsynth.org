@@ -5,7 +5,7 @@ weight: 5
 description: VGen providing geometry-specific texture coordinates for image sampling.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> Classes/FragCoord <a href="{{< ref "/docs/Media/ImageBuffer" >}}">ImageBuffer</a> <a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a> 
+###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> Classes/FragCoord Classes/ImageBuffer <a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a> 
 
 
 

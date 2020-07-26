@@ -1,11 +1,11 @@
 ---
-title: ImageBuffer
-linkTitle: ImageBuffer
+title: ScinImageBuffer
+linkTitle: ScinImageBuffer
 weight: 5
 description: Represents a server-side graphics memory region for sampling static images.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a> <a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a> 
+###### See also: Classes/VTexPos Classes/VSampler 
 
 
 
@@ -14,7 +14,7 @@ description: Represents a server-side graphics memory region for sampling static
 
 
 
-The ImageBuffer class is designed to be analagous to the SuperCollider audio <a href="https://doc.sccode.org/Classes/Buffer.html">Buffer <img src="/images/external-link.svg" class="one-liner"></a> class, but for reading static images for sampling. ImageBuffers are most commonly used inside of <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> functions as arguments to <a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a> instances. Currently ImageBuffer support is limited to reading static images, but more may be added in the future.
+The ScinImageBuffer class is designed to be analagous to the SuperCollider audio <a href="https://doc.sccode.org/Classes/Buffer.html">Buffer <img src="/images/external-link.svg" class="one-liner"></a> class, but for reading static images for sampling. ScinImageBuffers are most commonly used inside of <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> functions as arguments to Classes/VSampler instances. Currently ScinImageBuffer support is limited to reading static images, but more may be added in the future.
 
 
 
@@ -23,7 +23,7 @@ The ImageBuffer class is designed to be analagous to the SuperCollider audio <a 
 
 
 
-### ImageBuffer.read(server, path, width, height, action, bufnum)
+### .read
 
 
 
@@ -261,17 +261,17 @@ Returns the height of the ImageBuffer in pixels.
 )
 
 (
-~molly = ImageBuffer.read(path: "~/src/TestGoldImages/sourceMedia/molly.png".standardizePath);
-~storm = ImageBuffer.read(path: "~/src/TestGoldImages/sourceMedia/storm.png".standardizePath);
+~molly = ScinImageBuffer.read(path: "~/src/TestGoldImages/sourceMedia/molly.png".standardizePath);
+~storm = ScinImageBuffer.read(path: "~/src/TestGoldImages/sourceMedia/storm.png".standardizePath);
 )
 
 (
 ~f = ScinthDef.new(\chromaKey, { |r, g, b, key = 0.25|
-    var m = Sampler.fr(~molly, TexPos.fr);
-    var s = Sampler.fr(~storm, TexPos.fr);
-    var dist = Length.fr(m - Vec4.fr(r, g, b, 1.0));
-    var pick = Step.fr(key, dist);
-    VecMix.fr(s, m, pick);
+    var m = VSampler.fr(~molly, VTexPos.fr);
+    var s = VSampler.fr(~storm, VTexPos.fr);
+    var dist = VLength.fr(m - VVec4.fr(r, g, b, 1.0));
+    var pick = VStep.fr(key, dist);
+    VVecMix.fr(s, m, pick);
 }).add;
 )
 
@@ -280,7 +280,7 @@ Returns the height of the ImageBuffer in pixels.
 )
 {{< /highlight >}}
 
-<img src="/images/schelp/ImageBufferA.png" />
+<img src="/images/schelp/ScinImageBufferA.png" />
 
 {{< highlight supercollider >}}
 // Now vary the parameters of the ScinthDef to pick up a brighter color and with a larger key
@@ -290,7 +290,7 @@ Returns the height of the ImageBuffer in pixels.
 )
 {{< /highlight >}}
 
-<img src="/images/schelp/ImageBufferB.png" />
+<img src="/images/schelp/ScinImageBufferB.png" />
 
 
 

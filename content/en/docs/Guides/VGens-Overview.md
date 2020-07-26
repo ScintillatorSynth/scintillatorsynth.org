@@ -168,7 +168,7 @@ Piecewise sawtooth oscillator, analogous to <a href="https://doc.sccode.org/Clas
 
 
 
-VGens for reading from <a href="{{< ref "/docs/Media/ImageBuffer" >}}">ImageBuffer</a> objects.
+VGens for reading from <a href="{{< ref "/docs/Media/ScinImageBuffer" >}}">ScinImageBuffer</a> objects.
 
 
 <table>
@@ -291,7 +291,7 @@ frame, shape, pixel
 </table>
 </td><td>
 
-Returns the dimensions in pixels of the provided ImageBuffer. Roughly analogous to <a href="https://doc.sccode.org/Classes/BufFrames.html">BufFrames <img src="/images/external-link.svg" class="one-liner"></a>.
+Returns the dimensions in pixels of the provided ScinImageBuffer. Roughly analogous to <a href="https://doc.sccode.org/Classes/BufFrames.html">BufFrames <img src="/images/external-link.svg" class="one-liner"></a>.
 
 </td></tr>
 
@@ -904,11 +904,11 @@ Return the fourth element in the vector.
 </table>
 
 
-#### Video Output Convenience
+#### Color Output
 
 
 
-Any 4D output is considered valid <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> output.
+Note that any vec4 output is considered valid <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> output, but these can help with code clarity or with grouping of single-channel inputs into a vec4, sometimes with that fourth alpha component hard-coded to 1.0. In the future the server may perform opacity calling, so knowing an output is entirely opaque will allow VRGBOut and VBWOut to take advantage of that culling automatically.
 
 
 <table>
@@ -931,7 +931,7 @@ Any 4D output is considered valid <a href="{{< ref "/docs/Scinth/ScinthDef" >}}"
 </td></tr>
 <tr><td>
 
-Classes/RGBOut<code>.fr(r, g, b)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Color Output/VRGBOut" >}}">VRGBOut</a><code>.pr(red, green, blue)</code>
 
 </td><td>
 
@@ -961,12 +961,12 @@ pixel
 </table>
 </td><td>
 
-Convenience object for color output at full alpha
+Convenience object for color output at full opacity
 
 </td></tr>
 <tr><td>
 
-Classes/RGBAOut<code>.fr(r, g, b)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Color Output/VRGBAOut" >}}">VRGBAOut</a><code>.pr(red, green, blue, alpha)</code>
 
 </td><td>
 
@@ -1001,7 +1001,7 @@ Convenience object for color output with alpha channel
 </td></tr>
 <tr><td>
 
-Classes/BWOut<code>.fr(x)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Color Output/VBWOut" >}}">VBWOut</a><code>.pr(value)</code>
 
 </td><td>
 
@@ -1031,7 +1031,7 @@ pixel
 </table>
 </td><td>
 
-Convenience object for black and white output at full alpha
+Convenience object for black and white output at full opacity
 
 </td></tr>
 
