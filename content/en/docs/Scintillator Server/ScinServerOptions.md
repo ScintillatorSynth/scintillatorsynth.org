@@ -274,14 +274,14 @@ An integer, default <strong>2</strong>. For <em>interactive</em> mode only, dete
 
 
 
-### .autoUploadCrashReports
+### .crashReporting
 
 
 
-### .autoUploadCrashReports = value
+### .crashReporting = value
 
 
-A boolean, default <strong>false</strong>. If true the crash reporting system will mark any new server crashes detected as ok to upload automatically. In order to respect the privacy of Scintillator users we leave this false by default and setting this to true does not persist between server runs, meaning that like other options it has the scope of this run of the server only. Keeping the value true will require setting this explicity to true each time the server is run.
+A boolean, default <strong>true</strong>. If true the server will collect a crash report in the event that the synthesis server crashes. The crash reports are saved locally and can be manually specified for upload to the crash report collection server. Scintillator will never automatically upload a crash report. Setting this flag to false will disable the entire crash reporting system, meaning that if the server crashes a report won't be collected.
 
 {{% alert title="Note" %}}
 

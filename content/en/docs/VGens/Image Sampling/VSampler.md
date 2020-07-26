@@ -5,7 +5,7 @@ weight: 5
 description: Represents a server-side graphics memory region for sampling static images.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/Media/ScinImageBuffer" >}}">ScinImageBuffer</a> <a href="{{< ref "/docs/VGens/Intrinsics/VTexPos" >}}">VTexPos</a> 
+###### See also: <a href="{{< ref "/docs/Media/ScinImageBuffer" >}}">ScinImageBuffer</a> <a href="{{< ref "/docs/VGens/Intrinsics/VTexPos" >}}">VTexPos</a> <a href="{{< ref "/docs/VGens/Image Sampling/VTextureSize" >}}">VTextureSize</a> 
 
 
 
@@ -49,7 +49,7 @@ Make a VSampler VGen at the requested rate.
 
 
 
-The ScinImageBuffer object to sample or a server-issued image ID integer.
+The <a href="{{< ref "/docs/Media/ScinImageBuffer" >}}">ScinImageBuffer</a> object to sample or a server-issued image ID integer.
 
 
 

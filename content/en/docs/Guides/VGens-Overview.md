@@ -261,7 +261,7 @@ Texture Sampler position
 </td></tr>
 <tr><td>
 
-Classes/VTextureSize<code>.fr(image)</code>
+<a href="{{< ref "/docs/VGens/Image Sampling/VTextureSize" >}}">VTextureSize</a><code>.fr(image)</code>
 
 </td><td>
 
@@ -1309,7 +1309,7 @@ Just like the binary operator <code>thresh</code>, returns <code>0</code> when <
 </td></tr>
 <tr><td>
 
-Classes/VVecMix<code>.pr(v, u, a)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Signal Processing/VMix" >}}">VMix</a><code>.pr(v, u, a)</code>
 
 </td><td>
 

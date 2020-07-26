@@ -31,7 +31,7 @@ Scintillator is designed to be intuitive to users already familiar with SuperCol
 
 
 
-Run the following code:
+Run the following code in the SuperCollider IDE:
 
 
 
@@ -88,14 +88,14 @@ This should bring up an empty window with a black background. By default the win
 
 
 
-The simplest imaginable <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> sets the same color everywhere on the screen. We'll use the Classes/RGBOut <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> for that.
+The simplest imaginable <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> sets the same color everywhere on the screen. We'll use the <a href="{{< ref "/docs/VGens/Vector Manipulation/Color Output/VRGBOut" >}}">VRGBOut</a> <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> for that.
 
 
 
 {{< highlight supercollider >}}
 (
 ~red = ScinthDef.new(\red, {
-    RGBOut.fr(1.0, 0.0, 0.0);
+    VRGBOut.pr(1.0, 0.0, 0.0);
 }).add;
 )
 {{< /highlight >}}
@@ -130,18 +130,18 @@ What's happening here is that for every frame, and at every pixel, the graphics 
 
 
 
-The <a href="{{< ref "/docs/VGens/Video Oscillators/VSinOsc" >}}">VSinOsc</a> oscillator is similar to the similar class <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a>, with the soft <em>sc</em> sound at the start intended to be a play on the name scintillator. There are some differences in a video synth from an audio one, however. The first consideration is that signals don't have to vary over time to impact the output. The first Scinth, <code>\red</code>, should prove that. A similar constant output in an audio context would be inaudible, except for that it might damage certain audo setups, so caution is advised in testing that assertion!
+The <a href="{{< ref "/docs/VGens/Video Oscillators/VSinOsc" >}}">VSinOsc</a> oscillator is similar to the similar class <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a>. Note that Scintillator VGens will always start with a <code>V</code>, to allow their easy identification. There are some differences in a video synth from an audio one, however. The first consideration is that signals don't have to vary over time to impact the output. The first Scinth, <code>\red</code>, should prove that. A similar constant output in an audio context would be inaudible, except for that it might damage certain audo setups, so caution is advised in testing that assertion!
 
 
 
-Another point to note is that while audio signals normally operate in the domain from -1 to +1, with negative signals indicating a moment of underpressure in the sound wave, video signals only vary from 0 to 1. Light can only be present or absent in this video synthesizer, with 0 indicating no light and 1 indicating maximum brightness of light. Most video cards will clamp output between 0 and 1, but Scintillator doesn't take any special steps to limit signals, and video signals outside of the range are typically clamped. As a result of the different range, many of the default inputs on <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a>s with analogous <a href="https://doc.sccode.org/Classes/UGen.html">UGen <img src="/images/external-link.svg" class="one-liner"></a>s are are adjusted so that instead of providing a signal input from -1 to +1 they output from 0 to 1. This can be seen, for example, in the defaults to <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a>, where the <code>mul</code> and <code>add</code> arguments are both <code>0.5</code>, constraining the video signal between 0 and 1.
+Another point to note is that while audio signals normally operate in the domain from -1 to +1, with negative signals indicating a moment of underpressure in the sound wave, video signals only vary from 0 to 1. Light can only be present or absent in this video synthesizer, with 0 indicating no light and 1 indicating maximum brightness of light. Most video cards will clamp output between 0 and 1, but Scintillator doesn't take any special steps to limit signals, and video signals outside of the range are typically clamped. As a result of the different range, many of the default inputs on <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a>s with analogous <a href="https://doc.sccode.org/Classes/UGen.html">UGen <img src="/images/external-link.svg" class="one-liner"></a>s are are adjusted so that instead of providing a signal input from -1 to +1 they output from 0 to 1. This can be seen, for example, in the defaults to <a href="{{< ref "/docs/VGens/Video Oscillators/VSinOsc" >}}">VSinOsc</a>, where the <code>mul</code> and <code>add</code> arguments are both <code>0.5</code>, constraining the video signal between 0 and 1.
 
 
 
 {{< highlight supercollider >}}
 (
 ~w = ScinthDef.new(\wave, { |f=1|
-    BWOut.fr(VSinOsc.fr(freq: f));
+    VBWOut.pr(VSinOsc.pr(freq: f));
 }).add;
 )
 
@@ -178,7 +178,7 @@ Another thing to note is that Scintillator does its best to track your visual di
 
 
 
-So we've seen time-varying signals, what about spatial variation? Let's clean up the current Scinth, and define a new Scinth using the Classes/NormPos VGen:
+So we've seen time-varying signals, what about spatial variation? Let's clean up the current Scinth, and define a new Scinth using the <a href="{{< ref "/docs/VGens/Intrinsics/VNormPos" >}}">VNormPos</a> VGen:
 
 
 
@@ -189,7 +189,7 @@ So we've seen time-varying signals, what about spatial variation? Let's clean up
 
 (
 ~spot = ScinthDef.new(\spot, {
-    BWOut.fr(Length.fr(NormPos.fr));
+    VBWOut.pr(VLength.pr(VNormPos.pr));
 }).add;
 )
 
@@ -200,7 +200,7 @@ So we've seen time-varying signals, what about spatial variation? Let's clean up
 
 <img src="/images/schelp/spot.png" />
 
-What's going on here? At every pixel, Classes/NormPos is producing a <em>2-dimensional</em> constant signal that varies from -1 to +1 in the y (or vertical) dimension, and from around -1.33 to +1.33 in the x (or horizontal) dimension. The Classes/NormPos documentation has details about how the coordinate system is set up. That 2D signal is then being converted by the Classes/Length VGen into a single, mono signal, which varies from 0 or black at the origin in the center of the screen, to 1 (or greater than 1) at the edges of the screen. The video hardware is clamping the signal at 1, which is why outside of the top and bottom of the image the gradient stops at the edge of the unit circle.
+What's going on here? At every pixel, <a href="{{< ref "/docs/VGens/Intrinsics/VNormPos" >}}">VNormPos</a> is producing a <em>2-dimensional</em> constant signal that varies from -1 to +1 in the y (or vertical) dimension, and from around -1.33 to +1.33 in the x (or horizontal) dimension. The <a href="{{< ref "/docs/VGens/Intrinsics/VNormPos" >}}">VNormPos</a> documentation has details about how the coordinate system is set up. That 2D signal is then being converted by the <a href="{{< ref "/docs/VGens/Mathematics/Vector Math/VLength" >}}">VLength</a> VGen into a single, mono signal, which varies from 0 or black at the origin in the center of the screen, to 1 (or greater than 1) at the edges of the screen. The video hardware is clamping the signal at 1, which is why outside of the top and bottom of the image the gradient stops at the edge of the unit circle.
 
 
 
@@ -208,15 +208,15 @@ What's going on here? At every pixel, Classes/NormPos is producing a <em>2-dimen
 
 
 
-Astute readers may have noticed in the previous discussion that Classes/NormPos produces a 2D output signal for consumption by the Classes/Length VGen. There's a longer discussion about signal dimension in the "Dimensional Analysis" section of the <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> documentation. In short, video signals <em>at output</em> are always four-dimensional signals, and in Scintillator are always packed as <code>red, green, blue, alpha</code> signals. The multichannel expansion mechanism used in SuperCollider is flexible in that it allows SynthDefs to be defined for audio signals varying from a signal channel to complex multichannel ambisonic arrangements. Video signals trade a lot of this flexibility for the massive parallelism required to compute a color at each pixel 60 times per second. Furthermore, video cards are optimized to handle mathematical operations on all four channels at once in a single instruction. So instead of treating every ScinthDef as a hard-coded 4-channel signal chain, Scintillator tracks which combination of dimensions in input and output each VGen will produce, and validates at definition time if the combination of VGens and signal dimensions is valid. Furthermore, each VGen includes in its documentation a discussion of the supported pairs of input and output channels.
+Astute readers may have noticed in the previous discussion that <a href="{{< ref "/docs/VGens/Intrinsics/VNormPos" >}}">VNormPos</a> produces a 2D output signal for consumption by the <a href="{{< ref "/docs/VGens/Mathematics/Vector Math/VLength" >}}">VLength</a> VGen. There's a longer discussion about signal dimension in the "Dimensional Analysis" section of the <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> documentation. In short, video signals <em>at output</em> are always four-dimensional signals, and in Scintillator are always packed as <code>red, green, blue, alpha</code> signals. The multichannel expansion mechanism used in SuperCollider is flexible in that it allows SynthDefs to be defined for audio signals varying from a signal channel to complex multichannel ambisonic arrangements. Video signals trade a lot of this flexibility for the massive parallelism required to compute a color at each pixel 60 times per second. Furthermore, video cards are optimized to handle mathematical operations on all four channels at once in a single instruction. So instead of treating every ScinthDef as a hard-coded 4-channel signal chain, Scintillator tracks which combination of dimensions in input and output each VGen will produce, and validates at definition time if the combination of VGens and signal dimensions is valid. Furthermore, each VGen includes in its documentation a discussion of the supported pairs of input and output channels.
 
 
 
-So, for example, the Classes/NormPos VGen accepts no inputs and produces a 2D output always. The Classes/Length VGen accepts inputs from 1 to 4 channels and computes a vector length on the input. The result of the operation is a scalar, so regardless of the dimension that the input was Classes/Length will always produce a single-dimensional output. This single-dimensional output is accepted by BWOut, which <em>splats</em> the single input into the first three <code>red, blue, green</code> output channels, and adds the hard-coded <code>alpha</code> channel at 1.0, or completely opaque.
+So, for example, the <a href="{{< ref "/docs/VGens/Intrinsics/VNormPos" >}}">VNormPos</a> VGen accepts no inputs and produces a 2D output always. The <a href="{{< ref "/docs/VGens/Mathematics/Vector Math/VLength" >}}">VLength</a> VGen accepts inputs from 1 to 4 channels and computes a vector length on the input. The result of the operation is a scalar, so regardless of the dimension that the input was <a href="{{< ref "/docs/VGens/Mathematics/Vector Math/VLength" >}}">VLength</a> will always produce a single-dimensional output. This single-dimensional output is accepted by <a href="{{< ref "/docs/VGens/Vector Manipulation/Color Output/VBWOut" >}}">VBWOut</a>, which <em>splats</em> the single input into the first three <code>red, blue, green</code> output channels, and adds the hard-coded <code>alpha</code> channel at 1.0, or completely opaque.
 
 
 
-There are helper VGens that can pack single-channel signals into multi-channel ones, these are the Classes/Vec2, Classes/Vec3, and Classes/Vec4 classes. There are also VGens for extracting single-channel signals from individual channels from multi-channel signals, these are the <a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VX" >}}">VX</a>, <a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VY" >}}">VY</a>, <a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VZ" >}}">VZ</a>, and <a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VW" >}}">VW</a> VGens.
+There are helper VGens that can pack single-channel signals into multi-channel ones, these are the <a href="{{< ref "/docs/VGens/Vector Manipulation/Vector Building/VVec2" >}}">VVec2</a>, <a href="{{< ref "/docs/VGens/Vector Manipulation/Vector Building/VVec3" >}}">VVec3</a>, and <a href="{{< ref "/docs/VGens/Vector Manipulation/Vector Building/VVec4" >}}">VVec4</a> classes. There are also VGens for extracting single-channel signals from individual channels from multi-channel signals, these are the <a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VX" >}}">VX</a>, <a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VY" >}}">VY</a>, <a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VZ" >}}">VZ</a>, and <a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VW" >}}">VW</a> VGens.
 
 
 
@@ -232,10 +232,10 @@ Scintillator supports most common mathematical operations from 1-4 dimensions. A
 
 (
 ~rings = ScinthDef.new(\rings, {
-    var rad = Length.fr(NormPos.fr);  // rad is one-dimensional
-    var rgb = rad * Vec3.fr(31, 41, 61); // rgb is 3D
-    rgb = 0.5 + (rgb.sin * 0.5); // This is all 3D math!
-    Vec4.fr(VX.fr(rgb), VY.fr(rgb), VZ.fr(rgb), 1.0);
+    var rad = VLength.pr(VNormPos.pr);  // rad is one-dimensional
+    var rgb = rad * VVec3.pr(31, 41, 61); // rgb is 3D
+    rgb = 0.5 + (rgb.sin * 0.5); // Can do arithmetic with vectors and scalars
+    VVec4.pr(VX.pr(rgb), VY.pr(rgb), VZ.pr(rgb), 1.0);
 }).add;
 )
 
@@ -246,7 +246,7 @@ Scintillator supports most common mathematical operations from 1-4 dimensions. A
 
 <img src="/images/schelp/rings.png" />
 
-Important to understand that the <code>sin</code> operation is happening on <em>each channel independently</em>. It can be instructive to re-run this example with only one color channel enabled at a time, to understand what is happening in the red, green, and blue channels independently before trying to understand how the colors are mixing in the combined image. This example also demonstrates that any 4-D vector is accepted as valid output, the Classes/RGBOut, Classes/RGBAOut, and Classes/BWOut classes are just convenience methods.
+Important to understand that the <code>sin</code> operation is happening on <em>each channel independently</em>. It can be instructive to re-run this example with only one color channel enabled at a time, to understand what is happening in the red, green, and blue channels independently before trying to understand how the colors are mixing in the combined image. This example also demonstrates that any 4-D vector is accepted as valid output, the <a href="{{< ref "/docs/VGens/Vector Manipulation/Color Output/VRGBOut" >}}">VRGBOut</a>, <a href="{{< ref "/docs/VGens/Vector Manipulation/Color Output/VRGBAOut" >}}">VRGBAOut</a>, and <a href="{{< ref "/docs/VGens/Vector Manipulation/Color Output/VBWOut" >}}">VBWOut</a> classes are just convenience methods.
 
 
 
@@ -266,9 +266,9 @@ The last experiment in this quick start guide is to combine variation in both ti
 
 (
 ~zoom = ScinthDef.new(\zoom, {
-    var pos = NormPos.fr;
-    var box = 1.0 - max(VX.fr(pos).abs, VY.fr(pos).abs);
-    BWOut.fr(VSaw.fr(phase: box));
+    var pos = VNormPos.pr;
+    var box = 1.0 - max(VX.pr(pos).abs, VY.pr(pos).abs);
+    VBWOut.pr(VSaw.pr(phase: box));
 }).add;
 )
 
@@ -295,5 +295,5 @@ Scintillator is still in active development. The <a href="https://scintillatorsy
 
 
 
-It's definitely worth perusing the <a href="{{< ref "/docs/Guides/VGens-Overview" >}}">VGens Overview</a> to get a better understanding of currently supported VGens. There are a lot of additional features planned for Scintillator, which will likely be documented in separate, independent guides. Lastly, join the conversation! Post your feedback and questions on the <a href="https://github.com/ScintillatorSynth/Scintillator">GitHub page <img src="/images/external-link.svg" class="one-liner"></a>, find me on the SuperCollider slack channel, or drop me a line over email.
+It's definitely worth perusing the <a href="{{< ref "/docs/Guides/VGens-Overview" >}}">VGens Overview</a> to get a better understanding of currently supported VGens. There are a lot of additional features planned for Scintillator, which will likely be documented in separate, independent guides. Lastly, join the conversation! Post your feedback and questions on the <a href="https://github.com/ScintillatorSynth/Scintillator">GitHub page <img src="/images/external-link.svg" class="one-liner"></a>, find me on the SuperCollider Slack, there's a dedicated #scintillator channel, or drop me a line over email. I'd be very happy to hear from you!
 
