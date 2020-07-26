@@ -1,11 +1,11 @@
 ---
-title: TexPos
-linkTitle: TexPos
+title: VTexPos
+linkTitle: VTexPos
 weight: 5
 description: VGen providing geometry-specific texture coordinates for image sampling.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> Classes/FragCoord Classes/ImageBuffer <a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a> 
+###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/VNormPos" >}}">VNormPos</a> <a href="{{< ref "/docs/VGens/Built-In/VFragCoord" >}}">VFragCoord</a> <a href="{{< ref "/docs/Media/ScinImageBuffer" >}}">ScinImageBuffer</a> Classes/VSampler 
 
 
 
@@ -14,7 +14,11 @@ description: VGen providing geometry-specific texture coordinates for image samp
 
 
 
-TexPos provides a texture coordinate representing the position on the underlying rendered geometry (currently only a full-screen rectangle). Unlike vertex coordinates such as those provided by <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a>, texture coordinates vary from [0, 1] with 0, 0 in the upper-left hand corner. When rendering the full-screen rectangle they can be thought of as Classes/FragCoord scaled to resolution-independent units. TexPos is most commonly seen as in input to the <a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a> for rendering images.
+VTexPos provides a texture coordinate representing the position on the underlying rendered geometry (currently only a full-screen rectangle). Unlike vertex coordinates such as those provided by <a href="{{< ref "/docs/VGens/Intrinsics/VNormPos" >}}">VNormPos</a>, texture coordinates vary from [0, 1] with 0, 0 in the upper-left hand corner. When rendering the full-screen rectangle they can be thought of as <a href="{{< ref "/docs/VGens/Built-In/VFragCoord" >}}">VFragCoord</a> scaled to resolution-independent units. TexPos is most commonly seen as in input to the Classes/VSampler for rendering images.
+
+
+
+<strong>Supported Rates: shape, pixel</strong>
 
 
 
@@ -23,7 +27,15 @@ TexPos provides a texture coordinate representing the position on the underlying
 
 
 
-### TexPos.fr: METHOD NOT FOUND!
+### .sr
+
+
+
+### .pr
+
+
+
+Make a VTexPos VGen at requested rate.
 
 
 
@@ -51,6 +63,14 @@ none
 </td></tr>
 
 </table>
+
+
+#### Returns:
+
+
+
+A texture coordinate usable in a ScinSampler.
+
 
 
 #### Inherited class methods
@@ -83,12 +103,12 @@ none
 )
 
 (
-~ib = ImageBuffer.read(path: "~/src/TestGoldImages/sourceMedia/molly.png".standardizePath);
+~ib = ScinImageBuffer.read(path: "~/src/TestGoldImages/sourceMedia/molly.png".standardizePath);
 )
 
 (
 ~f = ScinthDef.new(\f, {
-    Sampler.fr(~ib, TexPos.fr);
+    VSampler.pr(~ib, VTexPos.pr);
 }).add;
 )
 
@@ -97,7 +117,7 @@ none
 )
 {{< /highlight >}}
 
-<img src="/images/schelp/TexPosA.png" />
+<img src="/images/schelp/VTexPosA.png" />
 
 {{< highlight supercollider >}}
 // Molly doesn't appreciate being rendered in the wrong aspect ratio! It compromises
@@ -111,8 +131,8 @@ none
 ~f = ScinthDef.new(\f, {
     var screenAspect = ~o.width / ~o.height;
     var imageAspect = ~ib.width / ~ib.height;
-    Sampler.fr(~ib,
-        TexPos.fr * Vec2.fr(screenAspect, 1.0) / Vec2.fr(imageAspect, 1.0));
+    VSampler.pr(~ib,
+        VTexPos.pr * VVec2.pr(screenAspect, 1.0) / VVec2.pr(imageAspect, 1.0));
 }).add;
 )
 
@@ -121,7 +141,7 @@ none
 )
 {{< /highlight >}}
 
-<img src="/images/schelp/TexPosB.png" />
+<img src="/images/schelp/VTexPosB.png" />
 
 
 

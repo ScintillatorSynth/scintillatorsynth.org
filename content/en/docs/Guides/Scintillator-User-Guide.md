@@ -178,7 +178,7 @@ Another thing to note is that Scintillator does its best to track your visual di
 
 
 
-So we've seen time-varying signals, what about spatial variation? Let's clean up the current Scinth, and define a new Scinth using the <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> VGen:
+So we've seen time-varying signals, what about spatial variation? Let's clean up the current Scinth, and define a new Scinth using the Classes/NormPos VGen:
 
 
 
@@ -200,7 +200,7 @@ So we've seen time-varying signals, what about spatial variation? Let's clean up
 
 <img src="/images/schelp/spot.png" />
 
-What's going on here? At every pixel, <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> is producing a <em>2-dimensional</em> constant signal that varies from -1 to +1 in the y (or vertical) dimension, and from around -1.33 to +1.33 in the x (or horizontal) dimension. The <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> documentation has details about how the coordinate system is set up. That 2D signal is then being converted by the Classes/Length VGen into a single, mono signal, which varies from 0 or black at the origin in the center of the screen, to 1 (or greater than 1) at the edges of the screen. The video hardware is clamping the signal at 1, which is why outside of the top and bottom of the image the gradient stops at the edge of the unit circle.
+What's going on here? At every pixel, Classes/NormPos is producing a <em>2-dimensional</em> constant signal that varies from -1 to +1 in the y (or vertical) dimension, and from around -1.33 to +1.33 in the x (or horizontal) dimension. The Classes/NormPos documentation has details about how the coordinate system is set up. That 2D signal is then being converted by the Classes/Length VGen into a single, mono signal, which varies from 0 or black at the origin in the center of the screen, to 1 (or greater than 1) at the edges of the screen. The video hardware is clamping the signal at 1, which is why outside of the top and bottom of the image the gradient stops at the edge of the unit circle.
 
 
 
@@ -208,11 +208,11 @@ What's going on here? At every pixel, <a href="{{< ref "/docs/VGens/Intrinsics/N
 
 
 
-Astute readers may have noticed in the previous discussion that <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> produces a 2D output signal for consumption by the Classes/Length VGen. There's a longer discussion about signal dimension in the "Dimensional Analysis" section of the <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> documentation. In short, video signals <em>at output</em> are always four-dimensional signals, and in Scintillator are always packed as <code>red, green, blue, alpha</code> signals. The multichannel expansion mechanism used in SuperCollider is flexible in that it allows SynthDefs to be defined for audio signals varying from a signal channel to complex multichannel ambisonic arrangements. Video signals trade a lot of this flexibility for the massive parallelism required to compute a color at each pixel 60 times per second. Furthermore, video cards are optimized to handle mathematical operations on all four channels at once in a single instruction. So instead of treating every ScinthDef as a hard-coded 4-channel signal chain, Scintillator tracks which combination of dimensions in input and output each VGen will produce, and validates at definition time if the combination of VGens and signal dimensions is valid. Furthermore, each VGen includes in its documentation a discussion of the supported pairs of input and output channels.
+Astute readers may have noticed in the previous discussion that Classes/NormPos produces a 2D output signal for consumption by the Classes/Length VGen. There's a longer discussion about signal dimension in the "Dimensional Analysis" section of the <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> documentation. In short, video signals <em>at output</em> are always four-dimensional signals, and in Scintillator are always packed as <code>red, green, blue, alpha</code> signals. The multichannel expansion mechanism used in SuperCollider is flexible in that it allows SynthDefs to be defined for audio signals varying from a signal channel to complex multichannel ambisonic arrangements. Video signals trade a lot of this flexibility for the massive parallelism required to compute a color at each pixel 60 times per second. Furthermore, video cards are optimized to handle mathematical operations on all four channels at once in a single instruction. So instead of treating every ScinthDef as a hard-coded 4-channel signal chain, Scintillator tracks which combination of dimensions in input and output each VGen will produce, and validates at definition time if the combination of VGens and signal dimensions is valid. Furthermore, each VGen includes in its documentation a discussion of the supported pairs of input and output channels.
 
 
 
-So, for example, the <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> VGen accepts no inputs and produces a 2D output always. The Classes/Length VGen accepts inputs from 1 to 4 channels and computes a vector length on the input. The result of the operation is a scalar, so regardless of the dimension that the input was Classes/Length will always produce a single-dimensional output. This single-dimensional output is accepted by BWOut, which <em>splats</em> the single input into the first three <code>red, blue, green</code> output channels, and adds the hard-coded <code>alpha</code> channel at 1.0, or completely opaque.
+So, for example, the Classes/NormPos VGen accepts no inputs and produces a 2D output always. The Classes/Length VGen accepts inputs from 1 to 4 channels and computes a vector length on the input. The result of the operation is a scalar, so regardless of the dimension that the input was Classes/Length will always produce a single-dimensional output. This single-dimensional output is accepted by BWOut, which <em>splats</em> the single input into the first three <code>red, blue, green</code> output channels, and adds the hard-coded <code>alpha</code> channel at 1.0, or completely opaque.
 
 
 

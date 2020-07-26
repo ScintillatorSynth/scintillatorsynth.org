@@ -5,7 +5,7 @@ weight: 5
 description: Represents a server-side graphics memory region for sampling static images.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: Classes/VTexPos Classes/VSampler 
+###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/VTexPos" >}}">VTexPos</a> Classes/VSampler 
 
 
 

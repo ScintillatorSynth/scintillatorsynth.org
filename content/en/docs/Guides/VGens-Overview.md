@@ -226,7 +226,7 @@ Samples the provided imageBuffer at <code>pos</code> and returns the 4D color si
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a><code>.fr()</code>
+Classes/TexPos<code>.fr()</code>
 
 </td><td>
 
@@ -303,7 +303,7 @@ Returns the dimensions in pixels of the provided ScinImageBuffer. Roughly analog
 
 
 
-Scintillator offers a few different means to determine the position of the current fragment shader relative to the geometry being rendered, or the onscreen pixel dimensions. The <a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a> VGen is in the Image Sampling section.
+Scintillator offers a few different means to determine the position of the current fragment shader relative to the geometry being rendered, or the onscreen pixel dimensions. The Classes/TexPos VGen is in the Image Sampling section.
 
 
 <table>
@@ -326,7 +326,7 @@ Scintillator offers a few different means to determine the position of the curre
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a><code>.fr()</code>
+<a href="{{< ref "/docs/VGens/Intrinsics/VNormPos" >}}">VNormPos</a><code>.pr()</code>
 
 </td><td>
 
@@ -361,7 +361,7 @@ Normalized fragment position
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a><code>.fr()</code>
+<a href="{{< ref "/docs/VGens/Intrinsics/VTexPos" >}}">VTexPos</a><code>.pr()</code>
 
 </td><td>
 

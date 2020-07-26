@@ -5,7 +5,7 @@ weight: 5
 description: Fragment shader pixel coordinates VGen.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> <a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a> <a href="{{< ref "/docs/Developer Documentation/Scintillator-Default-Graphics-Setup" >}}">Scintillator Default Graphics Setup</a> 
+###### See also: Classes/NormPos Classes/TexPos <a href="{{< ref "/docs/Developer Documentation/Scintillator-Default-Graphics-Setup" >}}">Scintillator Default Graphics Setup</a> 
 
 
 
