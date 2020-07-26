@@ -216,7 +216,7 @@ So, for example, the Classes/NormPos VGen accepts no inputs and produces a 2D ou
 
 
 
-There are helper VGens that can pack single-channel signals into multi-channel ones, these are the <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec2" >}}">Vec2</a>, <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec3" >}}">Vec3</a>, and <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a> classes. There are also VGens for extracting single-channel signals from individual channels from multi-channel signals, these are the <a href="{{< ref "/docs/VGens/Vector Manipulation/VX" >}}">VX</a>, <a href="{{< ref "/docs/VGens/Vector Manipulation/VY" >}}">VY</a>, <a href="{{< ref "/docs/VGens/Vector Manipulation/VZ" >}}">VZ</a>, and <a href="{{< ref "/docs/VGens/Vector Manipulation/VW" >}}">VW</a> VGens.
+There are helper VGens that can pack single-channel signals into multi-channel ones, these are the Classes/Vec2, Classes/Vec3, and Classes/Vec4 classes. There are also VGens for extracting single-channel signals from individual channels from multi-channel signals, these are the <a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VX" >}}">VX</a>, <a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VY" >}}">VY</a>, <a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VZ" >}}">VZ</a>, and <a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VW" >}}">VW</a> VGens.
 
 
 

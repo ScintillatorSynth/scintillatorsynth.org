@@ -27,11 +27,11 @@ VNormPos provides a 2D fragment screen position, adjusted for screen width and h
 
 
 
-### .sr
+### VNormPos.sr
 
 
 
-### .pr
+### VNormPos.pr
 
 
 

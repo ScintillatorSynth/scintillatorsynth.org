@@ -5,7 +5,7 @@ weight: 5
 description: Represents a server-side graphics memory region for sampling static images.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/VTexPos" >}}">VTexPos</a> Classes/VSampler 
+###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/VTexPos" >}}">VTexPos</a> <a href="{{< ref "/docs/VGens/Image Sampling/VSampler" >}}">VSampler</a> 
 
 
 
@@ -14,7 +14,7 @@ description: Represents a server-side graphics memory region for sampling static
 
 
 
-The ScinImageBuffer class is designed to be analagous to the SuperCollider audio <a href="https://doc.sccode.org/Classes/Buffer.html">Buffer <img src="/images/external-link.svg" class="one-liner"></a> class, but for reading static images for sampling. ScinImageBuffers are most commonly used inside of <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> functions as arguments to Classes/VSampler instances. Currently ScinImageBuffer support is limited to reading static images, but more may be added in the future.
+The ScinImageBuffer class is designed to be analagous to the SuperCollider audio <a href="https://doc.sccode.org/Classes/Buffer.html">Buffer <img src="/images/external-link.svg" class="one-liner"></a> class, but for reading static images for sampling. ScinImageBuffers are most commonly used inside of <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> functions as arguments to <a href="{{< ref "/docs/VGens/Image Sampling/VSampler" >}}">VSampler</a> instances. Currently ScinImageBuffer support is limited to reading static images, but more may be added in the future.
 
 
 
@@ -23,7 +23,7 @@ The ScinImageBuffer class is designed to be analagous to the SuperCollider audio
 
 
 
-### .read
+### ScinImageBuffer.read(server, path, width, height, action, bufnum)
 
 
 

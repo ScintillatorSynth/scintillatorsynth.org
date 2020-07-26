@@ -27,7 +27,7 @@ Provides a single value for all three color channels, resulting in a black-and-w
 
 
 
-### .pr
+### VBWOut.pr(value)
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: VVecMix
-linkTitle: VVecMix
+title: VMix
+linkTitle: VMix
 weight: 5
 description: Piecewise vector blending VGen
 ---
@@ -27,19 +27,19 @@ Similar to the binary operator <code>blend</code>, returns a linear mix of <code
 
 
 
-### VVecMix.fr(u, v, a)
+### VMix.fr(u, v, a)
 
 
 
-### VVecMix.sr(u, v, a)
+### VMix.sr(u, v, a)
 
 
 
-### VVecMix.pr(u, v, a)
+### VMix.pr(u, v, a)
 
 
 
-Make a VVecMix VGen at requested rate.
+Make a VMix VGen at requested rate.
 
 
 

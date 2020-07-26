@@ -191,7 +191,7 @@ VGens for reading from <a href="{{< ref "/docs/Media/ScinImageBuffer" >}}">ScinI
 </td></tr>
 <tr><td>
 
-<a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a><code>.fr(image, pos)</code>
+<a href="{{< ref "/docs/VGens/Image Sampling/VSampler" >}}">VSampler</a><code>.pr(image, pos)</code>
 
 </td><td>
 
@@ -221,12 +221,12 @@ image, 2
 </table>
 </td><td>
 
-Samples the provided imageBuffer at <code>pos</code> and returns the 4D color signal as <code>(r, g, b, a)</code>
+Samples the provided imageBuffer at <code>pos</code> and returns the 4D color signal as <code>(red, green, blue, alpha)</code>
 
 </td></tr>
 <tr><td>
 
-Classes/TexPos<code>.fr()</code>
+<a href="{{< ref "/docs/VGens/Intrinsics/VTexPos" >}}">VTexPos</a><code>.fr()</code>
 
 </td><td>
 
@@ -261,7 +261,7 @@ Texture Sampler position
 </td></tr>
 <tr><td>
 
-Classes/TextureSize<code>.fr(image)</code>
+Classes/VTextureSize<code>.fr(image)</code>
 
 </td><td>
 
@@ -438,11 +438,11 @@ Onscreen coordinates of current fragment in pixels
 
 
 
-These utility UGens allow the grouping of one-dimensional elements into vectors, access to individual elements within vectors, and lastly a convenience function to repeat (or <em>splat</em>) a single element across all elements within a vector.
+These utility VGens allow the grouping of one-dimensional elements into vectors, access to individual elements within vectors, and lastly a convenience function to repeat (or <em>splat</em>) a single element across all elements within a vector.
 
 
 
-#### Building Vectors
+#### Vector Building
 
 
 
@@ -469,7 +469,7 @@ Some VGens require inputs that are higher-dimensional vectors. To construct thos
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/Vec2" >}}">Vec2</a><code>.fr(x, y)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Vector Building/VVec2" >}}">VVec2</a><code>.fr(x, y)</code>
 
 </td><td>
 
@@ -504,7 +504,7 @@ Construct a 2D vector from individual elements <code>x</code> and <code>y</code>
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/Vec3" >}}">Vec3</a><code>.fr(x, y, z)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Vector Building/VVec3" >}}">VVec3</a><code>.fr(x, y, z)</code>
 
 </td><td>
 
@@ -539,7 +539,7 @@ Construct a 3D vector from individual elements <code>x</code> and <code>y</code>
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a><code>.fr(x, y, z, w)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Vector Building/VVec4" >}}">VVec4</a><code>.fr(x, y, z, w)</code>
 
 </td><td>
 
@@ -574,7 +574,7 @@ Construct a 4D vector from individual elements <code>x</code> and <code>y</code>
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/Splat2" >}}">Splat2</a><code>.fr(x)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Vector Building/VSplat2" >}}">VSplat2</a><code>.fr(x)</code>
 
 </td><td>
 
@@ -609,7 +609,7 @@ Construct a 2D vector from a single element copied into both
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/Splat3" >}}">Splat3</a><code>.fr(x)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Vector Building/VSplat3" >}}">VSplat3</a><code>.fr(x)</code>
 
 </td><td>
 
@@ -644,7 +644,7 @@ Construct a 3D vector from a single element copied into both
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/Splat4" >}}">Splat4</a><code>.fr(x)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Vector Building/VSplat4" >}}">VSplat4</a><code>.fr(x)</code>
 
 </td><td>
 
@@ -681,11 +681,11 @@ Construct a 4D vector from a single element copied into both
 </table>
 
 
-#### Accessing Elements Within Vectors
+#### Element Access
 
 
 
-To break out a single-dimensional signal from a higher-dimensional vector, use the <code>VN</code> classes. These follow the computer graphics naming conventions for elements within the vector, where the names <em>x, y, z, w</em> are used to indicate the first through fourth element respectively.
+To break out a single-dimensional signal from a higher-dimensional vector, use the <code>VX</code> and related classes. These follow the computer graphics naming conventions for elements within the vector, where the names <em>x, y, z, w</em> are used to indicate the first through fourth element respectively.
 
 
 <table>
@@ -708,7 +708,7 @@ To break out a single-dimensional signal from a higher-dimensional vector, use t
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/VX" >}}">VX</a><code>.fr(v)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VX" >}}">VX</a><code>.fr(v)</code>
 
 </td><td>
 
@@ -770,7 +770,7 @@ Return the first element in the vector.
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/VY" >}}">VY</a><code>.fr(v)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VY" >}}">VY</a><code>.fr(v)</code>
 
 </td><td>
 
@@ -823,7 +823,7 @@ Return the second element in the vector.
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/VZ" >}}">VZ</a><code>.fr(v)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VZ" >}}">VZ</a><code>.fr(v)</code>
 
 </td><td>
 
@@ -867,7 +867,7 @@ Return the third element in the vector.
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Vector Manipulation/VW" >}}">VW</a><code>.fr(v)</code>
+<a href="{{< ref "/docs/VGens/Vector Manipulation/Element Access/VW" >}}">VW</a><code>.fr(v)</code>
 
 </td><td>
 
@@ -1309,7 +1309,7 @@ Just like the binary operator <code>thresh</code>, returns <code>0</code> when <
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Mathematics/Signal Processing/VVecMix" >}}">VVecMix</a><code>.pr(v, u, a)</code>
+Classes/VVecMix<code>.pr(v, u, a)</code>
 
 </td><td>
 
@@ -1575,12 +1575,12 @@ The following tables detail the current supported operations along with the ones
 
 
 
-For higher-dimensional signals all operations happen <em>piecewise</em>, meaning the operator is applied to each component of the signal independently. For example if <code>b = a.neg</code> and both <code>a</code> and <code>b</code> are <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a> objects then:
+For higher-dimensional signals all operations happen <em>piecewise</em>, meaning the operator is applied to each component of the signal independently. For example if <code>b = a.neg</code> and both <code>a</code> and <code>b</code> are <a href="{{< ref "/docs/VGens/Vector Manipulation/Vector Building/VVec4" >}}">VVec4</a> objects then:
 
 
 
 {{< highlight supercollider >}}
-b = Vec4.fr(
+b = VVec4.fr(
     VX.fr(a).neg,
     VY.fr(a).neg,
     VZ.fr(a).neg,
@@ -2521,12 +2521,12 @@ To be researched what this operator does
 
 
 
-Binary operations also happen <em>piecewise</em>, meaning that the binary operator is applied to each individual component separately. Conceptually if <code>c = a * b</code> and both <code>a</code> and <code>b</code> are <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a>s then:
+Binary operations also happen <em>piecewise</em>, meaning that the binary operator is applied to each individual component separately. Conceptually if <code>c = a * b</code> and both <code>a</code> and <code>b</code> are <a href="{{< ref "/docs/VGens/Vector Manipulation/Vector Building/VVec4" >}}">VVec4</a>s then:
 
 
 
 {{< highlight supercollider >}}
-c = Vec4.fr(
+c = VVec4.fr(
     VX.fr(a) * VX.fr(b),
     VY.fr(a) * VY.fr(b),
     VZ.fr(a) * VZ.fr(b),

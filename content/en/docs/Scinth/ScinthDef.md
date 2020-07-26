@@ -75,7 +75,7 @@ The <a href="{{< ref "/docs/VGens/Video Oscillators/VSinOsc" >}}">VSinOsc</a> VG
 
 
 
-The <code>freq</code> and <code>phase</code> arguments to VSinOsc here use the <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a> VGen, which takes 4 one-dimensional inputs and merges those into a single four-dimensional output. The <code>mul</code> and <code>add</code> arguments are left to defaults, but because VSinOsc requires that all of its inputs are the same dimension, we use the <a href="{{< ref "/docs/VGens/Vector Manipulation/Splat4" >}}">Splat4</a> VGen to make a four-dimensional vector out of a single one-dimensional input. Because the default arguments to <code>mul</code> and <code>add</code> are single-dimensional, we have to explicitly specify the higher-dimensional inputs to the VSinOsc, or it will fail dimensional analysis.
+The <code>freq</code> and <code>phase</code> arguments to VSinOsc here use the Classes/Vec4 VGen, which takes 4 one-dimensional inputs and merges those into a single four-dimensional output. The <code>mul</code> and <code>add</code> arguments are left to defaults, but because VSinOsc requires that all of its inputs are the same dimension, we use the Classes/Splat4 VGen to make a four-dimensional vector out of a single one-dimensional input. Because the default arguments to <code>mul</code> and <code>add</code> are single-dimensional, we have to explicitly specify the higher-dimensional inputs to the VSinOsc, or it will fail dimensional analysis.
 
 
 

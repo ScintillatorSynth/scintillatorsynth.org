@@ -27,7 +27,7 @@ Groups single-channel red, green, and blue color values into the required 4-dime
 
 
 
-### .pr
+### VRGBOut.pr(red, green, blue)
 
 
 

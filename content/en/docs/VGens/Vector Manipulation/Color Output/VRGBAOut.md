@@ -27,7 +27,7 @@ Groups single-channel red, green, blue, and alpha color values into the required
 
 
 
-### .pr
+### VRGBAOut.pr(red, green, blue, alpha)
 
 
 
