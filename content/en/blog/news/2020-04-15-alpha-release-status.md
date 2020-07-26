@@ -11,7 +11,7 @@ author: Luke Nihlen
 I spent much of the past few weeks working on writing [documentation]({{< ref "/docs" >}}) for all of the Scintillator
 SuperCollider language classes. I wanted to make sure that most if not all of the available
 [VGens]({{< ref "/docs/VGens" >}}) are documented, and also that there was some kind of
-[overview]({{< ref "/docs/VGens/VGens-Overview.md" >}}) detailing them.
+[overview]({{< ref "/docs/Guides/VGens-Overview.md" >}}) detailing them.
 
 Things aren't totally finished documentation wise, including some important pieces like the user guide and overall
 installation instructions. But I'm going to take a break from working on documentation and turn my attention to the

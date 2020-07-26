@@ -67,7 +67,7 @@ When constructing a ScinthDef the VGens are subject to a validation step called 
 
 
 
-From the top, the <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> VGen takes no inputs and produces a single two-dimensional output, which is the sole input to the <a href="{{< ref "/docs/VGens/Mathematics/Vector Math/Length" >}}">Length</a> VGen. The Length VGen can accept inputs with dimesions from 1 to 4, and always produces a single-dimensional output, the scalar length of the input vector, in this case stored in the <code>length</code> variable.
+From the top, the <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a> VGen takes no inputs and produces a single two-dimensional output, which is the sole input to the Classes/Length VGen. The Length VGen can accept inputs with dimesions from 1 to 4, and always produces a single-dimensional output, the scalar length of the input vector, in this case stored in the <code>length</code> variable.
 
 
 
@@ -94,7 +94,7 @@ A planned "quality of life" improvement for ScinthDef dimensional analysis is ca
 
 
 
-### ScinthDef.new(name, vGenGraphFunc)
+### ScinthDef.new(name, vGenGraphFunc, shape, renderOptions)
 
 
 
@@ -114,6 +114,71 @@ A planned "quality of life" improvement for ScinthDef dimensional analysis is ca
 
 <strong>A function.</strong> The graph function defining the how the <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> objects are connected.
 
+
+
+##### shape
+
+
+
+<strong>An optional Shape object.</strong> Describes the geometry to render the ScinthDef with. See the Classes/Shape documentation for more details.
+
+
+
+##### renderOptions
+
+
+
+<strong>An optional IndentityDictionary.</strong> The contents detail render options for this ScinthDef. Supported keys are as follows:
+
+
+<table>
+<tr><td>
+
+<strong>key</strong>
+
+</td><td>
+
+<strong>values</strong>
+
+</td></tr>
+<tr><td>
+
+<code>polygonMode</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<code>\fill</code>
+
+</td><td>
+
+The default, fills the polygons completely.
+
+</td></tr>
+<tr><td>
+
+<code>\line</code>
+
+</td><td>
+
+Outlines the polygons only.
+
+</td></tr>
+<tr><td>
+
+<code>\point</code>
+
+</td><td>
+
+Draws the vertices as points only.
+
+</td></tr>
+
+</table>
+</td></tr>
+
+</table>
 
 
 

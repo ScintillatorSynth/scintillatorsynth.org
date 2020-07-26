@@ -36,15 +36,15 @@ Thanks to Josh Parmenter for some great advice and sharing his scripts for MacOS
 <ul>
 <li>
 
-The <a href="https://vulkan-tutorial.com">Vulkan Tutorial</a> website. Much of the original Vulkan setup code was typed in following this tutorial. Alexander Overvoorde seems to be the author of this site.
+The <a href="https://vulkan-tutorial.com">Vulkan Tutorial <img src="/images/external-link.svg" class="one-liner"></a> website. Much of the original Vulkan setup code was typed in following this tutorial. Alexander Overvoorde seems to be the author of this site.
 
 <li>
 
-<a href="https://www.saschawillems.de/">Sascha Willems</a> maintains numerous worked examples of various applications of Vulkan on <a href="https://github.com/SaschaWillems/Vulkan">GitHub</a> which were starting points for many features.
+<a href="https://www.saschawillems.de/">Sascha Willems <img src="/images/external-link.svg" class="one-liner"></a> maintains numerous worked examples of various applications of Vulkan on <a href="https://github.com/SaschaWillems/Vulkan">GitHub <img src="/images/external-link.svg" class="one-liner"></a> which were starting points for many features.
 
 <li>
 
-Sascha also maintains the <a href="https://vulkan.gpuinfo.org/">Vulkan Hardware Database</a>, a great source of information about the diversity of hardware out there supporting Vulkan.
+Sascha also maintains the <a href="https://vulkan.gpuinfo.org/">Vulkan Hardware Database <img src="/images/external-link.svg" class="one-liner"></a>, a great source of information about the diversity of hardware out there supporting Vulkan.
 
 </ul>
 
@@ -54,11 +54,11 @@ Sascha also maintains the <a href="https://vulkan.gpuinfo.org/">Vulkan Hardware 
 <ul>
 <li>
 
-The <a href="https://scintillatorsynth.org">Scintillator Website</a> is built with the <a href="https://gohugo.io/">Hugo</a> static site generator using the <a href="https://www.docsy.dev/">Docsy</a> theme.
+The <a href="https://scintillatorsynth.org">Scintillator Website <img src="/images/external-link.svg" class="one-liner"></a> is built with the <a href="https://gohugo.io/">Hugo <img src="/images/external-link.svg" class="one-liner"></a> static site generator using the <a href="https://www.docsy.dev/">Docsy <img src="/images/external-link.svg" class="one-liner"></a> theme.
 
 <li>
 
-External link icon courtesy of <a href="https://feathericons.com/">Feather Icons</a>.
+External link icon courtesy of <a href="https://feathericons.com/">Feather Icons <img src="/images/external-link.svg" class="one-liner"></a>.
 
 </ul>
 

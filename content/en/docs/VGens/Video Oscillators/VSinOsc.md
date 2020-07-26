@@ -18,6 +18,10 @@ VSinOsc, just like the audio UGen <a href="https://doc.sccode.org/Classes/SinOsc
 
 
 
+<strong>Supported Rates: frame, shape, pixel</strong>
+
+
+
 ## Class Methods
 ---
 
@@ -27,7 +31,53 @@ VSinOsc, just like the audio UGen <a href="https://doc.sccode.org/Classes/SinOsc
 
 
 
-<strong>dimensions</strong>
+### VSinOsc.sr(freq: 1.0, phase: 0.0, mul: 0.5, add: 0.5)
+
+
+
+### VSinOsc.pr(freq: 1.0, phase: 0.0, mul: 0.5, add: 0.5)
+
+
+
+Make a VSinOsc VGen at requested rate.
+
+
+
+#### Arguments
+
+##### freq
+
+
+
+Oscillator frequency in cycles per second or Hz.
+
+
+
+##### phase
+
+
+
+Oscillator phase in radians.
+
+
+
+##### mul
+
+
+
+Multiplier to apply to oscillator output.
+
+
+
+##### add
+
+
+
+Value to add to oscillator output after multiply.
+
+
+
+<strong>Dimensions</strong>
 
 
 <table>
@@ -80,40 +130,6 @@ VSinOsc, just like the audio UGen <a href="https://doc.sccode.org/Classes/SinOsc
 </table>
 
 
-#### Arguments
-
-##### freq
-
-
-
-Oscillator frequency in cycles per second or Hz.
-
-
-
-##### phase
-
-
-
-Oscillator phase in radians.
-
-
-
-##### mul
-
-
-
-Multiplier to apply to oscillator output.
-
-
-
-##### add
-
-
-
-Value to add to oscillator output after multiply.
-
-
-
 
 
 #### Inherited class methods
@@ -144,10 +160,10 @@ Value to add to oscillator output after multiply.
 // Scintillator currently can't "autosplat" defaults to
 // higher-dimensional arguments.
 ~k = ScinthDef.new(\k, { |dot = 0.5|
-    var r = Length.fr(NormPos.fr);
-    var rgb = VSinOsc.fr(Vec3.fr(r, 2.0 * r, 3.0 * r),
-        Vec3.fr, Splat3.fr(0.5), Splat3.fr(0.5));
-    RGBOut.fr(VX.fr(rgb), VY.fr(rgb), VZ.fr(rgb));
+    var r = VLength.pr(NormPos.pr);
+    var rgb = VSinOsc.pr(Vec3.pr(r, 2.0 * r, 3.0 * r),
+        Vec3.pr, Splat3.pr(0.5), Splat3.pr(0.5));
+    RGBOut.pr(VX.pr(rgb), VY.pr(rgb), VZ.pr(rgb));
 }).add;
 )
 

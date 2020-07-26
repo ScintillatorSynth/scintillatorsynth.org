@@ -1,11 +1,11 @@
 ---
-title: Distance
-linkTitle: Distance
+title: VDistance
+linkTitle: VDistance
 weight: 5
 description: Computes the distance between two vectors
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/Mathematics/Vector Math/Length" >}}">Length</a> 
+###### See also: <a href="{{< ref "/docs/VGens/Mathematics/Vector Math/VLength" >}}">VLength</a> 
 
 
 
@@ -14,7 +14,11 @@ description: Computes the distance between two vectors
 
 
 
-Distance computes the distance between two vectors by calculating the length of their difference. It works on input dimensions 1-4.
+VDistance computes the distance between two vectors by calculating the length of their difference, essentially <code>VLength.pr(v - u)</code>.
+
+
+
+<strong>Supported Rates: frame, shape, pixel</strong>
 
 
 
@@ -23,7 +27,47 @@ Distance computes the distance between two vectors by calculating the length of 
 
 
 
-### Distance.fr(x, y)
+### VDistance.fr(u, v)
+
+
+
+### VDistance.sr(u, v)
+
+
+
+### VDistance.pr(u, v)
+
+
+
+Make a VDistance VGen at the requested rate
+
+
+
+#### Arguments
+
+##### u
+
+
+
+First vector input for distance computation.
+
+
+
+##### v
+
+
+
+Second vector input for distance computation.
+
+
+
+
+
+#### Returns:
+
+
+
+The distance between u and v.
 
 
 
@@ -80,26 +124,6 @@ Distance computes the distance between two vectors by calculating the length of 
 </table>
 
 
-#### Arguments
-
-##### x
-
-
-
-First vector input for distance computation.
-
-
-
-##### y
-
-
-
-Second vector input for distance computation.
-
-
-
-
-
 #### Inherited class methods
 
 
@@ -145,4 +169,4 @@ Second vector input for distance computation.
 )
 {{< /highlight >}}
 
-<img src="/images/schelp/Distance.png" />
+<img src="/images/schelp/VDistance.png" />

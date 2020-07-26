@@ -20,7 +20,28 @@ There are only a few test oscillators implemented for now, with plans to add man
 <table>
 <tr><td>
 
+<strong>VGen</strong>
+
+</td><td>
+
+<strong>Rates</strong>
+
+</td><td>
+
+<strong>Dimensions</strong>
+
+</td><td>
+
+<strong>Description</strong>
+
+</td></tr>
+<tr><td>
+
 <a href="{{< ref "/docs/VGens/Video Oscillators/VSinOsc" >}}">VSinOsc</a><code>.fr(freq, phas, mul, add)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -79,6 +100,10 @@ Piecewise sinusodal oscillator, analogous to <a href="https://doc.sccode.org/Cla
 <tr><td>
 
 <a href="{{< ref "/docs/VGens/Video Oscillators/VSaw" >}}">VSaw</a><code>.fr(freq, phas, mul, add)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -149,7 +174,28 @@ VGens for reading from <a href="{{< ref "/docs/Media/ImageBuffer" >}}">ImageBuff
 <table>
 <tr><td>
 
+<strong>VGen</strong>
+
+</td><td>
+
+<strong>Rates</strong>
+
+</td><td>
+
+<strong>Dimensions</strong>
+
+</td><td>
+
+<strong>Description</strong>
+
+</td></tr>
+<tr><td>
+
 <a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a><code>.fr(image, pos)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -183,6 +229,10 @@ Samples the provided imageBuffer at <code>pos</code> and returns the 4D color si
 <a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a><code>.fr()</code>
 
 </td><td>
+
+shape, pixel
+
+</td><td>
 <table>
 <tr><td>
 
@@ -212,6 +262,10 @@ Texture Sampler position
 <tr><td>
 
 Classes/TextureSize<code>.fr(image)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -255,7 +309,28 @@ Scintillator offers a few different means to determine the position of the curre
 <table>
 <tr><td>
 
+<strong>VGen</strong>
+
+</td><td>
+
+<strong>Rates</strong>
+
+</td><td>
+
+<strong>Dimensions</strong>
+
+</td><td>
+
+<strong>Description</strong>
+
+</td></tr>
+<tr><td>
+
 <a href="{{< ref "/docs/VGens/Intrinsics/NormPos" >}}">NormPos</a><code>.fr()</code>
+
+</td><td>
+
+shape, pixel
 
 </td><td>
 <table>
@@ -289,6 +364,10 @@ Normalized fragment position
 <a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a><code>.fr()</code>
 
 </td><td>
+
+shape, pixel
+
+</td><td>
 <table>
 <tr><td>
 
@@ -317,7 +396,11 @@ Texture Sampler position
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Built-In/FragCoord" >}}">FragCoord</a><code>.fr()</code>
+<a href="{{< ref "/docs/VGens/Built-In/VFragCoord" >}}">VFragCoord</a><code>.pr()</code>
+
+</td><td>
+
+pixel
 
 </td><td>
 <table>
@@ -373,16 +456,24 @@ Some VGens require inputs that are higher-dimensional vectors. To construct thos
 
 </td><td>
 
-<strong>dimensions</strong>
+<strong>Rates</strong>
 
 </td><td>
 
-<strong>description</strong>
+<strong>Dimensions</strong>
+
+</td><td>
+
+<strong>Description</strong>
 
 </td></tr>
 <tr><td>
 
 <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec2" >}}">Vec2</a><code>.fr(x, y)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -416,6 +507,10 @@ Construct a 2D vector from individual elements <code>x</code> and <code>y</code>
 <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec3" >}}">Vec3</a><code>.fr(x, y, z)</code>
 
 </td><td>
+
+frame, shape, pixel
+
+</td><td>
 <table>
 <tr><td>
 
@@ -445,6 +540,10 @@ Construct a 3D vector from individual elements <code>x</code> and <code>y</code>
 <tr><td>
 
 <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a><code>.fr(x, y, z, w)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -478,6 +577,10 @@ Construct a 4D vector from individual elements <code>x</code> and <code>y</code>
 <a href="{{< ref "/docs/VGens/Vector Manipulation/Splat2" >}}">Splat2</a><code>.fr(x)</code>
 
 </td><td>
+
+frame, shape, pixel
+
+</td><td>
 <table>
 <tr><td>
 
@@ -509,6 +612,10 @@ Construct a 2D vector from a single element copied into both
 <a href="{{< ref "/docs/VGens/Vector Manipulation/Splat3" >}}">Splat3</a><code>.fr(x)</code>
 
 </td><td>
+
+frame, shape, pixel
+
+</td><td>
 <table>
 <tr><td>
 
@@ -538,6 +645,10 @@ Construct a 3D vector from a single element copied into both
 <tr><td>
 
 <a href="{{< ref "/docs/VGens/Vector Manipulation/Splat4" >}}">Splat4</a><code>.fr(x)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -584,16 +695,24 @@ To break out a single-dimensional signal from a higher-dimensional vector, use t
 
 </td><td>
 
-<strong>dimensions</strong>
+<strong>Rates</strong>
 
 </td><td>
 
-<strong>description</strong>
+<strong>Dimensions</strong>
+
+</td><td>
+
+<strong>Description</strong>
 
 </td></tr>
 <tr><td>
 
 <a href="{{< ref "/docs/VGens/Vector Manipulation/VX" >}}">VX</a><code>.fr(v)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -654,6 +773,10 @@ Return the first element in the vector.
 <a href="{{< ref "/docs/VGens/Vector Manipulation/VY" >}}">VY</a><code>.fr(v)</code>
 
 </td><td>
+
+frame, shape, pixel
+
+</td><td>
 <table>
 <tr><td>
 
@@ -703,6 +826,10 @@ Return the second element in the vector.
 <a href="{{< ref "/docs/VGens/Vector Manipulation/VZ" >}}">VZ</a><code>.fr(v)</code>
 
 </td><td>
+
+frame, shape, pixel
+
+</td><td>
 <table>
 <tr><td>
 
@@ -741,6 +868,10 @@ Return the third element in the vector.
 <tr><td>
 
 <a href="{{< ref "/docs/VGens/Vector Manipulation/VW" >}}">VW</a><code>.fr(v)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -783,7 +914,28 @@ Any 4D output is considered valid <a href="{{< ref "/docs/Scinth/ScinthDef" >}}"
 <table>
 <tr><td>
 
+<strong>VGen</strong>
+
+</td><td>
+
+<strong>Rates</strong>
+
+</td><td>
+
+<strong>Dimensions</strong>
+
+</td><td>
+
+<strong>Description</strong>
+
+</td></tr>
+<tr><td>
+
 Classes/RGBOut<code>.fr(r, g, b)</code>
+
+</td><td>
+
+pixel
 
 </td><td>
 <table>
@@ -817,6 +969,10 @@ Convenience object for color output at full alpha
 Classes/RGBAOut<code>.fr(r, g, b)</code>
 
 </td><td>
+
+pixel
+
+</td><td>
 <table>
 <tr><td>
 
@@ -846,6 +1002,10 @@ Convenience object for color output with alpha channel
 <tr><td>
 
 Classes/BWOut<code>.fr(x)</code>
+
+</td><td>
+
+pixel
 
 </td><td>
 <table>
@@ -897,16 +1057,24 @@ Scintillator offers per-element (or <em>piecewise</em>) operations as well as so
 
 </td><td>
 
-<strong>dimensions</strong>
+<strong>Rates</strong>
 
 </td><td>
 
-<strong>description</strong>
+<strong>Dimensions</strong>
+
+</td><td>
+
+<strong>Description</strong>
 
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Mathematics/Signal Processing/Clamp" >}}">Clamp</a><code>.fr(x, min, max)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Signal Processing/VClamp" >}}">VClamp</a><code>.pr(v, min, max)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -959,12 +1127,16 @@ Scintillator offers per-element (or <em>piecewise</em>) operations as well as so
 </table>
 </td><td>
 
-Video equivalent of <a href="https://doc.sccode.org/Classes/Clip.html">Clip <img src="/images/external-link.svg" class="one-liner"></a> UGen, piecewise bounds input <code>x</code> between <code>[min, max]</code>
+Video equivalent of <a href="https://doc.sccode.org/Classes/Clip.html">Clip <img src="/images/external-link.svg" class="one-liner"></a> UGen, piecewise bounds input <code>v</code> between <code>[min, max]</code>
 
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Mathematics/Vector Math/Length" >}}">Length</a><code>.fr(x)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Vector Math/VLength" >}}">VLength</a><code>.pr(v)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -1022,7 +1194,11 @@ Returns the length of the vector <code>x</code>, or the square root of the sum o
 </td></tr>
 <tr><td>
 
-<a href="{{< ref "/docs/VGens/Mathematics/Vector Math/Distance" >}}">Distance</a><code>.fr(x, y)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Vector Math/VDistance" >}}">VDistance</a><code>.pr(u, v)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -1066,12 +1242,16 @@ Returns the length of the vector <code>x</code>, or the square root of the sum o
 </table>
 </td><td>
 
-Computes the distance between <code>x</code> and <code>y</code>, which is the length of the vector <code>x - y</code>
+Computes the distance between <code>u</code> and <code>v</code>, which is the length of the vector <code>v - u</code>
 
 </td></tr>
 <tr><td>
 
-Classes/Step<code>.fr(step, x)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Signal Processing/VStep" >}}">VStep</a><code>.pr(step, x)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -1129,7 +1309,11 @@ Just like the binary operator <code>thresh</code>, returns <code>0</code> when <
 </td></tr>
 <tr><td>
 
-Classes/VecMix<code>.fr(x, y, a)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Signal Processing/VVecMix" >}}">VVecMix</a><code>.pr(v, u, a)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -1209,12 +1393,16 @@ Classes/VecMix<code>.fr(x, y, a)</code>
 </table>
 </td><td>
 
-Similar to the binary operator <code>blend</code>, returns a linear mix of <code>x, y</code> with <code>a</code> between <code>[0, 1]</code>. Supports piecewise comparison or a single blend argument to apply to all components
+Similar to the binary operator <code>blend</code>, returns a linear mix of <code>v, u</code> with <code>a</code> between <code>[0, 1]</code>. Supports piecewise blend or a single blend argument to apply to all components
 
 </td></tr>
 <tr><td>
 
-Classes/Dot<code>.fr(x, y)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Vector Math/VDot" >}}">VDot</a><code>.pr(u, v)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -1267,12 +1455,16 @@ Classes/Dot<code>.fr(x, y)</code>
 </table>
 </td><td>
 
-Returns the dot product between <code>x</code> and <code>y</code>, or the sum of the product of each component in the vector
+Returns the <a href="https://en.wikipedia.org/wiki/Dot_product">dot product <img src="/images/external-link.svg" class="one-liner"></a> between <code>u</code> and <code>v</code>, or the sum of the product of each component in the vector
 
 </td></tr>
 <tr><td>
 
-Classes/Cross<code>.fr(x, y)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Vector Math/VCross" >}}">VCross</a><code>.pr(u, v)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -1298,12 +1490,16 @@ Classes/Cross<code>.fr(x, y)</code>
 </table>
 </td><td>
 
-Returns the cross product of <code>x</code> and <code>y</code>
+Returns the <a href="https://en.wikipedia.org/wiki/Cross_product">cross product <img src="/images/external-link.svg" class="one-liner"></a> of <code>u</code> and <code>v</code>
 
 </td></tr>
 <tr><td>
 
-Classes/VNorm<code>.fr(x)</code>
+<a href="{{< ref "/docs/VGens/Mathematics/Vector Math/VNorm" >}}">VNorm</a><code>.pr(v)</code>
+
+</td><td>
+
+frame, shape, pixel
 
 </td><td>
 <table>
@@ -1356,7 +1552,7 @@ Classes/VNorm<code>.fr(x)</code>
 </table>
 </td><td>
 
-Returns a <em>normalized</em> vector parallel to <code>x</code> with length <code>1</code>
+Returns a <em>normalized</em> vector parallel to <code>v</code> with length <code>1</code>
 
 </td></tr>
 
@@ -1379,7 +1575,7 @@ The following tables detail the current supported operations along with the ones
 
 
 
-All unary operations support inputs in 1-4 dimensions, and produce outputs of the same dimension. For higher-dimensional signals all operations happen <em>piecewise</em>, meaning the operator is applied to each component of the signal independently. For example if <code>b = a.neg</code> and both <code>a</code> and <code>b</code> are <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a> objects then:
+For higher-dimensional signals all operations happen <em>piecewise</em>, meaning the operator is applied to each component of the signal independently. For example if <code>b = a.neg</code> and both <code>a</code> and <code>b</code> are <a href="{{< ref "/docs/VGens/Vector Manipulation/Vec4" >}}">Vec4</a> objects then:
 
 
 
@@ -1391,6 +1587,12 @@ b = Vec4.fr(
     VW.fr(a).neg);
 {{< /highlight >}}
 
+{{% alert title="Note" %}}
+
+
+All unary operations are supported at all rates, support inputs in 1-4 dimensions, and produce outputs of the same dimension.
+
+{{% /alert %}}
 
 <table>
 <tr><td>

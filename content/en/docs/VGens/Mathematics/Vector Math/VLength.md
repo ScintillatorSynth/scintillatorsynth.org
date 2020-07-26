@@ -1,11 +1,11 @@
 ---
-title: Length
-linkTitle: Length
+title: VLength
+linkTitle: VLength
 weight: 5
 description: Computes the length of the provided vector
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/Mathematics/Vector Math/Distance" >}}">Distance</a> 
+###### See also: <a href="{{< ref "/docs/VGens/Mathematics/Vector Math/VDistance" >}}">VDistance</a> 
 
 
 
@@ -14,7 +14,11 @@ description: Computes the length of the provided vector
 
 
 
-Length computes the length of the provided vector as the square root of the sum of the squares of its components. It works on input dimensions 1-4. In the 1D case it returns the absolute value of the input.
+VLength computes the length of the provided vector as the square root of the sum of the squares of its components. It works on input dimensions 1-4. In the 1D case it returns the absolute value of the input.
+
+
+
+<strong>Supported Rates: frame, shape, pixel</strong>
 
 
 
@@ -23,7 +27,39 @@ Length computes the length of the provided vector as the square root of the sum 
 
 
 
-### Length.fr(vec)
+### VLength.fr(v)
+
+
+
+### VLength.sr(v)
+
+
+
+### VLength.pr(v)
+
+
+
+Make a VLength VGen at requested rate.
+
+
+
+#### Arguments
+
+##### v
+
+
+
+The input vector.
+
+
+
+
+
+#### Returns:
+
+
+
+The length of the vector.
 
 
 
@@ -80,18 +116,6 @@ Length computes the length of the provided vector as the square root of the sum 
 </table>
 
 
-#### Arguments
-
-##### vec
-
-
-
-The input vector.
-
-
-
-
-
 #### Inherited class methods
 
 
@@ -134,4 +158,4 @@ The input vector.
 )
 {{< /highlight >}}
 
-<img src="/images/schelp/Length.png" />
+<img src="/images/schelp/VLength.png" />

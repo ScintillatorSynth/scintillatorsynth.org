@@ -5,7 +5,7 @@ weight: 5
 description: VGen for image size invariant fragment positions.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/VGens/Built-In/FragCoord" >}}">FragCoord</a> <a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a> <a href="{{< ref "/docs/Developer Documentation/Scintillator-Default-Graphics-Setup" >}}">Scintillator Default Graphics Setup</a> 
+###### See also: Classes/FragCoord <a href="{{< ref "/docs/VGens/Intrinsics/TexPos" >}}">TexPos</a> <a href="{{< ref "/docs/Developer Documentation/Scintillator-Default-Graphics-Setup" >}}">Scintillator Default Graphics Setup</a> 
 
 
 
@@ -23,7 +23,7 @@ NormPos provides a 2D fragment screen position, adjusted for screen width and he
 
 
 
-### NormPos.fr
+### NormPos.fr: METHOD NOT FOUND!
 
 
 

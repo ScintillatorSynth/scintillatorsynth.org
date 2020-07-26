@@ -9,7 +9,7 @@ description: Description of VGen yaml file format used by Scintillator synth ser
 
 
 
-### File Format
+### Top-Level Format
 ---
 
 
@@ -50,6 +50,23 @@ string
 </td><td>
 
 The name of the VGen, must be unique. Used to identify this VGen in ScinthDef descriptions.
+
+</td></tr>
+<tr><td>
+
+<code>rates</code>
+
+</td><td>
+
+list
+
+</td><td>
+
+<strong>required</strong>
+
+</td><td>
+
+A list of strings identifying the rates the VGen supports, at least one of <code>frame</code>, <code>shape</code>, <code>pixel</code>.
 
 </td></tr>
 <tr><td>
@@ -141,7 +158,7 @@ The GLSL shader program, with inputs, intrinsics, and intermediates, as well as 
 </table>
 
 
-#### dimensions list
+#### Input and Output Dimensions List
 
 
 
@@ -210,21 +227,11 @@ If a list, must have the same number of integer elements as there are number of 
 {{% /alert %}}
 
 
-### Input and Output Dimensions
----
+#### Shader Intrinsics
 
 
 
-Current VGen design assumes zero or more inputs, and exactly one output from each VGen. VGen inputs and outputs each have a <em>dimension</em> value from 1 to 4.
-
-
-
-### Intrinsics
----
-
-
-
-Some @names are reserved and will be automatically supplied to the VGen at compilation or runtime. They are described in short table form, with detailed descriptions below.
+Some @names are reserved and will be automatically supplied to the VGen at compilation or runtime. They are described in short table form, with detailed descriptions below. Intrinsics have a rate, just like VGens, which describe their scope in terms of computation, meaning that it is not valid to use a shape-rate Intrinsic, for example, in a frame-rate VGen.
 
 
 <table>
@@ -234,11 +241,32 @@ Some @names are reserved and will be automatically supplied to the VGen at compi
 
 </td><td>
 
-<strong>dimensons</strong>
+<strong>dimenson</strong>
+
+</td><td>
+
+<strong>rate</strong>
 
 </td><td>
 
 <strong>brief description</strong>
+
+</td></tr>
+<tr><td>
+
+<code>@fragCoord</code>
+
+</td><td>
+
+2
+
+</td><td>
+
+pixel
+
+</td><td>
+
+The screen coordinates of the curent fragment in pixels.
 
 </td></tr>
 <tr><td>
@@ -251,7 +279,45 @@ Some @names are reserved and will be automatically supplied to the VGen at compi
 
 </td><td>
 
-Position of vertex or fragment in normalized space.
+shape
+
+</td><td>
+
+Position of vertex in normalized space.
+
+</td></tr>
+<tr><td>
+
+<code>@pi</code>
+
+</td><td>
+
+1
+
+</td><td>
+
+frame
+
+</td><td>
+
+A shortcut for the constant Pi.
+
+</td></tr>
+<tr><td>
+
+<code>@position</code>
+
+</td><td>
+
+1-4
+
+</td><td>
+
+shape only
+
+</td><td>
+
+Unormalized position of vertex. Undefined in pixel-rate VGens. Used internally by scinserver to indicate output of vertex shader.
 
 </td></tr>
 <tr><td>
@@ -260,7 +326,11 @@ Position of vertex or fragment in normalized space.
 
 </td><td>
 
-1
+n/a
+
+</td><td>
+
+frame
 
 </td><td>
 
@@ -277,6 +347,10 @@ The curently configured and bound sampler and image. Only usable in sampling VGe
 
 </td><td>
 
+frame
+
+</td><td>
+
 The runtime of the Scinth instance in seconds.
 
 </td></tr>
@@ -290,6 +364,10 @@ The runtime of the Scinth instance in seconds.
 
 </td><td>
 
+shape
+
+</td><td>
+
 Position of the fragment in texture coordinates space.
 
 </td></tr>
@@ -297,11 +375,35 @@ Position of the fragment in texture coordinates space.
 </table>
 
 
+#### @fragCoord
+
+
+
+Equates directly to gl_FragCoord.
+
+
+
 #### @normPos
 
 
 
 The <em>normalized</em> position of the vertex or fragment. This is computed to allow for image coordinates with a 1:1 aspect ratio even though the output window or framebuffer might be rectangular. The @normPos is always a 2 dimensional value and sets up coordinate systems such that the image in smaller of width or height will run from -1.0 to 1.0 in normPos space, with the larger size running under -1.0 and over 1.0. So, for instance, if the image is a tall rectangle with height twice that of width, the normPos will run from -1.0 to 1.0 in width, and -2.0 to 2.0 in height.
+
+
+
+#### @pi
+
+
+
+Always substituted for the value of pi.
+
+
+
+#### @position
+
+
+
+The unormalized position of the vector.
 
 
 
@@ -313,17 +415,17 @@ In sampling VGens, represents the currently bound Vulkan sampler object and imag
 
 
 
-#### @time
-
-
-
-The VGen will receive a upated value every frame which contains the elapsed time in seconds from when the Scinth instance started. The time intrinsic is always 1 dimensional.
-
-
-
 #### @texPos
 
 
 
 Texture coordinates are typically constrained within [0, 1] inclusive, with Samplers configured to do different things outside of the texture coordinate region. The synth will configure a shape to include texture coordinate information with the vertex and fragment shaders if this intrinsic is present. Texture coordinates are currently always assumed to be 2 dimensional.
+
+
+
+#### @time
+
+
+
+The VGen will receive a upated value every frame which contains the elapsed time in seconds from when the Scinth instance started. The time intrinsic is always 1 dimensional.
 

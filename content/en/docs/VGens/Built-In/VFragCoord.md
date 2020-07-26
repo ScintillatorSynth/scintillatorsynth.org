@@ -1,6 +1,6 @@
 ---
-title: FragCoord
-linkTitle: FragCoord
+title: VFragCoord
+linkTitle: VFragCoord
 weight: 5
 description: Fragment shader pixel coordinates VGen.
 ---
@@ -23,7 +23,7 @@ FragCoord exposes the underlying GLSL primitive <code>gl_FragCoord</code>. It re
 
 
 
-### FragCoord.fr
+### VFragCoord.pr
 
 
 
@@ -93,7 +93,7 @@ none
 )
 {{< /highlight >}}
 
-<img src="/images/schelp/FragCoordVis.png" />
+<img src="/images/schelp/VFragCoord.png" />
 
 
 

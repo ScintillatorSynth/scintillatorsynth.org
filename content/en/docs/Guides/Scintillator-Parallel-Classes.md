@@ -90,7 +90,7 @@ Options for controlling various features of the Scintillator features at boot ti
 
 
 
-For an exhaustive list of all supported Scintillator VGens, see the <a href="{{< ref "/docs/VGens/VGens-Overview" >}}">VGens Overview</a>.
+For an exhaustive list of all supported Scintillator VGens, see the <a href="{{< ref "/docs/Guides/VGens-Overview" >}}">VGens Overview</a>.
 
 
 <table>
@@ -165,7 +165,7 @@ Dimensions of image buffer in pixels.
 
 </td><td>
 
-<a href="{{< ref "/docs/VGens/Mathematics/Signal Processing/Clamp" >}}">Clamp</a>
+Classes/Clamp
 
 </td><td>
 

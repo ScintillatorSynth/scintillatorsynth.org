@@ -71,7 +71,7 @@ MarkdownRenderer {
 		}
 		{ link.beginsWith("http") } {
 			var linkParts = link.split($#);
-			md = "<a href=\"%\">%</a>".format(linkParts[0], linkParts[2]);
+			md = "<a href=\"%\">% <img src=\"/images/external-link.svg\" class=\"one-liner\"></a>".format(linkParts[0], linkParts[2]);
 		}
 		{
 			"missing link % in document %".format(link, currDoc.path).warn;

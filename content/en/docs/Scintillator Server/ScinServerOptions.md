@@ -263,6 +263,45 @@ A boolean, default <strong>true</strong>. Just like the <a href="https://doc.scc
 
 
 
+### .audioInputChannels
+
+
+
+### .audioInputChannels = value
+
+
+An integer, default <strong>2</strong>. For <em>interactive</em> mode only, determines the number of audio input channels the Scintillator server should open up and monitor for audio input.
+
+
+
+### .autoUploadCrashReports
+
+
+
+### .autoUploadCrashReports = value
+
+
+A boolean, default <strong>false</strong>. If true the crash reporting system will mark any new server crashes detected as ok to upload automatically. In order to respect the privacy of Scintillator users we leave this false by default and setting this to true does not persist between server runs, meaning that like other options it has the scope of this run of the server only. Keeping the value true will require setting this explicity to true each time the server is run.
+
+{{% alert title="Note" %}}
+
+
+Please read the <a href="{{< ref "/docs/Guides/Scintillator-Crash-Reports-And-Privacy" >}}">Scintillator Crash Reports And Privacy</a> discussion before uploading crash reports.
+
+{{% /alert %}}
+
+
+### .vulkanValidation
+
+
+
+### .vulkanValidation = value
+
+
+A boolean, default <strong>false</strong>. Useful for debugging, will load a library that checks every graphics call for validity and reports errors to the console log. This comes at the cost of speed, so the validation is normally disabled.
+
+
+
 #### Other Methods
 
 

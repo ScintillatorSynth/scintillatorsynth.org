@@ -14,40 +14,48 @@ description: Reference and history for released versions of Scintillator.
 
 
 
+#### 0.0.6 9 May 2020
+
+
+
+Adds the Windows scinsynth binary.
+
+
+
 #### 0.0.5 3 May 2020
 
 <ul>
 <li>
 
-Automatically install server binaries on Quark install [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/103">103</a>]
+Automatically install server binaries on Quark install [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/103">103 <img src="/images/external-link.svg" class="one-liner"></a>]
 
 <li>
 
-Renamed VGen fragment-rate functions from <code>.fg</code> to <code>.fr</code> [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/107">107</a>]
+Renamed VGen fragment-rate functions from <code>.fg</code> to <code>.fr</code> [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/107">107 <img src="/images/external-link.svg" class="one-liner"></a>]
 
 <li>
 
-Support for installations with spaces in pathnames [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/106">106</a>]
+Support for installations with spaces in pathnames [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/106">106 <img src="/images/external-link.svg" class="one-liner"></a>]
 
 <li>
 
-Initialize <code>ScinServer.default</code> [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/104">104</a>]
+Initialize <code>ScinServer.default</code> [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/104">104 <img src="/images/external-link.svg" class="one-liner"></a>]
 
 <li>
 
-Added an server installation script [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/101">101</a>]
+Added an server installation script [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/101">101 <img src="/images/external-link.svg" class="one-liner"></a>]
 
 <li>
 
-Separating <code>ScinServer.boot</code> and <code>ScinServer.init</code> [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/97">97</a>]
+Separating <code>ScinServer.boot</code> and <code>ScinServer.init</code> [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/97">97 <img src="/images/external-link.svg" class="one-liner"></a>]
 
 <li>
 
-Add some VGen input validation [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/96">96</a>]
+Add some VGen input validation [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/96">96 <img src="/images/external-link.svg" class="one-liner"></a>]
 
 <li>
 
-Fix for startup crash on MacOS when a Vulkan SDK is installed separately on the computer [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/93">93</a>]
+Fix for startup crash on MacOS when a Vulkan SDK is installed separately on the computer [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/93">93 <img src="/images/external-link.svg" class="one-liner"></a>]
 
 </ul>
 

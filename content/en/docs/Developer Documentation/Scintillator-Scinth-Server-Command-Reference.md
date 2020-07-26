@@ -1116,18 +1116,18 @@ Asynchronous.
 
 
 
-Replies to sender with <strong>/scin_done</strong> followed by <strong>/scin_nrt_advanceFrame</strong>.
+Replies to sender with <code>[ /scin_done, /scin_nrt_advanceFrame ]</code>.
 
 
 </table>
 
 
-### Testing Commands
+### Testing, Debugging and Development Commands
 ---
 
 
 
-Commands useful for accessing diagnostic functions or automated validation of scinsynth behavior.
+Commands useful for accessing the diagnostic functions or automated validation of scinsynth behavior.
 
 
 
@@ -1228,6 +1228,67 @@ Asynchronous.
 
 
 Replies to the sender on wakeup with <strong>/scin_awake</strong>.
+
+
+</table>
+
+
+#### /scin_createCrashReport
+
+
+
+Generate a crash report without crashing and save to the crash report database. Not supported on MacOS.
+
+
+
+#### /scin_logCrashReports
+
+
+
+Prints a complete list of crash reports in the log, at the informational log level (2).
+
+
+<table>
+
+
+Asynchronous.
+
+
+
+Replies to sender with <code>[ /scin_done, /scin_logCrashReports ]</code>.
+
+
+</table>
+
+
+subsection:/scin_uploadCrashReport
+
+
+
+Mark a specific crash report, or all not uploaded reports, as upload requested.
+
+
+<table>
+<tr><td>
+
+<strong>string</strong>
+
+</td><td>
+
+A crash report UUID, or the string "all", in which case all reports will marked for upload.
+
+</td></tr>
+
+</table>
+
+<table>
+
+
+Asynchronous.
+
+
+
+Replies to sender with <code>[ /scin_done, /scin_uploadCrashReport ]</code>.
 
 
 </table>

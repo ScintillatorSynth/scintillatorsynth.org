@@ -87,6 +87,14 @@ Returns the current number of errors reported by the server since boot.
 
 
 
+### .options
+
+
+
+Provides access to the <a href="{{< ref "/docs/Scintillator Server/ScinServerOptions" >}}">ScinServerOptions</a> object that was or will be used to boot the Server. This allows for convenient modifications of the options before boot, without having to create a separate ScinServerOptions object to provide on the call to new().
+
+
+
 
 
 ### .logLevel = level
@@ -425,7 +433,7 @@ A string containing the path and file name to save the resulting image to.
 
 
 
-An opitional string with a mime type to provide additional context to the image encoder (in addition to the fileName extension) about what image encoding type is requested for saving the image as.
+An optional string with a mime type to provide additional context to the image encoder (in addition to the fileName extension) about what image encoding type is requested for saving the image as.
 
 
 
@@ -465,6 +473,71 @@ An optional <a href="https://doc.sccode.org/Classes/Condition.html">Condition <i
 
 
 
+
+
+#### Developer and Diagnostic Commands
+
+
+
+### .postCrashReports
+
+
+
+Requests the server to post some detail about any server crash reports that have been stored in the crash report database. Will produce output in the post window that looks something like:
+
+<pre>[1594932178.669] 285299 [info] Crash report database contains 3 reports:
+[1594932178.669] 285299 [info]     id: 1a77de76-f2c2-4b22-9d2a-bd5016772a2f, on: Thu 16 Jul 13:26:37 2020, uploaded: no
+[1594932178.669] 285299 [info]     id: bac6608c-05cd-4f03-827b-780588d5ee1c, on: Thu 16 Jul 13:07:48 2020, uploaded: no
+[1594932178.669] 285299 [info]     id: 250c0c0d-8b2c-4a16-8240-576cc26e80d1, on: Thu 16 Jul 13:14:25 2020, uploaded: yes</pre>
+
+The <code>id</code> field can be copied and pasted into a request to upload individual crash reports, as well as posted in bug reports to the Scintillator developers.
+
+{{% alert title="Note" %}}
+
+
+Please read the <a href="{{< ref "/docs/Guides/Scintillator-Crash-Reports-And-Privacy" >}}">Scintillator Crash Reports And Privacy</a> discussion before uploading crash reports.
+
+{{% /alert %}}
+
+
+### .uploadCrashReport(id)
+
+
+
+Marks a crash report as ok to upload. The reports will generally be uploaded shortly after the next time the Scintillator Server boots, assuming the computer is connected to the internet and the crash report server is available.
+
+{{% alert title="Note" %}}
+
+
+Please read the <a href="{{< ref "/docs/Guides/Scintillator-Crash-Reports-And-Privacy" >}}">Scintillator Crash Reports And Privacy</a> discussion before uploading crash reports.
+
+{{% /alert %}}
+
+
+#### Arguments
+
+##### id
+
+
+
+A string with the complete crash report id.
+
+
+
+
+
+### .uploadAllCrashReports
+
+
+
+Marks all un-uploaded crash reports with a request for upload.
+
+{{% alert title="Note" %}}
+
+
+Please read the <a href="{{< ref "/docs/Guides/Scintillator-Crash-Reports-And-Privacy" >}}">Scintillator Crash Reports And Privacy</a> discussion before uploading crash reports.
+
+{{% /alert %}}
 
 
 #### Inherited instance methods
