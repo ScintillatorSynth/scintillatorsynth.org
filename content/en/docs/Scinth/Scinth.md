@@ -53,7 +53,7 @@ An optional <a href="https://doc.sccode.org/Classes/Array.html">Array <img src="
 
 
 
-An optional <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> object to play this Scinth on. This argument is analagous to the Synth.new target argument, but since Groups are not yet supported on Scintillator it is only possible to specify which server to send to.
+An optional <a href="{{< ref "/docs/Server/ScinServer" >}}">ScinServer</a> object to play this Scinth on. This argument is analagous to the Synth.new target argument, but since Groups are not yet supported on Scintillator it is only possible to specify which server to send to.
 
 
 

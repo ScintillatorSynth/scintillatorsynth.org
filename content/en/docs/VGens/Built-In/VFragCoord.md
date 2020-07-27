@@ -5,7 +5,7 @@ weight: 5
 description: Fragment shader pixel coordinates VGen.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: Classes/NormPos Classes/TexPos <a href="{{< ref "/docs/Developer Documentation/Scintillator-Default-Graphics-Setup" >}}">Scintillator Default Graphics Setup</a> 
+###### See also: <a href="{{< ref "/docs/VGens/Intrinsics/VNormPos" >}}">VNormPos</a> <a href="{{< ref "/docs/VGens/Intrinsics/VTexPos" >}}">VTexPos</a> <a href="{{< ref "/docs/VGens/Image Sampling/VTextureSize" >}}">VTextureSize</a> <a href="{{< ref "/docs/Developer Documentation/Scintillator-Default-Graphics-Setup" >}}">Scintillator Default Graphics Setup</a> 
 
 
 
@@ -68,10 +68,10 @@ none
 // to provide screen width and height as constants to the Scinth.
 (
 ~f = ScinthDef.new(\f, {
-    RGBOut.fr(
-        VX.fr(FragCoord.fr) / ~o.width,
+    VRGBOut.pr(
+        VX.pr(FragCoord.pr) / ~o.width,
         0.0,
-        VY.fr(FragCoord.fr) / ~o.height);
+        VY.pr(FragCoord.pr) / ~o.height);
 }).add;
 )
 

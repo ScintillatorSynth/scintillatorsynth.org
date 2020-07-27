@@ -5,7 +5,7 @@ weight: 5
 description: Scintillator utility class
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> 
+###### See also: <a href="{{< ref "/docs/Server/ScinServer" >}}">ScinServer</a> 
 
 
 
@@ -14,7 +14,7 @@ description: Scintillator utility class
 
 
 
-This is a utility class to report information about the Scintillator installation.
+A utility class to report information about the Scintillator installation.
 
 
 
@@ -44,17 +44,4 @@ Returns the path to the Scintillator quark
 
 
 Returns the directory for the Scintillator server binary
-
-
-
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
 

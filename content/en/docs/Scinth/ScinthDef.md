@@ -55,27 +55,27 @@ When constructing a ScinthDef the VGens are subject to a validation step called 
 {{< highlight supercollider >}}
 (
 ~vquad = ScinthDef.new(\vquad, {
-    var length = Length.fr(NormPos.fr);
-    VSinOsc.fr(
-        Vec4.fr(1.0, 1.5, 2.0, 3.0),
-        Vec4.fr(length, length * 2, length * 4, length * 8),
-        Splat4.fr(0.5),
-        Splat4.fr(0.5));
+    var length = VLength.pr(VNormPos.pr);
+    VSinOsc.pr(
+        VVec4.pr(1.0, 1.5, 2.0, 3.0),
+        VVec4.pr(length, length * 2, length * 4, length * 8),
+        VSplat4.pr(0.5),
+        VSplat4.pr(0.5));
 }).add;
 )
 {{< /highlight >}}
 
 
 
-From the top, the Classes/NormPos VGen takes no inputs and produces a single two-dimensional output, which is the sole input to the Classes/Length VGen. The Length VGen can accept inputs with dimesions from 1 to 4, and always produces a single-dimensional output, the scalar length of the input vector, in this case stored in the <code>length</code> variable.
+From the top, the <a href="{{< ref "/docs/VGens/Intrinsics/VNormPos" >}}">VNormPos</a> VGen takes no inputs and produces a single two-dimensional output, which is the sole input to the <a href="{{< ref "/docs/VGens/Mathematics/Vector Math/VLength" >}}">VLength</a> VGen. The VLength VGen can accept inputs with dimesions from 1 to 4, and always produces a single-dimensional output, the scalar length of the input vector, in this case stored in the <code>length</code> variable.
 
 
 
-The <a href="{{< ref "/docs/VGens/Video Oscillators/VSinOsc" >}}">VSinOsc</a> VGen takes four inputs, just like its analagous audio class <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a>, and they are <code>freq</code>, <code>phase</code>, <code>mul</code>, and <code>add</code>. The default values of <code>mul</code> and <code>add</code> are adjusted to reflect the fact that VGens produce output within the range of [0.0, 1.0] instead of the audio [-1.0, 1.0] range. Like Length, VSinOsc can accept inputs from 1 to 4 dimensions, but unlike Length, it will produce a single output of the same dimension as the inputs. So, a VSinOsc with 4 four-dimensional inputs, like in this case, will produce a single four-dimensional output.
+The <a href="{{< ref "/docs/VGens/Video Oscillators/VSinOsc" >}}">VSinOsc</a> VGen takes four inputs, just like its analagous audio class <a href="https://doc.sccode.org/Classes/SinOsc.html">SinOsc <img src="/images/external-link.svg" class="one-liner"></a>, and they are <code>freq</code>, <code>phase</code>, <code>mul</code>, and <code>add</code>. The default values of <code>mul</code> and <code>add</code> are adjusted to reflect the fact that VGens produce output within the range of [0.0, 1.0] instead of the audio [-1.0, 1.0] range. Like VLength, VSinOsc can accept inputs from 1 to 4 dimensions, but unlike VLength, it will produce a single output of the same dimension as the inputs. So, a VSinOsc with 4 four-dimensional inputs, like in this case, will produce a single four-dimensional output.
 
 
 
-The <code>freq</code> and <code>phase</code> arguments to VSinOsc here use the Classes/Vec4 VGen, which takes 4 one-dimensional inputs and merges those into a single four-dimensional output. The <code>mul</code> and <code>add</code> arguments are left to defaults, but because VSinOsc requires that all of its inputs are the same dimension, we use the Classes/Splat4 VGen to make a four-dimensional vector out of a single one-dimensional input. Because the default arguments to <code>mul</code> and <code>add</code> are single-dimensional, we have to explicitly specify the higher-dimensional inputs to the VSinOsc, or it will fail dimensional analysis.
+The <code>freq</code> and <code>phase</code> arguments to VSinOsc here use the <a href="{{< ref "/docs/VGens/Vector Manipulation/Vector Building/VVec4" >}}">VVec4</a> VGen, which takes 4 one-dimensional inputs and merges those into a single four-dimensional output. The <code>mul</code> and <code>add</code> arguments are left to defaults, but because VSinOsc requires that all of its inputs are the same dimension, we use the <a href="{{< ref "/docs/VGens/Vector Manipulation/Vector Building/VSplat4" >}}">VSplat4</a> VGen to make a four-dimensional vector out of a single one-dimensional input. Because the default arguments to <code>mul</code> and <code>add</code> are single-dimensional, we have to explicitly specify the higher-dimensional inputs to the VSinOsc, or it will fail dimensional analysis.
 
 
 
@@ -84,7 +84,7 @@ This VGen will perform a single sine computation per pixel in the output, produc
 {{% alert title="Note" %}}
 
 
-A planned "quality of life" improvement for ScinthDef dimensional analysis is called "autosplat", which would detect a dimension mismatch with constant inputs and add appropriate Splats to fix as needed. But, for now, they must be specified manually.
+A planned "quality of life" improvement for ScinthDef dimensional analysis is called "autosplat", which would detect a dimension mismatch with constant inputs and add appropriate VSplats to fix as needed. But, for now, they must be specified manually.
 
 {{% /alert %}}
 
@@ -120,7 +120,7 @@ A planned "quality of life" improvement for ScinthDef dimensional analysis is ca
 
 
 
-<strong>An optional Shape object.</strong> Describes the geometry to render the ScinthDef with. See the Classes/Shape documentation for more details.
+<strong>An optional ScinShape object.</strong> Describes the geometry to render the ScinthDef with, currently only a full-screen quad is supported.
 
 
 
@@ -206,7 +206,7 @@ A new ScinthDef object.
 
 
 
-A <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> instance, or nil, in which case the default ScinServer is chosen. The server to send the Scinth definition to.
+A <a href="{{< ref "/docs/Server/ScinServer" >}}">ScinServer</a> instance, or nil, in which case the default ScinServer is chosen. The server to send the Scinth definition to.
 
 
 

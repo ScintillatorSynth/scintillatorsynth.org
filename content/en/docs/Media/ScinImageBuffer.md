@@ -154,7 +154,7 @@ Server has allocated width and height of source image.
 
 
 
-The <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> on which to read the image and allocate the buffer. If nil, will use <code>ScinServer.default</code>.
+The <a href="{{< ref "/docs/Server/ScinServer" >}}">ScinServer</a> on which to read the image and allocate the buffer. If nil, will use <code>ScinServer.default</code>.
 
 
 
@@ -217,7 +217,7 @@ Returns the width of the ImageBuffer in pixels.
 
 
 
-The <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> that owns the associated buffer.
+The <a href="{{< ref "/docs/Server/ScinServer" >}}">ScinServer</a> that owns the associated buffer.
 
 
 

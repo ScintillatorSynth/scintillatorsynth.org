@@ -5,7 +5,7 @@ weight: 5
 description: An automatic installation script for the Scintillator server.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> 
+###### See also: <a href="{{< ref "/docs/Server/ScinServer" >}}">ScinServer</a> 
 
 
 

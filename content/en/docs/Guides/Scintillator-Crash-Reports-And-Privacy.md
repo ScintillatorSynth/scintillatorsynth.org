@@ -5,7 +5,7 @@ weight: 5
 description: A discussion of the privacy implications of uploading crash reports
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> <a href="{{< ref "/docs/Scintillator Server/ScinServerOptions" >}}">ScinServerOptions</a> 
+###### See also: <a href="{{< ref "/docs/Server/ScinServer" >}}">ScinServer</a> <a href="{{< ref "/docs/Server/ScinServerOptions" >}}">ScinServerOptions</a> 
 
 
 
@@ -22,7 +22,7 @@ One concern is that crash reports <em>may</em> contain some personally identifyi
 
 
 
-Because of the potential privacy concerns with sharing crash reports, <em>it is the policy of the Scintillator developers that we will never automatically upload a crash report.</em> To opt out of even the collection of crash reports locally see the <code>crashReporting</code> option on <a href="{{< ref "/docs/Scintillator Server/ScinServerOptions" >}}">ScinServerOptions</a>. It is default true, however, so will need to be set to false each time the server is run in order to disable crash report collection.
+Because of the potential privacy concerns with sharing crash reports, <em>it is the policy of the Scintillator developers that we will never automatically upload a crash report.</em> To opt out of even the collection of crash reports locally see the <code>crashReporting</code> option on <a href="{{< ref "/docs/Server/ScinServerOptions" >}}">ScinServerOptions</a>. It is default true, however, so will need to be set to false each time the server is run in order to disable crash report collection.
 
 
 

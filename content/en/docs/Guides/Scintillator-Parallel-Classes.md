@@ -61,7 +61,7 @@ A runnable instance of a ScinthDef template, capable of generating imagery on th
 
 </td><td>
 
-<a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a>
+<a href="{{< ref "/docs/Server/ScinServer" >}}">ScinServer</a>
 
 </td><td>
 
@@ -74,7 +74,7 @@ Represents the Scintillator server application.
 
 </td><td>
 
-<a href="{{< ref "/docs/Scintillator Server/ScinServerOptions" >}}">ScinServerOptions</a>
+<a href="{{< ref "/docs/Server/ScinServerOptions" >}}">ScinServerOptions</a>
 
 </td><td>
 

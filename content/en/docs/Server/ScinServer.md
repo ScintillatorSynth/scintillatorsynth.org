@@ -5,7 +5,7 @@ weight: 5
 description: Represents a Scintillator server application.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/Scintillator Server/ScinServerOptions" >}}">ScinServerOptions</a> 
+###### See also: <a href="{{< ref "/docs/Server/ScinServerOptions" >}}">ScinServerOptions</a> 
 
 
 
@@ -48,7 +48,7 @@ Creates a new ScinServer instance. For now only local servers are supported.
 
 
 
-An optional instance of <a href="{{< ref "/docs/Scintillator Server/ScinServerOptions" >}}">ScinServerOptions</a>. If <code>nil</code>, an instance of ScinServerOptions will be created using the default values.
+An optional instance of <a href="{{< ref "/docs/Server/ScinServerOptions" >}}">ScinServerOptions</a>. If <code>nil</code>, an instance of ScinServerOptions will be created using the default values.
 
 
 
@@ -87,7 +87,7 @@ Returns the current number of errors reported by the server since boot.
 
 
 
-Provides access to the <a href="{{< ref "/docs/Scintillator Server/ScinServerOptions" >}}">ScinServerOptions</a> object that was or will be used to boot the Server. This allows for convenient modifications of the options before boot, without having to create a separate ScinServerOptions object to provide on the call to new().
+Provides access to the <a href="{{< ref "/docs/Server/ScinServerOptions" >}}">ScinServerOptions</a> object that was or will be used to boot the Server. This allows for convenient modifications of the options before boot, without having to create a separate ScinServerOptions object to provide on the call to new().
 
 
 

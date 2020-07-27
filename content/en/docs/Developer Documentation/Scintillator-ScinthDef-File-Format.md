@@ -122,7 +122,7 @@ the VGen YAML dictionaries in an ordered list
 
 
 
-The sole required key for the shape dictionary is the <code>name</code> key, with the rest of the keys being dependent on the specific shape specified. Currently the only supported shape is the Classes/Quad, which takes two optional additional keys, <code>widthEdges</code> and <code>heightEdges</code>. Both have default values of 1 and indicate how many edges the quad should tesselate into.
+The sole required key for the shape dictionary is the <code>name</code> key, with the rest of the keys being dependent on the specific shape specified. Currently the only supported shape is the Quad, which takes two optional additional keys, <code>widthEdges</code> and <code>heightEdges</code>. Both have default values of 1 and indicate how many edges the quad should tesselate into.
 
 
 

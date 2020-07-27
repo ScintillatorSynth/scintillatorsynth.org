@@ -5,7 +5,7 @@ weight: 5
 description: User manual for the Scintillator video synthesizer.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> 
+###### See also: <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> <a href="{{< ref "/docs/Server/ScinServer" >}}">ScinServer</a> 
 
 
 
@@ -80,7 +80,7 @@ SuperCollider by convention stores the default audio synth server in the <code>s
 
 <img src="/images/schelp/empty-window.png" />
 
-This should bring up an empty window with a black background. By default the window is 800 pixels wide and 600 pixels tall. It is configured to float on top of all other windows on the screen, but not to steal keyboard focus. The hope was that you could pop open these windows and still continue typing away in your SuperCollider IDE (or other editor of choice) uninterrupted. The server has many boot-time configuration options, for more details see the <a href="{{< ref "/docs/Scintillator Server/ScinServerOptions" >}}">ScinServerOptions</a> documentation.
+This should bring up an empty window with a black background. By default the window is 800 pixels wide and 600 pixels tall. It is configured to float on top of all other windows on the screen, but not to steal keyboard focus. The hope was that you could pop open these windows and still continue typing away in your SuperCollider IDE (or other editor of choice) uninterrupted. The server has many boot-time configuration options, for more details see the <a href="{{< ref "/docs/Server/ScinServerOptions" >}}">ScinServerOptions</a> documentation.
 
 
 
