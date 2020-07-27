@@ -87,16 +87,3 @@ image
 </td></tr>
 
 </table>
-
-
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-

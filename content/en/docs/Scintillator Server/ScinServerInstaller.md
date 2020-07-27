@@ -97,19 +97,6 @@ Enables automatic installation
 
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

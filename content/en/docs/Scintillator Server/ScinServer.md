@@ -54,10 +54,6 @@ An optional instance of <a href="{{< ref "/docs/Scintillator Server/ScinServerOp
 
 
 
-#### Inherited class methods
-
-
-
 ## Instance Methods
 ---
 
@@ -538,10 +534,6 @@ Marks all un-uploaded crash reports with a request for upload.
 Please read the <a href="{{< ref "/docs/Guides/Scintillator-Crash-Reports-And-Privacy" >}}">Scintillator Crash Reports And Privacy</a> discussion before uploading crash reports.
 
 {{% /alert %}}
-
-
-#### Inherited instance methods
-
 
 
 ## Examples

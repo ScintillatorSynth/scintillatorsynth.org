@@ -97,19 +97,6 @@ A 2D vector composed of (x, y).
 </table>
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

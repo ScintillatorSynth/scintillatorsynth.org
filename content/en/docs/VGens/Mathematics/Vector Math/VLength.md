@@ -116,19 +116,6 @@ The length of the vector.
 </table>
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

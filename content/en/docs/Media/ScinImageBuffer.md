@@ -200,10 +200,6 @@ An explicitly specified buffer number. While buffer numbers for ImageBuffer are 
 
 
 
-#### Inherited class methods
-
-
-
 ## Instance Methods
 ---
 
@@ -238,10 +234,6 @@ The integer buffer number that uniquely identifies this buffer on the server.
 
 
 Returns the height of the ImageBuffer in pixels.
-
-
-
-#### Inherited instance methods
 
 
 

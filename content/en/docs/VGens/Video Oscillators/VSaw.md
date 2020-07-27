@@ -100,19 +100,6 @@ Oscillator phase in radians.
 
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

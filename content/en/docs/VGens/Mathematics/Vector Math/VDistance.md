@@ -124,19 +124,6 @@ The distance between u and v.
 </table>
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

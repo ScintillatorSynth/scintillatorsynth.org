@@ -159,19 +159,6 @@ If 0, returns u. If 1 returns v. Generally returns <code>(u * (1 - a)) + (v * a)
 </table>
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

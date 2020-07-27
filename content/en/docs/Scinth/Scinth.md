@@ -67,10 +67,6 @@ A new Scinth object.
 
 
 
-#### Inherited class methods
-
-
-
 ## Instance Methods
 ---
 
@@ -141,10 +137,6 @@ A sequence of pairs of control identifiers and values. The first item in the pai
 
 
 The Scinth object itself, to enable method chaining.
-
-
-
-#### Inherited instance methods
 
 
 

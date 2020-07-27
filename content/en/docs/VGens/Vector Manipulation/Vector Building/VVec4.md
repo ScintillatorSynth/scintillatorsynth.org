@@ -113,19 +113,6 @@ A 4D vector composed of (x, y, z, w).
 </table>
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

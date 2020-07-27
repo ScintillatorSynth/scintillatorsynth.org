@@ -191,10 +191,6 @@ A new ScinthDef object.
 
 
 
-#### Inherited class methods
-
-
-
 ## Instance Methods
 ---
 
@@ -287,10 +283,6 @@ Returns this definition's VGen Graph function.
 
 
 Returns this definition's name.
-
-
-
-#### Inherited instance methods
 
 
 

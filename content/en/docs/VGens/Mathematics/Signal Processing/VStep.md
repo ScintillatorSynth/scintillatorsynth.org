@@ -124,19 +124,6 @@ For each component of v, <code>0</code> when <code>v < step</code>, otherwise <c
 </table>
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

@@ -124,19 +124,6 @@ The dot product of <em>u</em> and <em>v</em>
 </table>
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

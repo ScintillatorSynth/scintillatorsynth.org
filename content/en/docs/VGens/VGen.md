@@ -23,10 +23,6 @@ VGens are the atomic units of computation on the Scintillator visual synthesizer
 
 
 
-#### Inherited class methods
-
-
-
 ## Instance Methods
 ---
 
@@ -97,8 +93,4 @@ The class name of this VGen, as determined at ScinthDef build time. Used for bui
 
 
 A symbol describing the rate of the VGen instance, although currently only <code>\fragment</code> is supported.
-
-
-
-#### Inherited instance methods
 

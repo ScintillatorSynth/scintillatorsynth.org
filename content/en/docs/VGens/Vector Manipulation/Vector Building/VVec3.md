@@ -105,19 +105,6 @@ A 3D vector composed of (x, y, z).
 </table>
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

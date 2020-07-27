@@ -35,10 +35,6 @@ Creates a new ScinServerOptions instance with all default options.
 
 
 
-#### Inherited class methods
-
-
-
 ## Instance Methods
 ---
 
@@ -322,8 +318,4 @@ Returns a string reflecting the current options and which can be passed to the c
 
 
 A function, default <strong>empty</strong>. This function will be called if the ScinServer object detects an abnormal server exit code.
-
-
-
-#### Inherited instance methods
 

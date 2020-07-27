@@ -85,19 +85,6 @@ A 4D vector composed of (x, x, x, x).
 </table>
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

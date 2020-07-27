@@ -73,19 +73,6 @@ A texture coordinate usable in a ScinSampler.
 
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

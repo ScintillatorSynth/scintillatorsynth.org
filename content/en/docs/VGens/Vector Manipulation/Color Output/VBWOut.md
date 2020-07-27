@@ -81,19 +81,6 @@ The vector <code>VVec4.pr(value, value, value, 1.0)</code>
 </table>
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

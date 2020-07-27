@@ -132,19 +132,6 @@ Value to add to oscillator output after multiply.
 
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 

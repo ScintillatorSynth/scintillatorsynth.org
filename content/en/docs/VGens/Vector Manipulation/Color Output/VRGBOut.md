@@ -97,19 +97,6 @@ The vector <code>VVec4.pr(red, green, blue, 1.0)</code>
 </table>
 
 
-#### Inherited class methods
-
-
-
-## Instance Methods
----
-
-
-
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 
