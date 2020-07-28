@@ -14,6 +14,36 @@ description: Reference and history for released versions of Scintillator.
 
 
 
+#### 0.0.7 27 July 2020
+
+<ul>
+<li>
+
+Updates documentation and examples, moves to a consistent naming convention for all objects. [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/142">142 <img src="/images/external-link.svg" class="one-liner"></a>]
+
+<li>
+
+Adds automatic server crash reporting, fixes a long-standing intermittent server crash (<a href="https://github.com/ScintillatorSynth/Scintillator/issues/115">115 <img src="/images/external-link.svg" class="one-liner"></a>) [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/137">137 <img src="/images/external-link.svg" class="one-liner"></a>, <a href="https://github.com/ScintillatorSynth/Scintillator/pull/138">138 <img src="/images/external-link.svg" class="one-liner"></a>, <a href="https://github.com/ScintillatorSynth/Scintillator/pull/140">140 <img src="/images/external-link.svg" class="one-liner"></a>]
+
+<li>
+
+Adds support for shape-rate and frame-rate VGens [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/131">131 <img src="/images/external-link.svg" class="one-liner"></a>, <a href="https://github.com/ScintillatorSynth/Scintillator/pull/135">135 <img src="/images/external-link.svg" class="one-liner"></a>]
+
+<li>
+
+Renames fragment-rate VGens to "pixel-rate" to avoid ambiguity with frame-rate VGens [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/129">129 <img src="/images/external-link.svg" class="one-liner"></a>]
+
+<li>
+
+Adds preliminary support for realtime audio input via PortAudio [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/125">125 <img src="/images/external-link.svg" class="one-liner"></a>, <a href="https://github.com/ScintillatorSynth/Scintillator/pull/126">126 <img src="/images/external-link.svg" class="one-liner"></a>, <a href="https://github.com/ScintillatorSynth/Scintillator/pull/127">127 <img src="/images/external-link.svg" class="one-liner"></a>]
+
+<li>
+
+Adds an automatic installer for the Windows binary [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/122">122 <img src="/images/external-link.svg" class="one-liner"></a>]
+
+</ul>
+
+
 #### 0.0.6 9 May 2020
 
 
