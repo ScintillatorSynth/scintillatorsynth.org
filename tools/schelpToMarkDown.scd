@@ -4,7 +4,7 @@
 // from the server options class. It also assumes this script is open in the IDE and is the currently
 // selected file, in order to derive the target path where to write the output markdown files.
 (
-var scriptPath, mdPath, pngPath, options, quarkHelpPath, validLinkSet;
+var scriptPath, mdPath, pngPath, quarkHelpPath, validLinkSet;
 var docTrees, docEntries;
 scriptPath = PathName.new(PathName.new(ScIDE.currentPath).parentPath);
 mdPath = scriptPath.parentPath +/+ "content" +/+ "en" +/+ "docs";

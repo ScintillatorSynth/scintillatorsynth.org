@@ -61,7 +61,7 @@ A runnable instance of a ScinthDef template, capable of generating imagery on th
 
 </td><td>
 
-<a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a>
+<a href="{{< ref "/docs/Server/ScinServer" >}}">ScinServer</a>
 
 </td><td>
 
@@ -74,7 +74,7 @@ Represents the Scintillator server application.
 
 </td><td>
 
-<a href="{{< ref "/docs/Scintillator Server/ScinServerOptions" >}}">ScinServerOptions</a>
+<a href="{{< ref "/docs/Server/ScinServerOptions" >}}">ScinServerOptions</a>
 
 </td><td>
 
@@ -90,7 +90,7 @@ Options for controlling various features of the Scintillator features at boot ti
 
 
 
-For an exhaustive list of all supported Scintillator VGens, see the <a href="{{< ref "/docs/VGens/VGens-Overview" >}}">VGens Overview</a>.
+For an exhaustive list of all supported Scintillator VGens, see the <a href="{{< ref "/docs/Guides/VGens-Overview" >}}">VGens Overview</a>.
 
 
 <table>
@@ -139,7 +139,7 @@ Sawtooth oscillator.
 
 </td><td>
 
-<a href="https://doc.sccode.org/Classes/Sampler.html">Sampler <img src="/images/external-link.svg" class="one-liner"></a>
+<a href="{{< ref "/docs/VGens/Image Sampling/VSampler" >}}">VSampler</a>
 
 </td><td>
 
@@ -152,7 +152,7 @@ Image sampling VGen.
 
 </td><td>
 
-Classes/TextureSize
+<a href="{{< ref "/docs/VGens/Image Sampling/VTextureSize" >}}">VTextureSize</a>
 
 </td><td>
 
@@ -165,7 +165,7 @@ Dimensions of image buffer in pixels.
 
 </td><td>
 
-<a href="{{< ref "/docs/VGens/Mathematics/Signal Processing/Clamp" >}}">Clamp</a>
+<a href="{{< ref "/docs/VGens/Mathematics/Signal Processing/VClamp" >}}">VClamp</a>
 
 </td><td>
 

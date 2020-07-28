@@ -64,6 +64,32 @@ name of the ScinthDef, used as primary means of identification
 </td></tr>
 <tr><td>
 
+<code>shape</code>
+
+</td><td>
+
+dictionary
+
+</td><td>
+
+A map describing the geometry to render the ScinthDef with
+
+</td></tr>
+<tr><td>
+
+<code>options</code>
+
+</td><td>
+
+dictionary
+
+</td><td>
+
+A <em>optional</em> map describing rendering options for the ScinthDef
+
+</td></tr>
+<tr><td>
+
 <code>parameters</code>
 
 </td><td>
@@ -87,6 +113,71 @@ list
 
 the VGen YAML dictionaries in an ordered list
 
+</td></tr>
+
+</table>
+
+
+#### Shape Dictionary Spec
+
+
+
+The sole required key for the shape dictionary is the <code>name</code> key, with the rest of the keys being dependent on the specific shape specified. Currently the only supported shape is the Quad, which takes two optional additional keys, <code>widthEdges</code> and <code>heightEdges</code>. Both have default values of 1 and indicate how many edges the quad should tesselate into.
+
+
+
+#### Options Dictionary Spec
+
+
+
+If ommitted the ScinthDef will use defaults for all values. The pairs of keys and values supported are detailed here. These are the same keys and values supported in the <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> <code>options</code> dictionary.
+
+
+<table>
+<tr><td>
+
+<strong>key</strong>
+
+</td><td>
+
+<strong>values</strong>
+
+</td></tr>
+<tr><td>
+
+<code>polygonMode</code>
+
+</td><td>
+<table>
+<tr><td>
+
+<code>fill</code>
+
+</td><td>
+
+The default, fills the polygons completely.
+
+</td></tr>
+<tr><td>
+
+<code>line</code>
+
+</td><td>
+
+Outlines the polygons only.
+
+</td></tr>
+<tr><td>
+
+<code>point</code>
+
+</td><td>
+
+Draws the vertices as points only.
+
+</td></tr>
+
+</table>
 </td></tr>
 
 </table>
@@ -183,7 +274,7 @@ string
 
 </td><td>
 
-currently either <code>fragment</code> or <code>vertex</code>
+one of <code>frame</code>, <code>shape</code>, or <code>pixel</code>
 
 </td></tr>
 <tr><td>
@@ -615,7 +706,7 @@ We execute the following code:
 {{< highlight supercollider >}}
 (
 ~k = ScinthDef.new(\foo, {
-    VOut.fr(0, VSinOsc.fr(200.0, 0.0, 0.9, 0.2));
+    BWOut.pr(VSinOsc.pr(200.0, 0.0, 0.9, 0.2));
 });
 ~k.asYAML.postln;
 )
@@ -628,10 +719,14 @@ And ScinthDef produces the following:
 
 
 {{< highlight supercollider >}}
-- name: foo
-  vgens:
+name: foo
+shape:
+    name: Quad
+    widthEdges: 1
+    heightEdges: 1
+vgens:
     - className: VSinOsc
-      rate: fragment
+      rate: pixel
       inputs:
         - type: constant
           dimension: 1
@@ -647,14 +742,15 @@ And ScinthDef produces the following:
           value: 0.2
       outputs:
         - dimension: 1
-    - className: VOut
-      rate: fragment
+    - className: BWOut
+      rate: pixel
       inputs:
-        - type: constant
-          value: 0
         - type: vgen
           vgenIndex: 0
           outputIndex: 0
+          dimension: 1
+      outputs:
+        - dimension: 4
 {{< /highlight >}}
 
 

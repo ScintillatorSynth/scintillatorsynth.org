@@ -53,7 +53,7 @@ An optional <a href="https://doc.sccode.org/Classes/Array.html">Array <img src="
 
 
 
-An optional <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinServer</a> object to play this Scinth on. This argument is analagous to the Synth.new target argument, but since Groups are not yet supported on Scintillator it is only possible to specify which server to send to.
+An optional <a href="{{< ref "/docs/Server/ScinServer" >}}">ScinServer</a> object to play this Scinth on. This argument is analagous to the Synth.new target argument, but since Groups are not yet supported on Scintillator it is only possible to specify which server to send to.
 
 
 
@@ -64,10 +64,6 @@ An optional <a href="{{< ref "/docs/Scintillator Server/ScinServer" >}}">ScinSer
 
 
 A new Scinth object.
-
-
-
-#### Inherited class methods
 
 
 
@@ -144,10 +140,6 @@ The Scinth object itself, to enable method chaining.
 
 
 
-#### Inherited instance methods
-
-
-
 ## Examples
 ---
 
@@ -156,7 +148,7 @@ The Scinth object itself, to enable method chaining.
 {{< highlight supercollider >}}
 (
 ~t = ScinthDef.new(\t, { |g, b|
-    RGBOut.fr(VSinOsc.fr(VX.fr(NormPos.fr)), g, b);
+    VRGBOut.pr(VSinOsc.pr(VX.pr(VNormPos.pr)), g, b);
 }).add;
 )
 

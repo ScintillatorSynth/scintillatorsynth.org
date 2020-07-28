@@ -47,6 +47,24 @@ MarkdownRenderer {
 		scLinkWhitelist.add('Reference/Synth-Definition-File-Format');
 	}
 
+	// If this is an SCDocNode of type INSTANCEMETHODS, looks at first-level children to determine if there's any
+	// textual content. Returns true if there is, false otherwise.
+	*hasNonEmptyInstanceMethods { |instanceNode|
+		var hasContent = false;
+		instanceNode.children.do({ |node|
+			if (node.id !== 'IPRIVATE', {
+				if (node.id !== 'SUBSECTION', {
+					hasContent = true;
+				}, {
+					if (node.children.notNil, {
+						hasContent = true;
+					});
+				});
+			});
+		});
+		^hasContent;
+	}
+
 	// Markdown is much more tolerant of special characters, but we keep this method now in the
 	// event that something does need escaping.
 	*escapeSpecialChars { |str|
@@ -71,7 +89,7 @@ MarkdownRenderer {
 		}
 		{ link.beginsWith("http") } {
 			var linkParts = link.split($#);
-			md = "<a href=\"%\">%</a>".format(linkParts[0], linkParts[2]);
+			md = "<a href=\"%\">% <img src=\"/images/external-link.svg\" class=\"one-liner\"></a>".format(linkParts[0], linkParts[2]);
 		}
 		{
 			"missing link % in document %".format(link, currDoc.path).warn;
@@ -576,10 +594,10 @@ MarkdownRenderer {
 				this.renderChildren(stream, node);
 			},
 			\INSTANCEMETHODS, {
-				if(node.notPrivOnly) {
+				if(this.hasNonEmptyInstanceMethods(node), {
 					stream << "\n\n## Instance Methods\n---\n\n";
-				};
-				this.renderChildren(stream, node);
+					this.renderChildren(stream, node);
+				});
 			},
 			\DESCRIPTION, {
 				stream << "\n\n## Description\n---\n\n";
@@ -602,7 +620,8 @@ MarkdownRenderer {
 //				};
 			},
 			\SUBSECTION, {
-				stream << "\n\n#### %\n\n".format(node.text);
+				if (node.children.notNil, {
+					stream << "\n\n#### %\n\n".format(node.text);
 //				stream << "<h3><a class='anchor' name='" << this.escapeSpacesInAnchor(node.text)
 //				<< "'>" << this.escapeSpecialChars(node.text) << "</a></h3>\n";
 //				if(node.makeDiv.isNil) {
@@ -612,6 +631,7 @@ MarkdownRenderer {
 					this.renderChildren(stream, node);
 //					stream << "</div>";
 //				};
+				});
 			},
 			{
 				"Unknown SCDocNode id: %".format(node.id).warn;
