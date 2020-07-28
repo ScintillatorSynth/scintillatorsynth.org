@@ -294,8 +294,8 @@ Returns this definition's name.
 {{< highlight supercollider >}}
 (
 ~t = ScinthDef.new(\t, {
-    BWOut.fr(VSinOsc.fr(1.0, Length.fr(NormPos.fr)));
-});
+    VBWOut.pr(VSinOsc.pr(1.0, VLength.pr(VNormPos.pr)));
+}).add;
 )
 
 (

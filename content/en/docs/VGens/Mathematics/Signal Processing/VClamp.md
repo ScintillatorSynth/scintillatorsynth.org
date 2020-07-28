@@ -138,6 +138,20 @@ Maximum value to clamp v to.
 
 
 {{< highlight supercollider >}}
-(TODO)
+(
+~t = ScinthDef.new(\t, {
+    var pos = VNormPos.pr;
+    var wave = (max(VX.pr(pos), VY.pr(pos)) * 25).sin;
+    VBWOut.pr(VClamp.pr(wave, 0.0, 0.5) * 2);
+}).add;
+)
+
+(
+~k = Scinth.new(\t);
+)
 {{< /highlight >}}
+
+<img src="/images/schelp/VClamp.png" />
+
+
 

@@ -246,10 +246,10 @@ Returns the height of the ImageBuffer in pixels.
 // Creates a chromakey-like effect using the VecMix VGen to choose between two different
 // image buffers based on distance of the first image from the provided target rgb color.
 (
-~o = ScinServerOptions.new;
-~o.width = 400;
-~o.height = 300;
-~v = ScinServer.new(~o).boot;
+~v = ScinServer.new;
+~v.options.width = 400;
+~v.options.height = 300;
+~v.boot;
 )
 
 (
@@ -259,11 +259,11 @@ Returns the height of the ImageBuffer in pixels.
 
 (
 ~f = ScinthDef.new(\chromaKey, { |r, g, b, key = 0.25|
-    var m = VSampler.fr(~molly, VTexPos.fr);
-    var s = VSampler.fr(~storm, VTexPos.fr);
-    var dist = VLength.fr(m - VVec4.fr(r, g, b, 1.0));
-    var pick = VStep.fr(key, dist);
-    VVecMix.fr(s, m, pick);
+    var m = VSampler.pr(~molly, VTexPos.pr);
+    var s = VSampler.pr(~storm, VTexPos.pr);
+    var dist = VLength.pr(m - VVec4.pr(r, g, b, 1.0));
+    var pick = VStep.pr(key, dist);
+    VMix.pr(s, m, pick);
 }).add;
 )
 

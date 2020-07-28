@@ -91,7 +91,7 @@ Because the example window is wider than it is tall, the circle generated is jus
     // We use the Step function to clip all values of r > 1 to make the cirle more
     // visually obvious.
     var clip = 1.0 - VStep.pr(1.0, r);
-    VBWOut.fr(r * clip);
+    VBWOut.pr(r * clip);
 }).add;
 )
 

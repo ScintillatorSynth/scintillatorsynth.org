@@ -148,7 +148,7 @@ The Scinth object itself, to enable method chaining.
 {{< highlight supercollider >}}
 (
 ~t = ScinthDef.new(\t, { |g, b|
-    RGBOut.fr(VSinOsc.fr(VX.fr(NormPos.fr)), g, b);
+    VRGBOut.pr(VSinOsc.pr(VX.pr(VNormPos.pr)), g, b);
 }).add;
 )
 

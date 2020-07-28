@@ -165,6 +165,37 @@ If 0, returns u. If 1 returns v. Generally returns <code>(u * (1 - a)) + (v * a)
 
 
 {{< highlight supercollider >}}
-(TODO)
+// Vector mix demo shows blending of two textures from left to right. On the left
+// the x component of the texture position is zero, so VX.pr(VTexPos.pr) = 0.
+// On the right it is 1. So on the left the VMix will return entirely the colors
+// from the image of Molly on the couch, and on the right the colors come entirely
+// from the image of Storm on the kitchen floor.
+(
+~v = ScinServer.new;
+~v.options.width = 400;
+~v.options.height = 300;
+~v.boot;
+)
+
+(
+~molly = ScinImageBuffer.read(path: "~/src/TestGoldImages/sourceMedia/molly.png".standardizePath);
+~storm = ScinImageBuffer.read(path: "~/src/TestGoldImages/sourceMedia/storm.png".standardizePath);
+)
+
+(
+~f = ScinthDef.new(\mix, {
+    var m = VSampler.pr(~molly, VTexPos.pr);
+    var s = VSampler.pr(~storm, VTexPos.pr);
+    VMix.pr(m, s, VX.pr(VTexPos.pr));
+}).add;
+)
+
+(
+~t = Scinth.new(\mix);
+)
 {{< /highlight >}}
+
+<img src="/images/schelp/VMix.png" />
+
+
 

@@ -122,12 +122,22 @@ A vector parallel to v but with unit length.
 
 
 {{< highlight supercollider >}}
+// This example draws the unit circle by using VStep to only draw white
+// when the distance between the position and the normalized position is
+// within 0.1.
 (
-(TODO)
+~normDist = ScinthDef.new(\normDist, {
+    var pos = VNormPos.pr;
+    VBWOut.pr(VStep.pr(0.9, 1.0 - VDistance.pr(pos, VNorm.pr(pos))));
+}).add;
+)
+
+(
+~k = Scinth.new(\normDist);
 )
 {{< /highlight >}}
 
-
+<img src="/images/schelp/VNorm.png" />
 
 
 

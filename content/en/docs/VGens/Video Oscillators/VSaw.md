@@ -113,9 +113,9 @@ Oscillator phase in radians.
 // move outward over time.
 (
 ~t = ScinthDef.new(\t, {
-    var pos = NormPos.fr.abs.neg;
-    var z = min(VX.fr(pos), VY.fr(pos));
-    BWOut.fr(Step.fr(0.5, VSaw.fr(freq: 5, phase: z)));
+    var pos = VNormPos.pr.abs.neg;
+    var z = min(VX.pr(pos), VY.pr(pos));
+    VBWOut.pr(VStep.pr(0.5, VSaw.pr(freq: 5, phase: z)));
 }).add;
 )
 
