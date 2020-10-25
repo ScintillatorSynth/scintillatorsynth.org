@@ -5,7 +5,7 @@ weight: 5
 description: Represents a running synth node on the Scintillator server.
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
-###### See also: <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> 
+###### See also: <a href="{{< ref "/docs/Scinth/ScinthDef" >}}">ScinthDef</a> <a href="{{< ref "/docs/VGens/VGen" >}}">VGen</a> <a href="{{< ref "/docs/Scinth/ScinNode" >}}">ScinNode</a> <a href="{{< ref "/docs/Scinth/ScinGroup" >}}">ScinGroup</a> 
 
 
 
@@ -23,7 +23,7 @@ A Scinth is the client-side representation of a synth node on the Scintillator s
 
 
 
-### Scinth.new(defName, args, server)
+### Scinth.new(defName, args, target, addAction: 'addToTail')
 
 
 
@@ -49,12 +49,70 @@ An optional <a href="https://doc.sccode.org/Classes/Array.html">Array <img src="
 
 
 
-##### server
+##### target
 
 
 
-An optional <a href="{{< ref "/docs/Server/ScinServer" >}}">ScinServer</a> object to play this Scinth on. This argument is analagous to the Synth.new target argument, but since Groups are not yet supported on Scintillator it is only possible to specify which server to send to.
+A ScinNode to add the new Scinth relative to. If nil, the default group on the default ScinServer will be used.
 
+
+
+##### addAction
+
+
+
+one of the following Symbols:
+
+
+<table>
+
+
+\addToHead
+
+
+
+add at the head of the group specified by target, which must be a ScinGroup
+
+
+
+\addToTail
+
+
+
+(the default) add at the tail of the group specified by target, which must be a ScinGroup
+
+
+
+\addAfter
+
+
+
+add immediately after target in its server's node order
+
+
+
+\addBefore
+
+
+
+add immediately before target in its server's node order
+
+
+
+\addReplace
+
+
+
+replace target and take its place in its server's node order
+
+
+</table>
+{{% alert title="Note" %}}
+
+
+Unlike the audio server, the default for Scinths is to add them to the <strong>tail</strong> of the target group. This means they will draw last in the group, overwriting (or blending with) anything that was drawn by previous Scinths.
+
+{{% /alert %}}
 
 
 

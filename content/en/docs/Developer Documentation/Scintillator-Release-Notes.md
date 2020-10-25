@@ -14,6 +14,28 @@ description: Reference and history for released versions of Scintillator.
 
 
 
+#### 0.0.8 31 August 2020
+
+<ul>
+<li>
+
+Adds support for Linux versions as old as Ubuntu Xenial. [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/168">168 <img src="/images/external-link.svg" class="one-liner"></a>,<a href="https://github.com/ScintillatorSynth/Scintillator/pull/167">167 <img src="/images/external-link.svg" class="one-liner"></a>, <a href="https://github.com/ScintillatorSynth/Scintillator/pull/157">157 <img src="/images/external-link.svg" class="one-liner"></a>]
+
+<li>
+
+Adds support for ScinGroups and execution ordering on the server [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/162">162 <img src="/images/external-link.svg" class="one-liner"></a>]
+
+<li>
+
+Automatically stop all Scinths when Cmd+Period is pressed. [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/155">155 <img src="/images/external-link.svg" class="one-liner"></a>]
+
+<li>
+
+Fixes a bug in (<a href="https://github.com/ScintillatorSynth/Scintillator/issues/143">143 <img src="/images/external-link.svg" class="one-liner"></a>) in image saving in non-aligned image widths [<a href="https://github.com/ScintillatorSynth/Scintillator/pull/154">154 <img src="/images/external-link.svg" class="one-liner"></a>]
+
+</ul>
+
+
 #### 0.0.7 27 July 2020
 
 <ul>
