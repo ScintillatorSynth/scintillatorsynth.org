@@ -2,7 +2,7 @@
 title: Scintillator Scinth Server Command Reference
 linkTitle: Scintillator Scinth Server Command Reference
 weight: 5
-description: A list of all OSC commands accepted by scscinth
+description: A list of all OSC commands accepted by scinsynth
 ---
 <!-- generated file, please edit the original .schelp file(in the Scintillator repository) and then run schelpToMarkDown.scdscript to regenerate. -->
 
@@ -16,7 +16,7 @@ While the SuperCollider synth programs support a variety of connection modalitie
 
 
 
-In general Scintillator attempts to follow a similar command list and structure to that of the SuperCollider sound synthesis servers, with the addition of a <code>/scin_</code> prefix to each OSC command and response.
+In general Scintillator attempts to follow the command syntax and semantics of the SuperCollider sound synthesis servers, with the addition of a <code>/scin_</code> prefix to each OSC command and response. In some cases the commands are identical, and the documentation has been copied verbatim from the Reference/Server-Command-Reference.
 
 
 
@@ -69,7 +69,7 @@ Query the status. Replies to sender with the following message:
 
 </td><td>
 
-number of running Scinths.
+number of Scinths in the render tree.
 
 </td></tr>
 <tr><td>
@@ -78,7 +78,7 @@ number of running Scinths.
 
 </td><td>
 
-number of groups.
+number of Groups in the render tree.
 
 </td></tr>
 <tr><td>
@@ -87,7 +87,7 @@ number of groups.
 
 </td><td>
 
-number of loaded Scinth defintions.
+number of loaded ScinthDefs.
 
 </td></tr>
 <tr><td>
@@ -96,7 +96,7 @@ number of loaded Scinth defintions.
 
 </td><td>
 
-number of warnings in log.
+cumulative number of warnings in log.
 
 </td></tr>
 <tr><td>
@@ -105,7 +105,7 @@ number of warnings in log.
 
 </td><td>
 
-number of errors in log.
+cumulative number of errors in log.
 
 </td></tr>
 <tr><td>
@@ -123,7 +123,7 @@ approximate graphics memory consumed, in bytes.
 
 </td><td>
 
-approximage graphics memory available, in bytes. Some graphics devices don't support this statistic, in which case it will be 0.
+approximage graphics memory available, in bytes. Some graphics drivers don't support this statistic, in which case it will be 0.
 
 </td></tr>
 <tr><td>
@@ -556,7 +556,7 @@ node ID
 </table>
 
 
-Stops a node abruptly, removes it from its group, and frees its memory. More than one nodeID may be specified as additional integer arguments in the message.
+Stops a node abruptly, removes it from its group, and frees its memory. More than one nodeID may be specified as additional integer arguments in the message. If a node is a group this command will free all contained nodes as well.
 
 
 
@@ -661,6 +661,183 @@ A control value
 </table>
 
 
+#### /scin_n_before
+
+
+
+Place a node before another.
+
+
+<table>
+<tr><td>
+
+N *
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+the ID of the node to place (A)
+
+</td></tr>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+the ID of the node before which the above is placed (B)
+
+</td></tr>
+
+</table>
+</td></tr>
+
+</table>
+
+
+Places node A in the same group as node B, to execute immediately before node B.
+
+
+
+#### /scin_n_after
+
+
+
+Place a node after another.
+
+
+<table>
+<tr><td>
+
+N *
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+the ID of the node to place (A)
+
+</td></tr>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+the ID of the node after which the above is placed (B)
+
+</td></tr>
+
+</table>
+</td></tr>
+
+</table>
+
+
+Places node A in the same group as node B, to execute immediately after node B.
+
+
+
+#### /scin_n_order
+
+
+
+Move and order a list of nodes.
+
+
+<table>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+add action (0,1,2 or 3 see below)
+
+</td></tr>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+add target ID
+
+</td></tr>
+<tr><td>
+
+N * <strong>int</strong>
+
+</td><td>
+
+node IDs
+
+</td></tr>
+
+</table>
+
+
+Move the listed nodes to the location specified by the target and add action, and place them in the order specified. Nodes which have already been freed will be ignored.
+
+
+<table>
+
+
+add actions:
+
+
+<table>
+<tr><td>
+
+0
+
+</td><td>
+
+construct the node order at the head of the group specified by the add target ID.
+
+</td></tr>
+<tr><td>
+
+1
+
+</td><td>
+
+construct the node order at the tail of the group specified by the add target ID.
+
+</td></tr>
+<tr><td>
+
+2
+
+</td><td>
+
+construct the node order just before the node specified by the add target ID.
+
+</td></tr>
+<tr><td>
+
+3
+
+</td><td>
+
+construct the node order just after the node specified by the add target ID.
+
+</td></tr>
+
+</table>
+
+</table>
+
+
 ### Scinth Commands
 ---
 
@@ -698,7 +875,7 @@ scinth ID
 
 </td><td>
 
-add action (not yet supported)
+add action
 
 </td></tr>
 <tr><td>
@@ -707,7 +884,7 @@ add action (not yet supported)
 
 </td><td>
 
-add target ID (not yet supported)
+add target ID
 
 </td></tr>
 <tr><td>
@@ -741,8 +918,65 @@ A control value
 </table>
 
 
-As Scintillator does not currently support groups, offscreen render targets, or scinth controls, only the first two fields are processed by the server. The server will add the Scinth to the default group and start playing it immediately.
+Create a new Scinth instance from the given ScinthDef, give it an ID, and add it to the tree of nodes. There are four ways to add the node to the tree as determined by the add action argument, with the same values as the SuperCollider audio synth server, defined as follows:
 
+
+<table>
+
+
+add actions:
+
+
+<table>
+<tr><td>
+
+0
+
+</td><td>
+
+add the new node to the the head of the group specified by the add target ID.
+
+</td></tr>
+<tr><td>
+
+1
+
+</td><td>
+
+add the new node to the the tail of the group specified by the add target ID.
+
+</td></tr>
+<tr><td>
+
+2
+
+</td><td>
+
+add the new node just before the node specified by the add target ID.
+
+</td></tr>
+<tr><td>
+
+3
+
+</td><td>
+
+add the new node just after the node specified by the add target ID.
+
+</td></tr>
+<tr><td>
+
+4
+
+</td><td>
+
+the new node replaces the node specified by the add target ID. The target node is freed.
+
+</td></tr>
+
+</table>
+
+</table>
 {{% alert title="Note" %}}
 
 
@@ -756,15 +990,455 @@ The SuperCollider Synthesis Server command reference specifies if the provided I
 
 
 
-#### /scin_g_clearColor
+#### /scin_g_new
 
 
 
-Sets the background color for the provided group.
+Create a new group.
+
+
+<table>
+<tr><td>
+
+N *
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+new group ID
+
+</td></tr>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+add action (0,1,2, 3 or 4 see below)
+
+</td></tr>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+add target ID
+
+</td></tr>
+
+</table>
+</td></tr>
+
+</table>
+
+
+Create a new group and add it to the tree of nodes. There are four ways to add the group to the tree as determined by the add action argument which is defined as follows (the same as for <strong>/s_new</strong>):
+
+
+<table>
+
+
+add actions:
+
+
+<table>
+<tr><td>
+
+0
+
+</td><td>
+
+add the new group to the the head of the group specified by the add target ID.
+
+</td></tr>
+<tr><td>
+
+1
+
+</td><td>
+
+add the new group to the the tail of the group specified by the add target ID.
+
+</td></tr>
+<tr><td>
+
+2
+
+</td><td>
+
+add the new group just before the node specified by the add target ID.
+
+</td></tr>
+<tr><td>
+
+3
+
+</td><td>
+
+add the new group just after the node specified by the add target ID.
+
+</td></tr>
+<tr><td>
+
+4
+
+</td><td>
+
+the new node replaces the node specified by the add target ID. The target node is freed.
+
+</td></tr>
+
+</table>
+
+</table>
+
+
+Multiple groups may be created in one command by adding arguments.
 
 
 
-TODO
+#### /scin_g_head
+
+
+
+Add node to head of group.
+
+
+<table>
+<tr><td>
+
+N *
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+group ID
+
+</td></tr>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+node ID
+
+</td></tr>
+
+</table>
+</td></tr>
+
+</table>
+
+
+Adds the node to the head (first to be executed) of the group.
+
+
+
+#### /scin_g_tail
+
+
+
+Add node to tail of group.
+
+
+<table>
+<tr><td>
+
+N *
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+group ID
+
+</td></tr>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+node ID
+
+</td></tr>
+
+</table>
+</td></tr>
+
+</table>
+
+
+Adds the node to the tail (last to be executed) of the group.
+
+
+
+#### /scin_g_freeAll
+
+
+
+Deletes all nodes in a group, leaving the group empty but intact.
+
+
+<table>
+<tr><td>
+
+N * <strong>int</strong>
+
+</td><td>
+
+group ID(s)
+
+</td></tr>
+
+</table>
+
+
+Recursively frees all nodes in the groups specified.
+
+
+
+#### /scin_g_deepFree
+
+
+
+Free all Scinths in this group and all its sub-groups.
+
+
+<table>
+<tr><td>
+
+N * <strong>int</strong>
+
+</td><td>
+
+group ID(s)
+
+</td></tr>
+
+</table>
+
+
+Traverses all groups below this group and frees all the Scinths. Sub-groups are not freed. A list of groups may be specified.
+
+
+
+#### /scin_g_dumpTree
+
+
+
+Post a representation of this group's node subtree.
+
+
+<table>
+<tr><td>
+
+N *
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+group ID
+
+</td></tr>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+flag; if not 0 the current control (arg) values for synths will be posted
+
+</td></tr>
+
+</table>
+</td></tr>
+
+</table>
+
+
+Posts a representation of this group's node subtree, i.e. all the groups and synths contained within it, optionally including the current control values for synths. The information is posted at the informational level in the log.
+
+
+
+#### /scin_g_queryTree
+
+
+
+Get a representation of this group's node subtree.
+
+
+<table>
+<tr><td>
+
+N *
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+group ID
+
+</td></tr>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+flag: if not 0 the current control (arg) values for Scinths will be included
+
+</td></tr>
+
+</table>
+</td></tr>
+
+</table>
+
+
+Request a representation of this group's node subtree, i.e. all the groups and synths contained within it. Replies to the sender with a <strong>/g_queryTree.reply</strong> message listing all of the nodes contained within the group in the following format:
+
+
+<table>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+flag: if Scinth control values are included 1, else 0
+
+</td></tr>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+node ID of the requested group
+
+</td></tr>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+number of child nodes contained within the requested group
+
+</td></tr>
+<tr><td>
+
+then for each node in the subtree:
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+node ID
+
+</td></tr>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+number of child nodes contained within this node. If -1 this is a Scinth, if >=0 it's a group
+
+</td></tr>
+<tr><td>
+
+then, if this node is a Scinth:
+
+</td></tr>
+<tr><td>
+
+<strong>symbol</strong>
+
+</td><td>
+
+the ScinthDef name for this node.
+
+</td></tr>
+<tr><td>
+
+then, if flag (see above) is true:
+
+</td></tr>
+<tr><td>
+
+<strong>int</strong>
+
+</td><td>
+
+numControls for this synth (M)
+
+</td></tr>
+<tr><td>
+
+M *
+
+</td><td>
+<table>
+<tr><td>
+
+<strong>symbol</strong>
+
+</td><td>
+
+control name
+
+</td></tr>
+<tr><td>
+
+<strong>float</strong>
+
+</td><td>
+
+value
+
+</td></tr>
+
+</table>
+</td></tr>
+
+</table>
+</td></tr>
+
+</table>
+
+
+N.B. The order of nodes corresponds to their execution order on the server. Thus child nodes (those contained within a group) are listed immediately following their parent.
 
 
 
@@ -1231,14 +1905,6 @@ Replies to the sender on wakeup with <strong>/scin_awake</strong>.
 
 
 </table>
-
-
-#### /scin_createCrashReport
-
-
-
-Generate a crash report without crashing and save to the crash report database. Not supported on MacOS.
-
 
 
 #### /scin_logCrashReports

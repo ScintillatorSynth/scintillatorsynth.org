@@ -91,6 +91,14 @@ Provides access to the <a href="{{< ref "/docs/Server/ScinServerOptions" >}}">Sc
 
 
 
+### .defaultGroup
+
+
+
+On boot ScinServer creates this group. It is the group that by default any new groups or Scinths will be added to. It is also the group that is emptied when Cmd+Period is pressed.
+
+
+
 
 
 ### .logLevel = level
@@ -363,6 +371,82 @@ Convenience method that adds the provided function to the boot callbacks list an
 
 The function to call when the server is detected as booted. The function is called with one argument, the ScinServer object which just booted.
 
+
+
+
+
+### .reorder(nodeList, target, addAction: 'addToHead')
+
+
+
+Moves a list of nodes in order to a new location. This is used to control rendering order, an important consideration when blending between Scinths.
+
+
+
+#### Arguments
+
+##### nodeList
+
+
+
+The list of <a href="{{< ref "/docs/Scinth/ScinNode" >}}">ScinNode</a>s, in order, to move.
+
+
+
+##### target
+
+
+
+An optional <a href="{{< ref "/docs/Scinth/ScinNode" >}}">ScinNode</a>, The target node to move the list of nodes relative to. If nil the target will be the defaultGroup on the server.
+
+
+
+##### addAction
+
+
+
+An optional symbol describing which behavior to use when placing the nodes. If nil the default is <code>\addToTail</code>.
+
+
+<table>
+<tr><td>
+
+<code>\addToHead</code>
+
+</td><td>
+
+target must be a group, the nodes will be added in order to the beginning of the group.
+
+</td></tr>
+<tr><td>
+
+<code>\addToTail</code>
+
+</td><td>
+
+target must be a group, the nodes will be added in order to the end of the group. This is the default if no action is specified.
+
+</td></tr>
+<tr><td>
+
+<code>\addBefore</code>
+
+</td><td>
+
+place all nodes immediately before target and in the same group.
+
+</td></tr>
+<tr><td>
+
+<code>\addAfter</code>
+
+</td><td>
+
+place all nodes immediately after target and in the same group.
+
+</td></tr>
+
+</table>
 
 
 
